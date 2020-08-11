@@ -18,7 +18,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Scaffold(body: MyHomePage()),
+      home: Scaffold(
+        resizeToAvoidBottomPadding: false,
+        body: MyHomePage(),
+      ),
     );
   }
 }
@@ -37,6 +40,15 @@ class _MyHomePageState extends State<MyHomePage>
   DragDirection _dragDirection = DragDirection.NONE;
   AnimationController _controller;
 
+  double _getSkipOpacity() {
+    if (_topPage == 1)
+      return (1 + _dragPercent).clamp(0, 1.0);
+    else if (_topPage == 2)
+      return 0;
+    else
+      return 1.0;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -49,6 +61,8 @@ class _MyHomePageState extends State<MyHomePage>
               else
                 _topPage--;
               _topPage = _topPage.clamp(0, 2);
+              _dragPercent = 0.0;
+              _drag = 0.0;
             }
           })
           ..addListener(() {
@@ -80,7 +94,6 @@ class _MyHomePageState extends State<MyHomePage>
   ];
 
   void _handleDragStart(DragStartDetails details) {
-    print('drag start: ${details.globalPosition.dx}');
     setState(() {
       _dragPercent = 0.0;
       _drag = 0.0;
@@ -89,7 +102,6 @@ class _MyHomePageState extends State<MyHomePage>
   }
 
   void _handleDragUpdate(DragUpdateDetails details) {
-    print('drag update: ${details.primaryDelta}');
     setState(() {
       _setDragDirection(details);
       if (_dragDirection == DragDirection.RightToLeft) {
@@ -139,8 +151,6 @@ class _MyHomePageState extends State<MyHomePage>
     final maxOffset = 40;
     SystemChrome.setEnabledSystemUIOverlays([]);
     List<Widget> pages = [originalPages[_bottomPage], originalPages[_topPage]];
-    print('drag percent ${_dragPercent.abs()}');
-
     return GestureDetector(
       onHorizontalDragStart: _handleDragStart,
       onHorizontalDragEnd: _handleDragEnd,
@@ -150,7 +160,7 @@ class _MyHomePageState extends State<MyHomePage>
           transform: Matrix4.translationValues(
               0, (1 - _dragPercent.abs()) * maxOffset, 0),
           child: Opacity(
-            opacity: _dragPercent.abs(),
+            opacity: _dragPercent.abs().clamp(0, 1.0),
             child: pages[0],
           ),
         ),
@@ -160,24 +170,38 @@ class _MyHomePageState extends State<MyHomePage>
         ),
         Align(
           alignment: Alignment.bottomCenter,
-          child: Row(
-            children: <Widget>[
-              FlatButton(
-                onPressed: () {},
-                child: Text(
-                  'SKIP',
-                  style: TextStyle(color: Colors.purple),
+          child: SizedBox(
+            height: 50,
+            child: Row(
+              children: <Widget>[
+                Opacity(
+                  opacity: _getSkipOpacity(),
+                  child: FlatButton(
+                    onPressed: () {},
+                    child: Text(
+                      'SKIP',
+                      style: TextStyle(color: Colors.purple),
+                    ),
+                  ),
                 ),
-              ),
-              Spacer(),
-              FlatButton(
-                onPressed: () {},
-                child: Text(
-                  'DONE',
-                  style: TextStyle(color: Colors.purple),
+                ProgressIndicator(
+                  dragPercent: _dragDirection == DragDirection.RightToLeft
+                      ? -_dragPercent.abs()
+                      : _dragPercent.abs(),
+                  topPageIndex: _topPage.toDouble(),
                 ),
-              ),
-            ],
+                Opacity(
+                  opacity: 1 - _getSkipOpacity(),
+                  child: FlatButton(
+                    onPressed: () {},
+                    child: Text(
+                      'DONE',
+                      style: TextStyle(color: Colors.purple),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         )
       ]),
@@ -249,6 +273,65 @@ class Page extends StatelessWidget {
           ),
           Spacer(),
         ],
+      ),
+    );
+  }
+}
+
+class ProgressIndicator extends StatelessWidget {
+  final int maxOffset = 1;
+  final double topPageIndex;
+  final double dragPercent;
+
+  const ProgressIndicator({Key key, this.dragPercent, this.topPageIndex})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    print(
+        'maxOffset: $maxOffset topPageIndex: $topPageIndex dragPercent: ${dragPercent.clamp(-1, 1)}');
+    print(
+        'scroll offset ${(maxOffset - topPageIndex) + dragPercent.clamp(-1, 1)}');
+    return Expanded(
+      child: Container(
+        child: Align(
+          alignment: Alignment(
+              (maxOffset - topPageIndex) + dragPercent.clamp(-1, 1), 0),
+          child: SizedBox(
+            width: 150,
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    height: 4,
+                    color: Colors.purple,
+                  ),
+                ),
+                SizedBox(
+                  width: 1,
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    height: 4,
+                    color: Colors.grey.withOpacity(0.5),
+                  ),
+                ),
+                SizedBox(
+                  width: 1,
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    height: 4,
+                    color: Colors.grey.withOpacity(0.5),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
