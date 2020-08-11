@@ -315,7 +315,7 @@ class ProgressIndicator extends StatelessWidget {
                   flex: 1,
                   child: Container(
                     height: 4,
-                    color: Colors.grey.withOpacity(0.5),
+                    color: topPageIndex >= 1 ? Colors.purple : Colors.grey.withOpacity(0.5),
                   ),
                 ),
                 SizedBox(
@@ -325,7 +325,7 @@ class ProgressIndicator extends StatelessWidget {
                   flex: 1,
                   child: Container(
                     height: 4,
-                    color: Colors.grey.withOpacity(0.5),
+                    color: topPageIndex == 2 ? Colors.purple : Colors.grey.withOpacity(0.5),
                   ),
                 )
               ],
