@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class TutorialProgressIndicator extends StatelessWidget {
+class OnboardingProgressIndicator extends StatelessWidget {
   final int maxOffset = 1;
   final double topPageIndex;
   final double dragPercent;
 
-  const TutorialProgressIndicator(
+  const OnboardingProgressIndicator(
       {Key key, this.dragPercent, this.topPageIndex})
       : super(key: key);
 

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_travel/tutorial_progress_indicator.dart';
+import 'package:flutter_travel/presentation/widgets/onboarding_progress_indicator.dart';
 import 'onboarding_page_clipper.dart';
-import 'onboarding_pages_list.dart';
+import '../core/onboarding_pages_list.dart';
 
 enum DragDirection { LeftToRight, RightToLeft, NONE }
 
-class OnboardingPages extends StatefulWidget {
+class OnboardingHome extends StatefulWidget {
   @override
-  _OnboardingPagesState createState() => _OnboardingPagesState();
+  _OnboardingHomeState createState() => _OnboardingHomeState();
 }
 
-class _OnboardingPagesState extends State<OnboardingPages>
+class _OnboardingHomeState extends State<OnboardingHome>
     with SingleTickerProviderStateMixin {
   double _dragPercent = 0.0;
   double _drag = 0.0;
@@ -160,7 +160,7 @@ class _OnboardingPagesState extends State<OnboardingPages>
             ),
           ),
         ),
-        TutorialProgressIndicator(
+        OnboardingProgressIndicator(
           dragPercent: _dragDirection == DragDirection.RightToLeft
               ? -_dragPercent.abs()
               : _dragPercent.abs(),
