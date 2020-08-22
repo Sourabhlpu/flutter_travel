@@ -1,15 +1,10 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_travel/presentation/widgets/onboarding_progress_indicator.dart';
-
-import 'onboarding_page.dart';
-import 'presentation/onboarding/onboarding_page_clipper.dart';
+import 'package:flutter_travel/injection.dart';
+import 'package:injectable/injectable.dart';
 import 'presentation/onboarding/onboarding_home.dart';
 
-
-
 void main() {
+  configureInjection(Environment.prod);
   runApp(MyApp());
 }
 

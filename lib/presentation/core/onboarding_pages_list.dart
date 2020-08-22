@@ -1,6 +1,6 @@
- import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_travel/presentation/widgets/onboarding_page.dart';
 
-import '../../onboarding_page.dart';
 
 final List<Widget> originalPages = <Widget>[
   OnboardingPage(
