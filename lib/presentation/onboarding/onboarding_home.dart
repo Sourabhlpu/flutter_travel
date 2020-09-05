@@ -36,30 +36,33 @@ class _OnboardingHomeState extends State<OnboardingHome>
   @override
   Widget build(BuildContext context) {
     final maxOffset = 40;
-    SystemChrome.setEnabledSystemUIOverlays([]);
+    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
     List<Widget> pages = [originalPages[_bottomPage], originalPages[_topPage]];
-    return GestureDetector(
-      onHorizontalDragStart: _handleDragStart,
-      onHorizontalDragEnd: _handleDragEnd,
-      onHorizontalDragUpdate: _handleDragUpdate,
-      child: Stack(fit: StackFit.expand, children: <Widget>[
-        Transform(
-          transform: Matrix4.translationValues(0, _getYOffset(maxOffset), 0),
-          child: Opacity(
-            opacity: _getOpacity(),
-            child: pages[0],
+    return
+      Material(
+        child: GestureDetector(
+        onHorizontalDragStart: _handleDragStart,
+        onHorizontalDragEnd: _handleDragEnd,
+        onHorizontalDragUpdate: _handleDragUpdate,
+        child: Stack(fit: StackFit.expand, children: <Widget>[
+          Transform(
+            transform: Matrix4.translationValues(0, _getYOffset(maxOffset), 0),
+            child: Opacity(
+              opacity: _getOpacity(),
+              child: pages[0],
+            ),
           ),
-        ),
-        ClipPath(
-          child: pages[1],
-          clipper: OnboardingPageClipper(dragPercent: _dragPercent.abs()),
-        ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: SizedBox(height: 50, child: _buildBottomRow()),
-        )
-      ]),
-    );
+          ClipPath(
+            child: pages[1],
+            clipper: OnboardingPageClipper(dragPercent: _dragPercent.abs()),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: SizedBox(height: 50, child: _buildBottomRow()),
+          )
+        ]),
+    ),
+      );
   }
 
   num _getOpacity() => _dragPercent.abs().clamp(0, 1.0);

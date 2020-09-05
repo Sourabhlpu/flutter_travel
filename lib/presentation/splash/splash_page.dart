@@ -15,18 +15,17 @@ class SplashPage extends StatelessWidget {
           print('authenticated');
         }, unauthenticated: (_){
           print('unauthenticated');
-          Future.delayed(const Duration(milliseconds: 5000), (){
-            ExtendedNavigator.of(context).pushReplacementNamed(Routes.onboardingHome);
-          });
+          ExtendedNavigator.of(context).pushReplacementNamed(Routes.onboardingHome);
         });
       },
-      child: Scaffold(
+      child: Container()
+/*      Scaffold(
         resizeToAvoidBottomPadding: false,
         body: Container(
           height: MediaQuery.of(context).size.height,
           child: Image.asset('images/splash.jpg', fit: BoxFit.fitHeight,),
         ),
-      ),
+      ),*/
     );
   }
 }

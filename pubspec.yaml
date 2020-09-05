@@ -25,19 +25,28 @@ dependencies:
   cloud_firestore: ^0.13.7
   uuid: ^2.2.0
 
+
 dev_dependencies:
   auto_route_generator: ^0.5.0
   build_runner:
   freezed: ^0.10.5
   lint: ^1.2.0
   injectable_generator: ^0.4.1
+  flutter_native_splash: ^0.1.9
   flutter_test:
     sdk: flutter
+
+
 
 
 flutter:
   uses-material-design: true
   assets:
     - images/
+
+flutter_native_splash:
+  image: images/splash.png
+  color: "42a5f5"
+  fill: true
 
 
