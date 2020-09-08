@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_travel/application/auth/auth_bloc.dart';
 import 'package:flutter_travel/presentation/routes/route.gr.dart';
 
+
 class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -19,13 +20,6 @@ class SplashPage extends StatelessWidget {
         });
       },
       child: Container()
-/*      Scaffold(
-        resizeToAvoidBottomPadding: false,
-        body: Container(
-          height: MediaQuery.of(context).size.height,
-          child: Image.asset('images/splash.jpg', fit: BoxFit.fitHeight,),
-        ),
-      ),*/
     );
   }
 }

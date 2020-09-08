@@ -24,6 +24,7 @@ dependencies:
   firebase_auth: ^0.15.5+3
   cloud_firestore: ^0.13.7
   uuid: ^2.2.0
+  video_player: ^0.10.12+2
 
 
 dev_dependencies:
@@ -42,11 +43,15 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - images/
+    - assets/images/
+    - assets/videos/
 
 flutter_native_splash:
   image: images/splash.png
   color: "42a5f5"
   fill: true
+
+dependency_overrides:
+  analyzer: '0.39.14'
 
 

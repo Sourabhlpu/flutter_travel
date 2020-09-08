@@ -1,8 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_travel/presentation/routes/route.gr.dart';
 import 'package:flutter_travel/presentation/widgets/onboarding_progress_indicator.dart';
 import 'onboarding_page_clipper.dart';
 import '../core/onboarding_pages_list.dart';
+
 
 enum DragDirection { LeftToRight, RightToLeft, NONE }
 
@@ -156,7 +159,7 @@ class _OnboardingHomeState extends State<OnboardingHome>
         Opacity(
           opacity: _getSkipOpacity(),
           child: FlatButton(
-            onPressed: () {},
+            onPressed: _skipPages,
             child: Text(
               'SKIP',
               style: TextStyle(color: Colors.purple),
@@ -172,7 +175,7 @@ class _OnboardingHomeState extends State<OnboardingHome>
         Opacity(
           opacity: 1 - _getSkipOpacity(),
           child: FlatButton(
-            onPressed: () {},
+            onPressed: _handleDoneClicked,
             child: Text(
               'DONE',
               style: TextStyle(color: Colors.purple),
@@ -181,5 +184,17 @@ class _OnboardingHomeState extends State<OnboardingHome>
         ),
       ],
     );
+  }
+
+  void _skipPages() {
+    setState(() {
+      _topPage = 2;
+      _bottomPage = 1;
+    });
+  }
+
+
+  void _handleDoneClicked() {
+    ExtendedNavigator.of(context).pushReplacementNamed(Routes.authBase);
   }
 }

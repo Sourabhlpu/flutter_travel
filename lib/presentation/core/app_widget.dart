@@ -5,6 +5,7 @@ import 'package:flutter_travel/application/auth/auth_bloc.dart';
 import 'package:flutter_travel/injection.dart';
 import 'package:flutter_travel/presentation/routes/route.gr.dart';
 
+
 class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

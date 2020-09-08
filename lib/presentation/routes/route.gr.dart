@@ -9,13 +9,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_travel/presentation/splash/splash_page.dart';
 import 'package:flutter_travel/presentation/onboarding/onboarding_home.dart';
+import 'package:flutter_travel/presentation/auth/base/auth_base.dart';
 
 abstract class Routes {
   static const splashPage = '/';
   static const onboardingHome = '/onboarding-home';
+  static const authBase = '/auth-base';
   static const all = {
     splashPage,
     onboardingHome,
+    authBase,
   };
 }
 
@@ -40,6 +43,11 @@ class Router extends RouterBase {
           builder: (context) => OnboardingHome(),
           settings: settings,
         );
+      case Routes.authBase:
+        return MaterialPageRoute<dynamic>(
+          builder: (context) => AuthBase(),
+          settings: settings,
+        );
       default:
         return unknownRoutePage(settings.name);
     }
@@ -54,4 +62,6 @@ extension RouterNavigationHelperMethods on ExtendedNavigatorState {
   Future pushSplashPage() => pushNamed(Routes.splashPage);
 
   Future pushOnboardingHome() => pushNamed(Routes.onboardingHome);
+
+  Future pushAuthBase() => pushNamed(Routes.authBase);
 }
