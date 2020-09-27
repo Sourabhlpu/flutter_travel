@@ -1,129 +1,54 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_travel/application/auth/sign_up_form/sign_up_form_bloc.dart';
-import 'login_signup_header.dart';
+import 'package:flutter_travel/presentation/widgets/login_signup_base.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter_travel/presentation/routes/route.gr.dart';
 
-class LoginForm extends StatelessWidget {
+class LoginForm extends LoginSignupBase {
   @override
-  Widget build(BuildContext context) {
-    return BlocConsumer<SignUpFormBloc, SignUpFormState>(
-      listener: (context, state) {
-        state.authFailureOrSuccessOption.fold(
-          () => {},
-          (either) => either.fold(
-            (failure) => {
-              FlushbarHelper.createError(
-                message: failure.map(
-                  cancelledByUser: (_) => 'Cancelled',
-                  serverError: (_) => 'Server Error',
-                  emailAlreadyInUse: (_) => 'Email Already in use',
-                  invalidEmailAndPasswordCombination: (_) =>
-                      'Invalid email and password combination',
-                ),
-              ).show(context)
-            },
-            (_) => {},
-          ),
-        );
-      },
-      builder: (context, state) {
-        return ListView(
-          children: [
-            LoginSignUpHeader(
-              title: 'Login',
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.redAccent.withOpacity(0.1),
-                      blurRadius: 8.0,
-                    ),
-                  ],
-                ),
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12)),
-                  child: buildForm(context, state),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 12,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 16.0),
-              child: GestureDetector(
-                onTap: () {
-                  ExtendedNavigator.of(context).replace(Routes.signUpPage);
-                },
-                child: Text(
-                  "Create Account",
-                  style: TextStyle(
-                      color: Colors.blueGrey, fontWeight: FontWeight.w400),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 16,
-            ),
-            buildLoginButton(context)
-          ],
-        );
-      },
-    );
-  }
-
-  Padding buildLoginButton(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: RaisedButton(
-        onPressed: () {
-          context
-              .bloc<SignUpFormBloc>()
-              .add(const SignUpFormEvent.loginWithEmailAndPasswordPressed());
-        },
-        color: Colors.blueGrey,
-        padding: const EdgeInsets.all(16.0),
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-        child: Container(
-          width: double.infinity,
-          child: Center(
-            child: Text(
-              'Login',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Form buildForm(BuildContext context, SignUpFormState state) {
+  Form getForm(
+      BuildContext context, SignUpFormState state, SignUpFormBloc bloc) {
     return Form(
       autovalidate: state.showErrorMessages,
       child: Column(
         children: [
-          buildEmailInput(context),
+          buildEmailInput(context, bloc),
           Divider(
             height: 0.7,
           ),
-          buildPasswordInput(context)
+          buildPasswordInput(context, bloc)
         ],
       ),
     );
   }
 
-  Padding buildPasswordInput(BuildContext context) {
+  @override
+  String getNavigationButtonTitle() {
+    return 'Create Account';
+  }
+
+  @override
+  String getPageTitle() {
+    return 'Login';
+  }
+
+  @override
+  String getPrimaryButtonText() {
+    return 'Login';
+  }
+
+  @override
+  void handleNavigationButtonClick(BuildContext context) {
+    ExtendedNavigator.of(context).replace(Routes.loginSignUpPage,
+        arguments: LoginSignUpPageArguments(openLogin: false));
+  }
+
+  @override
+  void handlePrimaryButtonClick(SignUpFormBloc bloc) {
+    bloc.add(const SignUpFormEvent.loginWithEmailAndPasswordPressed());
+  }
+
+  Padding buildPasswordInput(BuildContext context, SignUpFormBloc bloc) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0, top: 4.0),
       child: TextFormField(
@@ -140,24 +65,16 @@ class LoginForm extends StatelessWidget {
         ),
         keyboardType: TextInputType.text,
         onFieldSubmitted: (_) => FocusScope.of(context).unfocus(),
-        onChanged: (value) => context
-            .bloc<SignUpFormBloc>()
-            .add(SignUpFormEvent.passwordChanged(value)),
-        validator: (_) => context
-            .bloc<SignUpFormBloc>()
-            .state
-            .password
-            .value
-            .fold(
-                (f) => f.maybeMap(
-                    invalidPassword: (_) => 'Invalid Password',
-                    orElse: () => null),
-                (_) => null),
+        onChanged: (value) => bloc.add(SignUpFormEvent.passwordChanged(value)),
+        validator: (_) => bloc.state.password.value.fold(
+            (f) => f.maybeMap(
+                invalidPassword: (_) => 'Invalid Password', orElse: () => null),
+            (_) => null),
       ),
     );
   }
 
-  Padding buildEmailInput(BuildContext context) {
+  Padding buildEmailInput(BuildContext context, SignUpFormBloc bloc) {
     return Padding(
       padding: const EdgeInsets.only(top: 8.0, bottom: 4.0),
       child: TextFormField(
@@ -173,18 +90,11 @@ class LoginForm extends StatelessWidget {
         textInputAction: TextInputAction.next,
         keyboardType: TextInputType.emailAddress,
         onFieldSubmitted: (_) => FocusScope.of(context).nextFocus(),
-        onChanged: (value) => context
-            .bloc<SignUpFormBloc>()
-            .add(SignUpFormEvent.emailChanged(value)),
-        validator: (_) => context
-            .bloc<SignUpFormBloc>()
-            .state
-            .emailAddress
-            .value
-            .fold(
-                (f) => f.maybeMap(
-                    invalidEmail: (_) => 'Invalid Email', orElse: () => null),
-                (_) => null),
+        onChanged: (value) => bloc.add(SignUpFormEvent.emailChanged(value)),
+        validator: (_) => bloc.state.emailAddress.value.fold(
+            (f) => f.maybeMap(
+                invalidEmail: (_) => 'Invalid Email', orElse: () => null),
+            (_) => null),
       ),
     );
   }

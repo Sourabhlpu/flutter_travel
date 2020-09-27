@@ -1,10 +1,10 @@
-import 'package:auto_route/auto_route.dart';
+
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_travel/application/auth/sign_up_form/sign_up_form_bloc.dart';
 import 'login_signup_header.dart';
-import 'package:flutter_travel/presentation/routes/route.gr.dart';
+
 
 abstract class LoginSignupBase extends StatelessWidget {
   String getPageTitle();
@@ -12,8 +12,7 @@ abstract class LoginSignupBase extends StatelessWidget {
   void handleNavigationButtonClick(BuildContext context);
   void handlePrimaryButtonClick(SignUpFormBloc bloc);
   String getPrimaryButtonText();
-  Form getForm(
-      BuildContext context, SignUpFormState state, SignUpFormBloc bloc);
+  Form getForm(BuildContext context, SignUpFormState state, SignUpFormBloc bloc);
 
   @override
   Widget build(BuildContext context) {

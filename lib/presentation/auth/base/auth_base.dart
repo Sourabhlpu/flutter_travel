@@ -107,11 +107,11 @@ class _AuthBaseState extends State<AuthBase> {
   }
 
   void signInClicked() {
-    ExtendedNavigator.of(context).push(Routes.signUpPage, arguments: SignUpPageArguments(openLogin: true));
+    ExtendedNavigator.of(context).push(Routes.loginSignUpPage, arguments: LoginSignUpPageArguments(openLogin: true));
   }
 
   void signUpClicked() {
-    ExtendedNavigator.of(context).push(Routes.signUpPage, arguments: SignUpPageArguments(openLogin: false));
+    ExtendedNavigator.of(context).push(Routes.loginSignUpPage, arguments: LoginSignUpPageArguments(openLogin: false));
   }
 
   @override

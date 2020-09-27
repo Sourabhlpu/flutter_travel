@@ -10,8 +10,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import '../auth/base/auth_base.dart';
-import '../auth/login/login_page.dart';
-import '../auth/signup/signup_page.dart';
+import '../auth/login_signup/login_signup_page.dart';
 import '../onboarding/onboarding_home.dart';
 import '../splash/splash_page.dart';
 
@@ -19,14 +18,12 @@ class Routes {
   static const String splashPage = '/';
   static const String onboardingHome = '/onboarding-home';
   static const String authBase = '/auth-base';
-  static const String signUpPage = '/sign-up-page';
-  static const String loginPage = '/login-page';
+  static const String loginSignUpPage = '/login-sign-up-page';
   static const all = <String>{
     splashPage,
     onboardingHome,
     authBase,
-    signUpPage,
-    loginPage,
+    loginSignUpPage,
   };
 }
 
@@ -37,8 +34,7 @@ class Router extends RouterBase {
     RouteDef(Routes.splashPage, page: SplashPage),
     RouteDef(Routes.onboardingHome, page: OnboardingHome),
     RouteDef(Routes.authBase, page: AuthBase),
-    RouteDef(Routes.signUpPage, page: SignUpPage),
-    RouteDef(Routes.loginPage, page: LoginPage),
+    RouteDef(Routes.loginSignUpPage, page: LoginSignUpPage),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -61,21 +57,15 @@ class Router extends RouterBase {
         settings: data,
       );
     },
-    SignUpPage: (data) {
-      final args = data.getArgs<SignUpPageArguments>(
-        orElse: () => SignUpPageArguments(),
+    LoginSignUpPage: (data) {
+      final args = data.getArgs<LoginSignUpPageArguments>(
+        orElse: () => LoginSignUpPageArguments(),
       );
       return MaterialPageRoute<dynamic>(
-        builder: (context) => SignUpPage(
+        builder: (context) => LoginSignUpPage(
           key: args.key,
           openLogin: args.openLogin,
         ),
-        settings: data,
-      );
-    },
-    LoginPage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => LoginPage(),
         settings: data,
       );
     },
@@ -93,25 +83,23 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
 
   Future<dynamic> pushAuthBase() => push<dynamic>(Routes.authBase);
 
-  Future<dynamic> pushSignUpPage({
+  Future<dynamic> pushLoginSignUpPage({
     Key key,
     bool openLogin = false,
   }) =>
       push<dynamic>(
-        Routes.signUpPage,
-        arguments: SignUpPageArguments(key: key, openLogin: openLogin),
+        Routes.loginSignUpPage,
+        arguments: LoginSignUpPageArguments(key: key, openLogin: openLogin),
       );
-
-  Future<dynamic> pushLoginPage() => push<dynamic>(Routes.loginPage);
 }
 
 /// ************************************************************************
 /// Arguments holder classes
 /// *************************************************************************
 
-/// SignUpPage arguments holder class
-class SignUpPageArguments {
+/// LoginSignUpPage arguments holder class
+class LoginSignUpPageArguments {
   final Key key;
   final bool openLogin;
-  SignUpPageArguments({this.key, this.openLogin = false});
+  LoginSignUpPageArguments({this.key, this.openLogin = false});
 }
