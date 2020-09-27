@@ -16,7 +16,7 @@ class SplashPage extends StatelessWidget {
           print('authenticated');
         }, unauthenticated: (_){
           print('unauthenticated');
-          ExtendedNavigator.of(context).pushReplacementNamed(Routes.onboardingHome);
+          ExtendedNavigator.of(context).replace(Routes.onboardingHome);
         });
       },
       child: Container()

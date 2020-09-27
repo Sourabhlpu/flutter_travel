@@ -14,10 +14,19 @@ Either<ValueFailure<String>, String> validateEmail(String input) {
 
 Either<ValueFailure<String>, String> validatePassword(String input){
   const regexPassword = r"""^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]).{8,32}$""";
-  if(RegExp(regexPassword).hasMatch(input)){
+  if(input.length > 7){
     return Right(input);
   }
   else{
     return Left(InvalidPassword(failedValue: input));
+  }
+}
+
+Either<ValueFailure<String>, String> validateUsername(String input){
+  if(input.length <= 1 || input.length > 50){
+    return Left(InvalidUsername(failedValue: input));
+  }
+  else{
+    return Right(input);
   }
 }

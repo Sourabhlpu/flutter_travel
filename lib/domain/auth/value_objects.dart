@@ -27,5 +27,17 @@ class Password extends ValueObject<String>{
       validatePassword(input)
     );
   }
+}
+
+class Username extends ValueObject<String>{
+  @override
+  final Either<ValueFailure<String>, String> value;
+  Username._(this.value);
+  factory Username(String input){
+    assert(input != null);
+    return Username._(
+      validateUsername(input)
+    );
+  }
 
 }

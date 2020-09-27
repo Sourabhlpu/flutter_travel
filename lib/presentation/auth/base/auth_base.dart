@@ -1,6 +1,8 @@
 import 'dart:ui';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_travel/presentation/routes/route.gr.dart';
 import 'package:flutter_travel/presentation/widgets/custom_outline_button.dart';
 import 'package:flutter_travel/presentation/widgets/gradient_button.dart';
 import 'package:flutter_travel/presentation/widgets/or_divider.dart';
@@ -104,9 +106,13 @@ class _AuthBaseState extends State<AuthBase> {
     );
   }
 
-  void signInClicked() {}
+  void signInClicked() {
+    ExtendedNavigator.of(context).push(Routes.signUpPage, arguments: SignUpPageArguments(openLogin: true));
+  }
 
-  void signUpClicked() {}
+  void signUpClicked() {
+    ExtendedNavigator.of(context).push(Routes.signUpPage, arguments: SignUpPageArguments(openLogin: false));
+  }
 
   @override
   void dispose() {

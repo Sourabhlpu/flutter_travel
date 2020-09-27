@@ -21,7 +21,7 @@ class FirebaseAuthFacade extends IAuthFacade {
 
   @override
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword(
-      {EmailAddress emailAddress, Password password}) async {
+      {EmailAddress emailAddress, Password password, Username username}) async {
     final emailStr = emailAddress.getOrCrash();
     final passwordStr = password.getOrCrash();
     try{
