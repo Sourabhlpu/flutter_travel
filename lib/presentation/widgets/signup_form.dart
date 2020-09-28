@@ -6,23 +6,6 @@ import 'package:flutter_travel/presentation/routes/route.gr.dart';
 
 class SignUpForm extends LoginSignupBase {
   @override
-  Form getForm(
-      BuildContext context, SignUpFormState state, SignUpFormBloc bloc) {
-    return Form(
-      autovalidate: state.showErrorMessages,
-      child: Column(
-        children: [
-          buildUsernameInput(context, bloc),
-          Divider(height: 0.7),
-          buildEmailInput(context, bloc),
-          Divider(height: 0.7),
-          buildPasswordInput(context, bloc)
-        ],
-      ),
-    );
-  }
-
-  @override
   String getNavigationButtonTitle() {
     return 'Already have an Account? Login';
   }
@@ -99,7 +82,8 @@ class SignUpForm extends LoginSignupBase {
     );
   }
 
-  Padding buildUsernameInput(BuildContext context, SignUpFormBloc bloc) {
+  @override
+  Widget buildUsernameInput(BuildContext context, SignUpFormBloc bloc) {
     return Padding(
       padding: const EdgeInsets.only(top: 8.0, bottom: 4.0),
       child: TextFormField(
@@ -123,4 +107,7 @@ class SignUpForm extends LoginSignupBase {
       ),
     );
   }
+
+  @override
+  Widget getUsernameDivider() => Divider(height: 0.7);
 }
