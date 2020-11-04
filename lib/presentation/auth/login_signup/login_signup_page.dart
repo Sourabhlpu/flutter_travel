@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_travel/application/auth/sign_up_form/sign_up_form_bloc.dart';
+import 'package:flutter_travel/application/auth/auth_form/auth_form_bloc.dart';
 import 'package:flutter_travel/injection.dart';
 import 'package:flutter_travel/presentation/widgets/login_form.dart';
 import 'package:flutter_travel/presentation/widgets/signup_form.dart';
@@ -15,7 +15,7 @@ class LoginSignUpPage extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       body: BlocProvider(
-        create: (context) => getIt<SignUpFormBloc>(),
+        create: (context) => getIt<AuthFormBloc>(),
         child: openLogin ? LoginForm() : SignUpForm(),
       ),
     );

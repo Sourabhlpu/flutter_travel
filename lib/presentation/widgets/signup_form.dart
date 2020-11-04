@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_travel/application/auth/sign_up_form/sign_up_form_bloc.dart';
-import 'package:flutter_travel/presentation/widgets/login_signup_base.dart';
+import 'package:flutter_travel/application/auth/auth_form/auth_form_bloc.dart';
+import 'package:flutter_travel/presentation/widgets/auth_template.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_travel/presentation/routes/route.gr.dart';
 
-class SignUpForm extends LoginSignupBase {
+class SignUpForm extends AuthTemplate {
   @override
   String getNavigationButtonTitle() {
     return 'Already have an Account? Login';
@@ -27,11 +27,42 @@ class SignUpForm extends LoginSignupBase {
   }
 
   @override
-  void handlePrimaryButtonClick(SignUpFormBloc bloc) {
-    bloc.add(const SignUpFormEvent.registerWithEmailAndPasswordPressed());
+  void handlePrimaryButtonClick(AuthFormBloc bloc) {
+    bloc.add(const AuthFormEvent.registerWithEmailAndPasswordPressed());
   }
 
-  Padding buildPasswordInput(BuildContext context, SignUpFormBloc bloc) {
+  @override
+  Widget buildUsernameInput(BuildContext context, AuthFormBloc bloc) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 8.0, bottom: 4.0),
+      child: TextFormField(
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.only(left: 12.0),
+          prefixIcon: Icon(
+            Icons.email,
+            color: Colors.grey.shade300,
+          ),
+          labelText: 'Username',
+          prefix: bloc.state.isVerifyingUsername ? CircularProgressIndicator() : null,
+          border: InputBorder.none,
+        ),
+        textInputAction: TextInputAction.next,
+        keyboardType: TextInputType.name,
+        onFieldSubmitted: (_) => FocusScope.of(context).nextFocus(),
+        onChanged: (value) => bloc.add(AuthFormEvent.usernameChanged(value)),
+        validator: (_) => bloc.state.username.value.fold(
+            (f) => f.maybeMap(
+                usernameAlreadyExists: (_) => 'Username Already Exists',
+                invalidUsername: (_) => 'Invalid Username', orElse: () => null),
+            (_) => null),
+      ),
+    );
+  }
+
+  @override
+  Widget getUsernameDivider() => Divider(height: 0.7);
+
+/*  Padding buildPasswordInput(BuildContext context, AuthFormBloc bloc) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0, top: 4.0),
       child: TextFormField(
@@ -48,7 +79,7 @@ class SignUpForm extends LoginSignupBase {
         ),
         keyboardType: TextInputType.text,
         onFieldSubmitted: (_) => FocusScope.of(context).unfocus(),
-        onChanged: (value) => bloc.add(SignUpFormEvent.passwordChanged(value)),
+        onChanged: (value) => bloc.add(AuthFormEvent.passwordChanged(value)),
         validator: (_) => bloc.state.password.value.fold(
             (f) => f.maybeMap(
                 invalidPassword: (_) => 'Invalid Password', orElse: () => null),
@@ -57,7 +88,7 @@ class SignUpForm extends LoginSignupBase {
     );
   }
 
-  Padding buildEmailInput(BuildContext context, SignUpFormBloc bloc) {
+  Padding buildEmailInput(BuildContext context, AuthFormBloc bloc) {
     return Padding(
       padding: const EdgeInsets.only(top: 8.0, bottom: 4.0),
       child: TextFormField(
@@ -73,41 +104,12 @@ class SignUpForm extends LoginSignupBase {
         textInputAction: TextInputAction.next,
         keyboardType: TextInputType.emailAddress,
         onFieldSubmitted: (_) => FocusScope.of(context).nextFocus(),
-        onChanged: (value) => bloc.add(SignUpFormEvent.emailChanged(value)),
+        onChanged: (value) => bloc.add(AuthFormEvent.emailChanged(value)),
         validator: (_) => bloc.state.emailAddress.value.fold(
             (f) => f.maybeMap(
                 invalidEmail: (_) => 'Invalid Email', orElse: () => null),
             (_) => null),
       ),
     );
-  }
-
-  @override
-  Widget buildUsernameInput(BuildContext context, SignUpFormBloc bloc) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 8.0, bottom: 4.0),
-      child: TextFormField(
-        decoration: InputDecoration(
-          contentPadding: EdgeInsets.only(left: 12.0),
-          prefixIcon: Icon(
-            Icons.email,
-            color: Colors.grey.shade300,
-          ),
-          labelText: 'Username',
-          border: InputBorder.none,
-        ),
-        textInputAction: TextInputAction.next,
-        keyboardType: TextInputType.name,
-        onFieldSubmitted: (_) => FocusScope.of(context).nextFocus(),
-        onChanged: (value) => bloc.add(SignUpFormEvent.usernameChanged(value)),
-        validator: (_) => bloc.state.username.value.fold(
-            (f) => f.maybeMap(
-                invalidUsername: (_) => 'Invalid Username', orElse: () => null),
-            (_) => null),
-      ),
-    );
-  }
-
-  @override
-  Widget getUsernameDivider() => Divider(height: 0.7);
+  }*/
 }

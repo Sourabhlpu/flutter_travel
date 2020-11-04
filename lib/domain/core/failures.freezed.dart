@@ -56,6 +56,12 @@ class _$ValueFailureTearOff {
       failedValue: failedValue,
     );
   }
+
+  UsernameAlreadyExists<T> usernameAlreadyExists<T>({@required T failedValue}) {
+    return UsernameAlreadyExists<T>(
+      failedValue: failedValue,
+    );
+  }
 }
 
 // ignore: unused_element
@@ -73,6 +79,7 @@ mixin _$ValueFailure<T> {
     @required Result invalidEmail(T failedValue),
     @required Result invalidPassword(T failedValue),
     @required Result invalidUsername(T failedValue),
+    @required Result usernameAlreadyExists(T failedValue),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
@@ -83,6 +90,7 @@ mixin _$ValueFailure<T> {
     Result invalidEmail(T failedValue),
     Result invalidPassword(T failedValue),
     Result invalidUsername(T failedValue),
+    Result usernameAlreadyExists(T failedValue),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -94,6 +102,7 @@ mixin _$ValueFailure<T> {
     @required Result invalidEmail(InvalidEmail<T> value),
     @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidUsername(InvalidUsername<T> value),
+    @required Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
@@ -104,6 +113,7 @@ mixin _$ValueFailure<T> {
     Result invalidEmail(InvalidEmail<T> value),
     Result invalidPassword(InvalidPassword<T> value),
     Result invalidUsername(InvalidUsername<T> value),
+    Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
     @required Result orElse(),
   });
 
@@ -214,6 +224,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     @required Result invalidEmail(T failedValue),
     @required Result invalidPassword(T failedValue),
     @required Result invalidUsername(T failedValue),
+    @required Result usernameAlreadyExists(T failedValue),
   }) {
     assert(exceedingLength != null);
     assert(empty != null);
@@ -222,6 +233,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     assert(invalidEmail != null);
     assert(invalidPassword != null);
     assert(invalidUsername != null);
+    assert(usernameAlreadyExists != null);
     return exceedingLength(failedValue, max);
   }
 
@@ -235,6 +247,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     Result invalidEmail(T failedValue),
     Result invalidPassword(T failedValue),
     Result invalidUsername(T failedValue),
+    Result usernameAlreadyExists(T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -254,6 +267,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     @required Result invalidEmail(InvalidEmail<T> value),
     @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidUsername(InvalidUsername<T> value),
+    @required Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
   }) {
     assert(exceedingLength != null);
     assert(empty != null);
@@ -262,6 +276,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     assert(invalidEmail != null);
     assert(invalidPassword != null);
     assert(invalidUsername != null);
+    assert(usernameAlreadyExists != null);
     return exceedingLength(this);
   }
 
@@ -275,6 +290,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     Result invalidEmail(InvalidEmail<T> value),
     Result invalidPassword(InvalidPassword<T> value),
     Result invalidUsername(InvalidUsername<T> value),
+    Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -361,6 +377,7 @@ class _$Empty<T> implements Empty<T> {
     @required Result invalidEmail(T failedValue),
     @required Result invalidPassword(T failedValue),
     @required Result invalidUsername(T failedValue),
+    @required Result usernameAlreadyExists(T failedValue),
   }) {
     assert(exceedingLength != null);
     assert(empty != null);
@@ -369,6 +386,7 @@ class _$Empty<T> implements Empty<T> {
     assert(invalidEmail != null);
     assert(invalidPassword != null);
     assert(invalidUsername != null);
+    assert(usernameAlreadyExists != null);
     return empty(failedValue);
   }
 
@@ -382,6 +400,7 @@ class _$Empty<T> implements Empty<T> {
     Result invalidEmail(T failedValue),
     Result invalidPassword(T failedValue),
     Result invalidUsername(T failedValue),
+    Result usernameAlreadyExists(T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -401,6 +420,7 @@ class _$Empty<T> implements Empty<T> {
     @required Result invalidEmail(InvalidEmail<T> value),
     @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidUsername(InvalidUsername<T> value),
+    @required Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
   }) {
     assert(exceedingLength != null);
     assert(empty != null);
@@ -409,6 +429,7 @@ class _$Empty<T> implements Empty<T> {
     assert(invalidEmail != null);
     assert(invalidPassword != null);
     assert(invalidUsername != null);
+    assert(usernameAlreadyExists != null);
     return empty(this);
   }
 
@@ -422,6 +443,7 @@ class _$Empty<T> implements Empty<T> {
     Result invalidEmail(InvalidEmail<T> value),
     Result invalidPassword(InvalidPassword<T> value),
     Result invalidUsername(InvalidUsername<T> value),
+    Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -509,6 +531,7 @@ class _$Multiline<T> implements Multiline<T> {
     @required Result invalidEmail(T failedValue),
     @required Result invalidPassword(T failedValue),
     @required Result invalidUsername(T failedValue),
+    @required Result usernameAlreadyExists(T failedValue),
   }) {
     assert(exceedingLength != null);
     assert(empty != null);
@@ -517,6 +540,7 @@ class _$Multiline<T> implements Multiline<T> {
     assert(invalidEmail != null);
     assert(invalidPassword != null);
     assert(invalidUsername != null);
+    assert(usernameAlreadyExists != null);
     return multiline(failedValue);
   }
 
@@ -530,6 +554,7 @@ class _$Multiline<T> implements Multiline<T> {
     Result invalidEmail(T failedValue),
     Result invalidPassword(T failedValue),
     Result invalidUsername(T failedValue),
+    Result usernameAlreadyExists(T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -549,6 +574,7 @@ class _$Multiline<T> implements Multiline<T> {
     @required Result invalidEmail(InvalidEmail<T> value),
     @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidUsername(InvalidUsername<T> value),
+    @required Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
   }) {
     assert(exceedingLength != null);
     assert(empty != null);
@@ -557,6 +583,7 @@ class _$Multiline<T> implements Multiline<T> {
     assert(invalidEmail != null);
     assert(invalidPassword != null);
     assert(invalidUsername != null);
+    assert(usernameAlreadyExists != null);
     return multiline(this);
   }
 
@@ -570,6 +597,7 @@ class _$Multiline<T> implements Multiline<T> {
     Result invalidEmail(InvalidEmail<T> value),
     Result invalidPassword(InvalidPassword<T> value),
     Result invalidUsername(InvalidUsername<T> value),
+    Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -667,6 +695,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     @required Result invalidEmail(T failedValue),
     @required Result invalidPassword(T failedValue),
     @required Result invalidUsername(T failedValue),
+    @required Result usernameAlreadyExists(T failedValue),
   }) {
     assert(exceedingLength != null);
     assert(empty != null);
@@ -675,6 +704,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     assert(invalidEmail != null);
     assert(invalidPassword != null);
     assert(invalidUsername != null);
+    assert(usernameAlreadyExists != null);
     return listTooLong(failedValue, max);
   }
 
@@ -688,6 +718,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     Result invalidEmail(T failedValue),
     Result invalidPassword(T failedValue),
     Result invalidUsername(T failedValue),
+    Result usernameAlreadyExists(T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -707,6 +738,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     @required Result invalidEmail(InvalidEmail<T> value),
     @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidUsername(InvalidUsername<T> value),
+    @required Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
   }) {
     assert(exceedingLength != null);
     assert(empty != null);
@@ -715,6 +747,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     assert(invalidEmail != null);
     assert(invalidPassword != null);
     assert(invalidUsername != null);
+    assert(usernameAlreadyExists != null);
     return listTooLong(this);
   }
 
@@ -728,6 +761,7 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     Result invalidEmail(InvalidEmail<T> value),
     Result invalidPassword(InvalidPassword<T> value),
     Result invalidUsername(InvalidUsername<T> value),
+    Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -818,6 +852,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     @required Result invalidEmail(T failedValue),
     @required Result invalidPassword(T failedValue),
     @required Result invalidUsername(T failedValue),
+    @required Result usernameAlreadyExists(T failedValue),
   }) {
     assert(exceedingLength != null);
     assert(empty != null);
@@ -826,6 +861,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     assert(invalidEmail != null);
     assert(invalidPassword != null);
     assert(invalidUsername != null);
+    assert(usernameAlreadyExists != null);
     return invalidEmail(failedValue);
   }
 
@@ -839,6 +875,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     Result invalidEmail(T failedValue),
     Result invalidPassword(T failedValue),
     Result invalidUsername(T failedValue),
+    Result usernameAlreadyExists(T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -858,6 +895,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     @required Result invalidEmail(InvalidEmail<T> value),
     @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidUsername(InvalidUsername<T> value),
+    @required Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
   }) {
     assert(exceedingLength != null);
     assert(empty != null);
@@ -866,6 +904,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     assert(invalidEmail != null);
     assert(invalidPassword != null);
     assert(invalidUsername != null);
+    assert(usernameAlreadyExists != null);
     return invalidEmail(this);
   }
 
@@ -879,6 +918,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     Result invalidEmail(InvalidEmail<T> value),
     Result invalidPassword(InvalidPassword<T> value),
     Result invalidUsername(InvalidUsername<T> value),
+    Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -967,6 +1007,7 @@ class _$InvalidPassword<T> implements InvalidPassword<T> {
     @required Result invalidEmail(T failedValue),
     @required Result invalidPassword(T failedValue),
     @required Result invalidUsername(T failedValue),
+    @required Result usernameAlreadyExists(T failedValue),
   }) {
     assert(exceedingLength != null);
     assert(empty != null);
@@ -975,6 +1016,7 @@ class _$InvalidPassword<T> implements InvalidPassword<T> {
     assert(invalidEmail != null);
     assert(invalidPassword != null);
     assert(invalidUsername != null);
+    assert(usernameAlreadyExists != null);
     return invalidPassword(failedValue);
   }
 
@@ -988,6 +1030,7 @@ class _$InvalidPassword<T> implements InvalidPassword<T> {
     Result invalidEmail(T failedValue),
     Result invalidPassword(T failedValue),
     Result invalidUsername(T failedValue),
+    Result usernameAlreadyExists(T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1007,6 +1050,7 @@ class _$InvalidPassword<T> implements InvalidPassword<T> {
     @required Result invalidEmail(InvalidEmail<T> value),
     @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidUsername(InvalidUsername<T> value),
+    @required Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
   }) {
     assert(exceedingLength != null);
     assert(empty != null);
@@ -1015,6 +1059,7 @@ class _$InvalidPassword<T> implements InvalidPassword<T> {
     assert(invalidEmail != null);
     assert(invalidPassword != null);
     assert(invalidUsername != null);
+    assert(usernameAlreadyExists != null);
     return invalidPassword(this);
   }
 
@@ -1028,6 +1073,7 @@ class _$InvalidPassword<T> implements InvalidPassword<T> {
     Result invalidEmail(InvalidEmail<T> value),
     Result invalidPassword(InvalidPassword<T> value),
     Result invalidUsername(InvalidUsername<T> value),
+    Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1117,6 +1163,7 @@ class _$InvalidUsername<T> implements InvalidUsername<T> {
     @required Result invalidEmail(T failedValue),
     @required Result invalidPassword(T failedValue),
     @required Result invalidUsername(T failedValue),
+    @required Result usernameAlreadyExists(T failedValue),
   }) {
     assert(exceedingLength != null);
     assert(empty != null);
@@ -1125,6 +1172,7 @@ class _$InvalidUsername<T> implements InvalidUsername<T> {
     assert(invalidEmail != null);
     assert(invalidPassword != null);
     assert(invalidUsername != null);
+    assert(usernameAlreadyExists != null);
     return invalidUsername(failedValue);
   }
 
@@ -1138,6 +1186,7 @@ class _$InvalidUsername<T> implements InvalidUsername<T> {
     Result invalidEmail(T failedValue),
     Result invalidPassword(T failedValue),
     Result invalidUsername(T failedValue),
+    Result usernameAlreadyExists(T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1157,6 +1206,7 @@ class _$InvalidUsername<T> implements InvalidUsername<T> {
     @required Result invalidEmail(InvalidEmail<T> value),
     @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidUsername(InvalidUsername<T> value),
+    @required Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
   }) {
     assert(exceedingLength != null);
     assert(empty != null);
@@ -1165,6 +1215,7 @@ class _$InvalidUsername<T> implements InvalidUsername<T> {
     assert(invalidEmail != null);
     assert(invalidPassword != null);
     assert(invalidUsername != null);
+    assert(usernameAlreadyExists != null);
     return invalidUsername(this);
   }
 
@@ -1178,6 +1229,7 @@ class _$InvalidUsername<T> implements InvalidUsername<T> {
     Result invalidEmail(InvalidEmail<T> value),
     Result invalidPassword(InvalidPassword<T> value),
     Result invalidUsername(InvalidUsername<T> value),
+    Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1196,4 +1248,162 @@ abstract class InvalidUsername<T> implements ValueFailure<T> {
   T get failedValue;
   @override
   $InvalidUsernameCopyWith<T, InvalidUsername<T>> get copyWith;
+}
+
+abstract class $UsernameAlreadyExistsCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory $UsernameAlreadyExistsCopyWith(UsernameAlreadyExists<T> value,
+          $Res Function(UsernameAlreadyExists<T>) then) =
+      _$UsernameAlreadyExistsCopyWithImpl<T, $Res>;
+  @override
+  $Res call({T failedValue});
+}
+
+class _$UsernameAlreadyExistsCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements $UsernameAlreadyExistsCopyWith<T, $Res> {
+  _$UsernameAlreadyExistsCopyWithImpl(UsernameAlreadyExists<T> _value,
+      $Res Function(UsernameAlreadyExists<T>) _then)
+      : super(_value, (v) => _then(v as UsernameAlreadyExists<T>));
+
+  @override
+  UsernameAlreadyExists<T> get _value =>
+      super._value as UsernameAlreadyExists<T>;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+  }) {
+    return _then(UsernameAlreadyExists<T>(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as T,
+    ));
+  }
+}
+
+class _$UsernameAlreadyExists<T> implements UsernameAlreadyExists<T> {
+  const _$UsernameAlreadyExists({@required this.failedValue})
+      : assert(failedValue != null);
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.usernameAlreadyExists(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is UsernameAlreadyExists<T> &&
+            (identical(other.failedValue, failedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.failedValue, failedValue)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
+
+  @override
+  $UsernameAlreadyExistsCopyWith<T, UsernameAlreadyExists<T>> get copyWith =>
+      _$UsernameAlreadyExistsCopyWithImpl<T, UsernameAlreadyExists<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result exceedingLength(T failedValue, int max),
+    @required Result empty(T failedValue),
+    @required Result multiline(T failedValue),
+    @required Result listTooLong(T failedValue, int max),
+    @required Result invalidEmail(T failedValue),
+    @required Result invalidPassword(T failedValue),
+    @required Result invalidUsername(T failedValue),
+    @required Result usernameAlreadyExists(T failedValue),
+  }) {
+    assert(exceedingLength != null);
+    assert(empty != null);
+    assert(multiline != null);
+    assert(listTooLong != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
+    assert(invalidUsername != null);
+    assert(usernameAlreadyExists != null);
+    return usernameAlreadyExists(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result exceedingLength(T failedValue, int max),
+    Result empty(T failedValue),
+    Result multiline(T failedValue),
+    Result listTooLong(T failedValue, int max),
+    Result invalidEmail(T failedValue),
+    Result invalidPassword(T failedValue),
+    Result invalidUsername(T failedValue),
+    Result usernameAlreadyExists(T failedValue),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (usernameAlreadyExists != null) {
+      return usernameAlreadyExists(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result exceedingLength(ExceedingLength<T> value),
+    @required Result empty(Empty<T> value),
+    @required Result multiline(Multiline<T> value),
+    @required Result listTooLong(ListTooLong<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(InvalidPassword<T> value),
+    @required Result invalidUsername(InvalidUsername<T> value),
+    @required Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
+  }) {
+    assert(exceedingLength != null);
+    assert(empty != null);
+    assert(multiline != null);
+    assert(listTooLong != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
+    assert(invalidUsername != null);
+    assert(usernameAlreadyExists != null);
+    return usernameAlreadyExists(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result exceedingLength(ExceedingLength<T> value),
+    Result empty(Empty<T> value),
+    Result multiline(Multiline<T> value),
+    Result listTooLong(ListTooLong<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(InvalidPassword<T> value),
+    Result invalidUsername(InvalidUsername<T> value),
+    Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (usernameAlreadyExists != null) {
+      return usernameAlreadyExists(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UsernameAlreadyExists<T> implements ValueFailure<T> {
+  const factory UsernameAlreadyExists({@required T failedValue}) =
+      _$UsernameAlreadyExists<T>;
+
+  @override
+  T get failedValue;
+  @override
+  $UsernameAlreadyExistsCopyWith<T, UsernameAlreadyExists<T>> get copyWith;
 }

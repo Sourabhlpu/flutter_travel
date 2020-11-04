@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter_travel/domain/auth/auth_failure.dart';
 import 'package:flutter_travel/domain/core/failures.dart';
 import 'package:flutter_travel/domain/core/value_objects.dart';
 import 'package:flutter_travel/domain/core/value_validators.dart';
@@ -40,4 +41,14 @@ class Username extends ValueObject<String>{
     );
   }
 
+  factory Username.isAvailable(bool available, String input){
+    if(available)
+      return Username._(
+        Right(input)
+      );
+    else
+      return Username._(
+        Left(UsernameAlreadyExists(failedValue: input))
+      );
+  }
 }

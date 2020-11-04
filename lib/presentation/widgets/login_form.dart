@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_travel/application/auth/sign_up_form/sign_up_form_bloc.dart';
-import 'package:flutter_travel/presentation/widgets/login_signup_base.dart';
+import 'package:flutter_travel/application/auth/auth_form/auth_form_bloc.dart';
+import 'package:flutter_travel/presentation/widgets/auth_template.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_travel/presentation/routes/route.gr.dart';
 
-class LoginForm extends LoginSignupBase {
+class LoginForm extends AuthTemplate {
   @override
   String getNavigationButtonTitle() {
     return 'Create Account';
@@ -27,12 +27,12 @@ class LoginForm extends LoginSignupBase {
   }
 
   @override
-  void handlePrimaryButtonClick(SignUpFormBloc bloc) {
-    bloc.add(const SignUpFormEvent.loginWithEmailAndPasswordPressed());
+  void handlePrimaryButtonClick(AuthFormBloc bloc) {
+    bloc.add(const AuthFormEvent.loginWithEmailAndPasswordPressed());
   }
 
   @override
-  Widget buildUsernameInput(BuildContext context, SignUpFormBloc bloc) => Container();
+  Widget buildUsernameInput(BuildContext context, AuthFormBloc bloc) => Container();
 
   @override
   Widget getUsernameDivider() => Container();

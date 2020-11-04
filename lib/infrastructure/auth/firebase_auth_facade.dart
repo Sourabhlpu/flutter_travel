@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
@@ -8,11 +9,13 @@ import 'package:flutter_travel/domain/auth/value_objects.dart';
 import 'package:injectable/injectable.dart';
 import 'firebase_user_mapper.dart';
 
+
 @LazySingleton(as: IAuthFacade)
 class FirebaseAuthFacade extends IAuthFacade {
   final FirebaseAuth _firebaseAuth;
+  final Firestore _firestore;
 
-  FirebaseAuthFacade(this._firebaseAuth);
+  FirebaseAuthFacade(this._firebaseAuth, this._firestore);
 
   @override
   Future<Option<User>> getSignedInUser() => _firebaseAuth
@@ -54,5 +57,16 @@ class FirebaseAuthFacade extends IAuthFacade {
   @override
   Future<void> signOut() {
     return Future.wait([_firebaseAuth.signOut()]);
+  }
+
+  @override
+  Future<Either<AuthFailure, Unit>> validateUsername({Username username}) async {
+    final usernameStr = username.getOrCrash();
+    final usernameDoc = _firestore.collection('userNames').document(usernameStr);
+    final  docSnapshot = await usernameDoc.get();
+    if(docSnapshot.exists)
+      return Left(const AuthFailure.usernameAlreadyInUse());
+    else
+      return Right(unit);
   }
 }

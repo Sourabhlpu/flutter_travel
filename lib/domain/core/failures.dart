@@ -26,4 +26,7 @@ abstract class ValueFailure<T> with _$ValueFailure<T>{
   const factory ValueFailure.invalidUsername({
     @required T failedValue,
   }) = InvalidUsername<T>;
+  const factory ValueFailure.usernameAlreadyExists({
+    @required T failedValue,
+  }) = UsernameAlreadyExists<T>;
 }

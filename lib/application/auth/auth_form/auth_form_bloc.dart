@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_travel/domain/auth/auth_failure.dart';
@@ -9,21 +8,21 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 
-part 'sign_up_form_bloc.freezed.dart';
-part 'sign_up_form_event.dart';
-part 'sign_up_form_state.dart';
+part 'auth_form_bloc.freezed.dart';
+part 'auth_form_event.dart';
+part 'auth_form_state.dart';
 
 @injectable
-class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
+class AuthFormBloc extends Bloc<AuthFormEvent, AuthFormState> {
   final IAuthFacade _authFacade;
-
-  SignUpFormBloc(this._authFacade);
+  AuthFormBloc(this._authFacade);
+  bool hasUsernameField = false;
   @override
-  SignUpFormState get initialState => SignUpFormState.initial();
+  AuthFormState get initialState => AuthFormState.initial();
 
   @override
-  Stream<SignUpFormState> mapEventToState(
-    SignUpFormEvent event,
+  Stream<AuthFormState> mapEventToState(
+    AuthFormEvent event,
   ) async* {
     yield* event.map(emailChanged: (e) async* {
       yield state.copyWith(
@@ -38,11 +37,55 @@ class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
         enableButton: _enableButton(),
       );
     }, usernameChanged: (e) async* {
-      yield state.copyWith(
-        username: Username(e.usernameStr),
-        authFailureOrSuccessOption: none(),
-        enableButton: _enableButton(),
-      );
+      hasUsernameField = true;
+      Either<AuthFailure, Unit> failureOrSuccess;
+      final userName = Username(e.usernameStr);
+      if (userName.isValid()) {
+        yield state.copyWith(
+          username: userName,
+          authFailureOrSuccessOption: none(),
+          enableButton: _enableButton(),
+          isVerifyingUsername: true,
+        );
+        failureOrSuccess =
+            await _authFacade.validateUsername(username: userName);
+        if (failureOrSuccess.isLeft()) {
+          final userVerified = Username.isAvailable(false, e.usernameStr);
+          yield state.copyWith(
+            username: userVerified,
+            authFailureOrSuccessOption: none(),
+            enableButton: _enableButton(),
+            showErrorMessages: true,
+            isVerifyingUsername: false,
+          );
+        } else if (failureOrSuccess.isRight()) {
+          yield state.copyWith(
+            username: userName,
+            authFailureOrSuccessOption: none(),
+            enableButton: _enableButton(),
+            isVerifyingUsername: false,
+          );
+        }
+
+/*        yield* failureOrSuccess.fold((l) async* {
+
+        }, (r) async* {
+
+        });*/
+      } else {
+        yield state.copyWith(
+          username: userName,
+          authFailureOrSuccessOption: none(),
+          enableButton: _enableButton(),
+        );
+      }
+/*      userName.value.fold((_) async* {
+        print('reached failure');
+
+      }, (_) async* {
+        print('reached success');
+
+      });*/
     }, registerWithEmailAndPasswordPressed: (e) async* {
       yield* _performActionOnAuthFacadeWithEmailAndPassword(
           (_authFacade.registerWithEmailAndPassword));
@@ -52,7 +95,7 @@ class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
     });
   }
 
-  Stream<SignUpFormState> _performActionOnAuthFacadeWithEmailAndPassword(
+  Stream<AuthFormState> _performActionOnAuthFacadeWithEmailAndPassword(
     Future<Either<AuthFailure, Unit>> Function(
             {@required EmailAddress emailAddress, @required Password password})
         forwardedCall,
@@ -74,7 +117,7 @@ class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
   }
 
   _isUserNameValid() {
-    if (state.username == null)
+    if (!hasUsernameField)
       return true;
     else
       return state.username.isValid();

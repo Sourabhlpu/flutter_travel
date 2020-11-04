@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 
 import '../auth/base/auth_base.dart';
 import '../auth/login_signup/login_signup_page.dart';
+import '../home/home_page.dart';
 import '../onboarding/onboarding_home.dart';
 import '../splash/splash_page.dart';
 
@@ -19,11 +20,13 @@ class Routes {
   static const String onboardingHome = '/onboarding-home';
   static const String authBase = '/auth-base';
   static const String loginSignUpPage = '/login-sign-up-page';
+  static const String homePage = '/home-page';
   static const all = <String>{
     splashPage,
     onboardingHome,
     authBase,
     loginSignUpPage,
+    homePage,
   };
 }
 
@@ -35,20 +38,26 @@ class Router extends RouterBase {
     RouteDef(Routes.onboardingHome, page: OnboardingHome),
     RouteDef(Routes.authBase, page: AuthBase),
     RouteDef(Routes.loginSignUpPage, page: LoginSignUpPage),
+    RouteDef(Routes.homePage, page: HomePage),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
   final _pagesMap = <Type, AutoRouteFactory>{
     SplashPage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => SplashPage(),
+      return PageRouteBuilder<dynamic>(
+        pageBuilder: (context, animation, secondaryAnimation) => SplashPage(),
         settings: data,
+        transitionsBuilder: TransitionsBuilders.fadeIn,
+        transitionDuration: const Duration(milliseconds: 2000),
       );
     },
     OnboardingHome: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => OnboardingHome(),
+      return PageRouteBuilder<dynamic>(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            OnboardingHome(),
         settings: data,
+        transitionsBuilder: TransitionsBuilders.fadeIn,
+        transitionDuration: const Duration(milliseconds: 2000),
       );
     },
     AuthBase: (data) {
@@ -61,11 +70,20 @@ class Router extends RouterBase {
       final args = data.getArgs<LoginSignUpPageArguments>(
         orElse: () => LoginSignUpPageArguments(),
       );
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => LoginSignUpPage(
+      return PageRouteBuilder<dynamic>(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            LoginSignUpPage(
           key: args.key,
           openLogin: args.openLogin,
         ),
+        settings: data,
+        transitionsBuilder: TransitionsBuilders.fadeIn,
+        transitionDuration: const Duration(milliseconds: 1500),
+      );
+    },
+    HomePage: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => HomePage(),
         settings: data,
       );
     },
@@ -91,6 +109,8 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
         Routes.loginSignUpPage,
         arguments: LoginSignUpPageArguments(key: key, openLogin: openLogin),
       );
+
+  Future<dynamic> pushHomePage() => push<dynamic>(Routes.homePage);
 }
 
 /// ************************************************************************

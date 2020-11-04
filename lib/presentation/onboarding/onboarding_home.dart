@@ -195,6 +195,7 @@ class _OnboardingHomeState extends State<OnboardingHome>
 
 
   void _handleDoneClicked() {
-    ExtendedNavigator.of(context).replace(Routes.authBase);
+    ExtendedNavigator.of(context).popAndPush(Routes.authBase);
+    //ExtendedNavigator.of(context).replace(Routes.authBase);
   }
 }

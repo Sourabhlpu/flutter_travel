@@ -20,4 +20,9 @@ abstract class IAuthFacade{
   });
 
   Future<void> signOut();
+
+  Future<Either<AuthFailure, Unit>> validateUsername({
+    @required Username username,
+  });
+
 }

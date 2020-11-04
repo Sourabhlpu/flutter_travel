@@ -15,11 +15,24 @@ class AppWidget extends StatelessWidget {
           create: (context) => getIt<AuthBloc>()..add(AuthEvent.authCheckRequested()),
         )
       ],
-      child: MaterialApp(
-        title: 'Travel',
-        debugShowCheckedModeBanner: false,
-        builder: ExtendedNavigator(
-          router: Router(),
+      child:
+      GestureDetector(
+        onTap: (){
+          FocusScopeNode currentFocus = FocusScope.of(context);
+          if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
+            currentFocus.focusedChild.unfocus();
+          }
+        },
+        child: MaterialApp(
+          title: 'Travel',
+          debugShowCheckedModeBanner: false,
+          builder: ExtendedNavigator(
+            router: Router(),
+          ),
+          theme: ThemeData.light().copyWith(
+            primaryColor: Colors.deepPurple,
+            accentColor: Colors.deepPurpleAccent
+          ),
         ),
       ),
     );
