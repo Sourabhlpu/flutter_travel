@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_travel/presentation/widgets/bottom_appbar_widget.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -10,198 +11,213 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          brightness: Brightness.light,
-          elevation: 0,
-          title: Text(
-            'Home',
-            style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                color: Colors.black),
-          ),
-          actions: [
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 4.0, horizontal: 16.0),
-              child: AspectRatio(
-                aspectRatio: 1,
-                child: CircleAvatar(
-                  backgroundImage: NetworkImage(
-                      'https://picsum.photos/seed/picsum/200/500'),
-                ),
-              ),
-            )
-          ],
-        ),
-        body:
-        Column(
-          children: [
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
-              child:
-              Stack(
-                alignment: Alignment.center,
-                children: [
-                  Container(
-                    width: double.infinity,
-                    height: 40,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8.0),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.grey,
-                              blurRadius: 4.0,
-                              offset: const Offset(0.0, 1.0))
-                        ]),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.search,
-                          color: Theme.of(context).primaryColor,
-                        ),
-                        SizedBox(width: 8.0),
-                        Text('Find what you want', style: Theme.of(context).textTheme.caption.copyWith(color: Colors.grey.shade400, fontSize: 14.0),)
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            )
-          ],
-        ),
-        bottomNavigationBar: BottomAppBar(
-          child: BottomAppBarWidget(),
-        ));
-  }
-}
-
-class BottomAppBarWidget extends StatefulWidget {
-  @override
-  _BottomAppBarWidgetState createState() => _BottomAppBarWidgetState();
-}
-
-class _BottomAppBarWidgetState extends State<BottomAppBarWidget>
-    with TickerProviderStateMixin {
-  int _currentSelectedTab;
-  AnimationController _animationController;
-  Animation _positionAnimation;
-
-  @override
-  void initState() {
-    super.initState();
-    _currentSelectedTab = 0;
-    _animationController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 1000));
-    _positionAnimation =
-        Tween<double>(begin: -1, end: -1).animate(_animationController)
-          ..addListener(() {
-            setState(() {});
-          });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(alignment: Alignment.topCenter, children: [
-      _buildTabsRow(),
-      Padding(
-        padding: const EdgeInsets.only(top: 4.0),
-        child: SizedBox(
-          height: 40,
-          child: Align(
-            alignment: Alignment(_positionAnimation.value, 1),
-            child: FractionallySizedBox(
-              widthFactor: 1 / 5,
-              heightFactor: 1,
-              child: Align(
-                alignment: Alignment(0, 1),
-                child: _buildTabsIndicator(),
-              ),
+      backgroundColor: Colors.white,
+      appBar: _buildAppBar(context),
+      body: ListView(
+        padding: const EdgeInsets.symmetric(vertical: 16.0),
+        children: [
+          buildHomeSearch(context),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(
+              'Recent Searches',
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle1
+                  .copyWith(color: Colors.black),
             ),
           ),
-        ),
-      )
-    ]);
+          SizedBox(
+            height: 180,
+            child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                itemCount: 10,
+                itemBuilder: (BuildContext context, int index) {
+                  return Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0)),
+                    margin: const EdgeInsets.only(left: 16.0),
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    child: Container(
+                      width: 150,
+                      color: Colors.grey,
+                    ),
+                  );
+                }),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 16.0, top: 50, bottom: 16),
+            child: Text(
+              'Recommended From Trevatel',
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle1
+                  .copyWith(color: Colors.black),
+            ),
+          ),
+          SizedBox(
+            height: 160,
+            child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                itemCount: 10,
+                itemBuilder: (BuildContext context, int index) {
+                  return Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0)),
+                    margin: const EdgeInsets.only(left: 16.0),
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    child: Container(
+                      width: 280,
+                      color: Colors.grey,
+                    ),
+                  );
+                }),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 16.0, top: 50, bottom: 16),
+            child: Text(
+              'Destination Popular',
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle1
+                  .copyWith(color: Colors.black),
+            ),
+          ),
+          SizedBox(
+            height: 200,
+            child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                itemCount: 10,
+                itemBuilder: (BuildContext context, int index) {
+                  return Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0)),
+                    margin: const EdgeInsets.only(left: 16.0),
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    child: Container(
+                      width: 150,
+                      color: Colors.grey,
+                    ),
+                  );
+                }),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 16.0, top: 50, bottom: 16),
+            child: Text(
+              'Recommended Rooms',
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle1
+                  .copyWith(color: Colors.black),
+            ),
+          ),
+          GridView.builder(
+              padding: const EdgeInsets.only(right: 16.0),
+              itemCount: 12,
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, mainAxisSpacing: 16.0),
+              itemBuilder: (BuildContext context, int index) {
+                return Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0)),
+                  margin: const EdgeInsets.only(left: 16.0),
+                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                  child: Container(
+                    width: 150,
+                    color: Colors.grey,
+                  ),
+                );
+              })
+        ],
+      ),
+      bottomNavigationBar: BottomAppBar(child: BottomAppBarWidget()),
+    );
   }
 
-  Container _buildTabsIndicator() {
-    return Container(
-      width: 8,
-      height: 8,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: Colors.purple,
+  Padding buildHomeSearch(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          _buildHomeSearchBackground(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: _buildHomeSearchContent(context),
+          )
+        ],
       ),
     );
   }
 
-  Row _buildTabsRow() {
+  Row _buildHomeSearchContent(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        IconButton(
-          onPressed: () {
-            runAnimation(-1.0);
-            _currentSelectedTab = 0;
-          },
-          icon: Icon(Icons.home),
+        Icon(
+          Icons.search,
+          color: Theme.of(context).primaryColor,
         ),
-        IconButton(
-          onPressed: () {
-            runAnimation(-0.5);
-            _currentSelectedTab = 1;
-          },
-          icon: Icon(Icons.menu),
-        ),
-        IconButton(
-          onPressed: () {
-            runAnimation(0.0);
-            _currentSelectedTab = 2;
-          },
-          icon: Icon(Icons.camera),
-        ),
-        IconButton(
-          onPressed: () {
-            runAnimation(0.5);
-            _currentSelectedTab = 3;
-          },
-          icon: Icon(Icons.party_mode),
-        ),
-        IconButton(
-          onPressed: () {
-            runAnimation(1.0);
-            _currentSelectedTab = 4;
-          },
-          icon: Icon(Icons.account_balance),
+        SizedBox(width: 8.0),
+        Text(
+          'Find what you want',
+          style: Theme.of(context)
+              .textTheme
+              .caption
+              .copyWith(color: Colors.grey.shade400, fontSize: 14.0),
         ),
       ],
     );
   }
 
-  runAnimation(double endPosition) {
-    _positionAnimation =
-        Tween<double>(begin: getPositionForSelectedTab(), end: endPosition)
-            .animate(_animationController);
-    _animationController.forward(from: getPositionForSelectedTab());
+  Container _buildHomeSearchBackground() {
+    return Container(
+      width: double.infinity,
+      height: 40,
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8.0),
+          boxShadow: [
+            BoxShadow(
+                color: Colors.grey,
+                blurRadius: 4.0,
+                offset: const Offset(0.0, 1.0))
+          ]),
+    );
   }
 
-  getPositionForSelectedTab() {
-    if (_currentSelectedTab == 0)
-      return -1.0;
-    else if (_currentSelectedTab == 1)
-      return -0.5;
-    else if (_currentSelectedTab == 2)
-      return 0.0;
-    else if (_currentSelectedTab == 3)
-      return 0.5;
-    else
-      return 1.0;
+  AppBar _buildAppBar(BuildContext context) {
+    return AppBar(
+      backgroundColor: Colors.white,
+      brightness: Brightness.light,
+      elevation: 0,
+      title: Text(
+        'Home',
+        style: Theme.of(context)
+            .textTheme
+            .headline4
+            .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
+      ),
+      actions: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 16.0),
+          child: _buildAppBarUserImage(),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildAppBarUserImage() {
+    return AspectRatio(
+      aspectRatio: 1,
+      child: CircleAvatar(
+        backgroundImage:
+            NetworkImage('https://picsum.photos/seed/picsum/200/500'),
+      ),
+    );
   }
 }
