@@ -29,4 +29,13 @@ abstract class ValueFailure<T> with _$ValueFailure<T>{
   const factory ValueFailure.usernameAlreadyExists({
     @required T failedValue,
   }) = UsernameAlreadyExists<T>;
+  const factory ValueFailure.invalidImageUrl({
+    @required T failedValue,
+  }) = InvalidImageUrl<T>;
+  const factory ValueFailure.invalidPrice({
+    @required T failedValue,
+  }) = InvalidPrice<T>;
+  const factory ValueFailure.outOfRange({
+    @required T failedValue,
+  }) = OutOfRange<T>;
 }

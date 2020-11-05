@@ -62,6 +62,24 @@ class _$ValueFailureTearOff {
       failedValue: failedValue,
     );
   }
+
+  InvalidImageUrl<T> invalidImageUrl<T>({@required T failedValue}) {
+    return InvalidImageUrl<T>(
+      failedValue: failedValue,
+    );
+  }
+
+  InvalidPrice<T> invalidPrice<T>({@required T failedValue}) {
+    return InvalidPrice<T>(
+      failedValue: failedValue,
+    );
+  }
+
+  OutOfRange<T> outOfRange<T>({@required T failedValue}) {
+    return OutOfRange<T>(
+      failedValue: failedValue,
+    );
+  }
 }
 
 // ignore: unused_element
@@ -80,6 +98,9 @@ mixin _$ValueFailure<T> {
     @required Result invalidPassword(T failedValue),
     @required Result invalidUsername(T failedValue),
     @required Result usernameAlreadyExists(T failedValue),
+    @required Result invalidImageUrl(T failedValue),
+    @required Result invalidPrice(T failedValue),
+    @required Result outOfRange(T failedValue),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
@@ -91,6 +112,9 @@ mixin _$ValueFailure<T> {
     Result invalidPassword(T failedValue),
     Result invalidUsername(T failedValue),
     Result usernameAlreadyExists(T failedValue),
+    Result invalidImageUrl(T failedValue),
+    Result invalidPrice(T failedValue),
+    Result outOfRange(T failedValue),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -103,6 +127,9 @@ mixin _$ValueFailure<T> {
     @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidUsername(InvalidUsername<T> value),
     @required Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
+    @required Result invalidImageUrl(InvalidImageUrl<T> value),
+    @required Result invalidPrice(InvalidPrice<T> value),
+    @required Result outOfRange(OutOfRange<T> value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
@@ -114,6 +141,9 @@ mixin _$ValueFailure<T> {
     Result invalidPassword(InvalidPassword<T> value),
     Result invalidUsername(InvalidUsername<T> value),
     Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
+    Result invalidImageUrl(InvalidImageUrl<T> value),
+    Result invalidPrice(InvalidPrice<T> value),
+    Result outOfRange(OutOfRange<T> value),
     @required Result orElse(),
   });
 
@@ -225,6 +255,9 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     @required Result invalidPassword(T failedValue),
     @required Result invalidUsername(T failedValue),
     @required Result usernameAlreadyExists(T failedValue),
+    @required Result invalidImageUrl(T failedValue),
+    @required Result invalidPrice(T failedValue),
+    @required Result outOfRange(T failedValue),
   }) {
     assert(exceedingLength != null);
     assert(empty != null);
@@ -234,6 +267,9 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     assert(invalidPassword != null);
     assert(invalidUsername != null);
     assert(usernameAlreadyExists != null);
+    assert(invalidImageUrl != null);
+    assert(invalidPrice != null);
+    assert(outOfRange != null);
     return exceedingLength(failedValue, max);
   }
 
@@ -248,6 +284,9 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     Result invalidPassword(T failedValue),
     Result invalidUsername(T failedValue),
     Result usernameAlreadyExists(T failedValue),
+    Result invalidImageUrl(T failedValue),
+    Result invalidPrice(T failedValue),
+    Result outOfRange(T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -268,6 +307,9 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidUsername(InvalidUsername<T> value),
     @required Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
+    @required Result invalidImageUrl(InvalidImageUrl<T> value),
+    @required Result invalidPrice(InvalidPrice<T> value),
+    @required Result outOfRange(OutOfRange<T> value),
   }) {
     assert(exceedingLength != null);
     assert(empty != null);
@@ -277,6 +319,9 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     assert(invalidPassword != null);
     assert(invalidUsername != null);
     assert(usernameAlreadyExists != null);
+    assert(invalidImageUrl != null);
+    assert(invalidPrice != null);
+    assert(outOfRange != null);
     return exceedingLength(this);
   }
 
@@ -291,6 +336,9 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
     Result invalidPassword(InvalidPassword<T> value),
     Result invalidUsername(InvalidUsername<T> value),
     Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
+    Result invalidImageUrl(InvalidImageUrl<T> value),
+    Result invalidPrice(InvalidPrice<T> value),
+    Result outOfRange(OutOfRange<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -378,6 +426,9 @@ class _$Empty<T> implements Empty<T> {
     @required Result invalidPassword(T failedValue),
     @required Result invalidUsername(T failedValue),
     @required Result usernameAlreadyExists(T failedValue),
+    @required Result invalidImageUrl(T failedValue),
+    @required Result invalidPrice(T failedValue),
+    @required Result outOfRange(T failedValue),
   }) {
     assert(exceedingLength != null);
     assert(empty != null);
@@ -387,6 +438,9 @@ class _$Empty<T> implements Empty<T> {
     assert(invalidPassword != null);
     assert(invalidUsername != null);
     assert(usernameAlreadyExists != null);
+    assert(invalidImageUrl != null);
+    assert(invalidPrice != null);
+    assert(outOfRange != null);
     return empty(failedValue);
   }
 
@@ -401,6 +455,9 @@ class _$Empty<T> implements Empty<T> {
     Result invalidPassword(T failedValue),
     Result invalidUsername(T failedValue),
     Result usernameAlreadyExists(T failedValue),
+    Result invalidImageUrl(T failedValue),
+    Result invalidPrice(T failedValue),
+    Result outOfRange(T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -421,6 +478,9 @@ class _$Empty<T> implements Empty<T> {
     @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidUsername(InvalidUsername<T> value),
     @required Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
+    @required Result invalidImageUrl(InvalidImageUrl<T> value),
+    @required Result invalidPrice(InvalidPrice<T> value),
+    @required Result outOfRange(OutOfRange<T> value),
   }) {
     assert(exceedingLength != null);
     assert(empty != null);
@@ -430,6 +490,9 @@ class _$Empty<T> implements Empty<T> {
     assert(invalidPassword != null);
     assert(invalidUsername != null);
     assert(usernameAlreadyExists != null);
+    assert(invalidImageUrl != null);
+    assert(invalidPrice != null);
+    assert(outOfRange != null);
     return empty(this);
   }
 
@@ -444,6 +507,9 @@ class _$Empty<T> implements Empty<T> {
     Result invalidPassword(InvalidPassword<T> value),
     Result invalidUsername(InvalidUsername<T> value),
     Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
+    Result invalidImageUrl(InvalidImageUrl<T> value),
+    Result invalidPrice(InvalidPrice<T> value),
+    Result outOfRange(OutOfRange<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -532,6 +598,9 @@ class _$Multiline<T> implements Multiline<T> {
     @required Result invalidPassword(T failedValue),
     @required Result invalidUsername(T failedValue),
     @required Result usernameAlreadyExists(T failedValue),
+    @required Result invalidImageUrl(T failedValue),
+    @required Result invalidPrice(T failedValue),
+    @required Result outOfRange(T failedValue),
   }) {
     assert(exceedingLength != null);
     assert(empty != null);
@@ -541,6 +610,9 @@ class _$Multiline<T> implements Multiline<T> {
     assert(invalidPassword != null);
     assert(invalidUsername != null);
     assert(usernameAlreadyExists != null);
+    assert(invalidImageUrl != null);
+    assert(invalidPrice != null);
+    assert(outOfRange != null);
     return multiline(failedValue);
   }
 
@@ -555,6 +627,9 @@ class _$Multiline<T> implements Multiline<T> {
     Result invalidPassword(T failedValue),
     Result invalidUsername(T failedValue),
     Result usernameAlreadyExists(T failedValue),
+    Result invalidImageUrl(T failedValue),
+    Result invalidPrice(T failedValue),
+    Result outOfRange(T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -575,6 +650,9 @@ class _$Multiline<T> implements Multiline<T> {
     @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidUsername(InvalidUsername<T> value),
     @required Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
+    @required Result invalidImageUrl(InvalidImageUrl<T> value),
+    @required Result invalidPrice(InvalidPrice<T> value),
+    @required Result outOfRange(OutOfRange<T> value),
   }) {
     assert(exceedingLength != null);
     assert(empty != null);
@@ -584,6 +662,9 @@ class _$Multiline<T> implements Multiline<T> {
     assert(invalidPassword != null);
     assert(invalidUsername != null);
     assert(usernameAlreadyExists != null);
+    assert(invalidImageUrl != null);
+    assert(invalidPrice != null);
+    assert(outOfRange != null);
     return multiline(this);
   }
 
@@ -598,6 +679,9 @@ class _$Multiline<T> implements Multiline<T> {
     Result invalidPassword(InvalidPassword<T> value),
     Result invalidUsername(InvalidUsername<T> value),
     Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
+    Result invalidImageUrl(InvalidImageUrl<T> value),
+    Result invalidPrice(InvalidPrice<T> value),
+    Result outOfRange(OutOfRange<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -696,6 +780,9 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     @required Result invalidPassword(T failedValue),
     @required Result invalidUsername(T failedValue),
     @required Result usernameAlreadyExists(T failedValue),
+    @required Result invalidImageUrl(T failedValue),
+    @required Result invalidPrice(T failedValue),
+    @required Result outOfRange(T failedValue),
   }) {
     assert(exceedingLength != null);
     assert(empty != null);
@@ -705,6 +792,9 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     assert(invalidPassword != null);
     assert(invalidUsername != null);
     assert(usernameAlreadyExists != null);
+    assert(invalidImageUrl != null);
+    assert(invalidPrice != null);
+    assert(outOfRange != null);
     return listTooLong(failedValue, max);
   }
 
@@ -719,6 +809,9 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     Result invalidPassword(T failedValue),
     Result invalidUsername(T failedValue),
     Result usernameAlreadyExists(T failedValue),
+    Result invalidImageUrl(T failedValue),
+    Result invalidPrice(T failedValue),
+    Result outOfRange(T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -739,6 +832,9 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidUsername(InvalidUsername<T> value),
     @required Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
+    @required Result invalidImageUrl(InvalidImageUrl<T> value),
+    @required Result invalidPrice(InvalidPrice<T> value),
+    @required Result outOfRange(OutOfRange<T> value),
   }) {
     assert(exceedingLength != null);
     assert(empty != null);
@@ -748,6 +844,9 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     assert(invalidPassword != null);
     assert(invalidUsername != null);
     assert(usernameAlreadyExists != null);
+    assert(invalidImageUrl != null);
+    assert(invalidPrice != null);
+    assert(outOfRange != null);
     return listTooLong(this);
   }
 
@@ -762,6 +861,9 @@ class _$ListTooLong<T> implements ListTooLong<T> {
     Result invalidPassword(InvalidPassword<T> value),
     Result invalidUsername(InvalidUsername<T> value),
     Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
+    Result invalidImageUrl(InvalidImageUrl<T> value),
+    Result invalidPrice(InvalidPrice<T> value),
+    Result outOfRange(OutOfRange<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -853,6 +955,9 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     @required Result invalidPassword(T failedValue),
     @required Result invalidUsername(T failedValue),
     @required Result usernameAlreadyExists(T failedValue),
+    @required Result invalidImageUrl(T failedValue),
+    @required Result invalidPrice(T failedValue),
+    @required Result outOfRange(T failedValue),
   }) {
     assert(exceedingLength != null);
     assert(empty != null);
@@ -862,6 +967,9 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     assert(invalidPassword != null);
     assert(invalidUsername != null);
     assert(usernameAlreadyExists != null);
+    assert(invalidImageUrl != null);
+    assert(invalidPrice != null);
+    assert(outOfRange != null);
     return invalidEmail(failedValue);
   }
 
@@ -876,6 +984,9 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     Result invalidPassword(T failedValue),
     Result invalidUsername(T failedValue),
     Result usernameAlreadyExists(T failedValue),
+    Result invalidImageUrl(T failedValue),
+    Result invalidPrice(T failedValue),
+    Result outOfRange(T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -896,6 +1007,9 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidUsername(InvalidUsername<T> value),
     @required Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
+    @required Result invalidImageUrl(InvalidImageUrl<T> value),
+    @required Result invalidPrice(InvalidPrice<T> value),
+    @required Result outOfRange(OutOfRange<T> value),
   }) {
     assert(exceedingLength != null);
     assert(empty != null);
@@ -905,6 +1019,9 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     assert(invalidPassword != null);
     assert(invalidUsername != null);
     assert(usernameAlreadyExists != null);
+    assert(invalidImageUrl != null);
+    assert(invalidPrice != null);
+    assert(outOfRange != null);
     return invalidEmail(this);
   }
 
@@ -919,6 +1036,9 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
     Result invalidPassword(InvalidPassword<T> value),
     Result invalidUsername(InvalidUsername<T> value),
     Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
+    Result invalidImageUrl(InvalidImageUrl<T> value),
+    Result invalidPrice(InvalidPrice<T> value),
+    Result outOfRange(OutOfRange<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1008,6 +1128,9 @@ class _$InvalidPassword<T> implements InvalidPassword<T> {
     @required Result invalidPassword(T failedValue),
     @required Result invalidUsername(T failedValue),
     @required Result usernameAlreadyExists(T failedValue),
+    @required Result invalidImageUrl(T failedValue),
+    @required Result invalidPrice(T failedValue),
+    @required Result outOfRange(T failedValue),
   }) {
     assert(exceedingLength != null);
     assert(empty != null);
@@ -1017,6 +1140,9 @@ class _$InvalidPassword<T> implements InvalidPassword<T> {
     assert(invalidPassword != null);
     assert(invalidUsername != null);
     assert(usernameAlreadyExists != null);
+    assert(invalidImageUrl != null);
+    assert(invalidPrice != null);
+    assert(outOfRange != null);
     return invalidPassword(failedValue);
   }
 
@@ -1031,6 +1157,9 @@ class _$InvalidPassword<T> implements InvalidPassword<T> {
     Result invalidPassword(T failedValue),
     Result invalidUsername(T failedValue),
     Result usernameAlreadyExists(T failedValue),
+    Result invalidImageUrl(T failedValue),
+    Result invalidPrice(T failedValue),
+    Result outOfRange(T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1051,6 +1180,9 @@ class _$InvalidPassword<T> implements InvalidPassword<T> {
     @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidUsername(InvalidUsername<T> value),
     @required Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
+    @required Result invalidImageUrl(InvalidImageUrl<T> value),
+    @required Result invalidPrice(InvalidPrice<T> value),
+    @required Result outOfRange(OutOfRange<T> value),
   }) {
     assert(exceedingLength != null);
     assert(empty != null);
@@ -1060,6 +1192,9 @@ class _$InvalidPassword<T> implements InvalidPassword<T> {
     assert(invalidPassword != null);
     assert(invalidUsername != null);
     assert(usernameAlreadyExists != null);
+    assert(invalidImageUrl != null);
+    assert(invalidPrice != null);
+    assert(outOfRange != null);
     return invalidPassword(this);
   }
 
@@ -1074,6 +1209,9 @@ class _$InvalidPassword<T> implements InvalidPassword<T> {
     Result invalidPassword(InvalidPassword<T> value),
     Result invalidUsername(InvalidUsername<T> value),
     Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
+    Result invalidImageUrl(InvalidImageUrl<T> value),
+    Result invalidPrice(InvalidPrice<T> value),
+    Result outOfRange(OutOfRange<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1164,6 +1302,9 @@ class _$InvalidUsername<T> implements InvalidUsername<T> {
     @required Result invalidPassword(T failedValue),
     @required Result invalidUsername(T failedValue),
     @required Result usernameAlreadyExists(T failedValue),
+    @required Result invalidImageUrl(T failedValue),
+    @required Result invalidPrice(T failedValue),
+    @required Result outOfRange(T failedValue),
   }) {
     assert(exceedingLength != null);
     assert(empty != null);
@@ -1173,6 +1314,9 @@ class _$InvalidUsername<T> implements InvalidUsername<T> {
     assert(invalidPassword != null);
     assert(invalidUsername != null);
     assert(usernameAlreadyExists != null);
+    assert(invalidImageUrl != null);
+    assert(invalidPrice != null);
+    assert(outOfRange != null);
     return invalidUsername(failedValue);
   }
 
@@ -1187,6 +1331,9 @@ class _$InvalidUsername<T> implements InvalidUsername<T> {
     Result invalidPassword(T failedValue),
     Result invalidUsername(T failedValue),
     Result usernameAlreadyExists(T failedValue),
+    Result invalidImageUrl(T failedValue),
+    Result invalidPrice(T failedValue),
+    Result outOfRange(T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1207,6 +1354,9 @@ class _$InvalidUsername<T> implements InvalidUsername<T> {
     @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidUsername(InvalidUsername<T> value),
     @required Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
+    @required Result invalidImageUrl(InvalidImageUrl<T> value),
+    @required Result invalidPrice(InvalidPrice<T> value),
+    @required Result outOfRange(OutOfRange<T> value),
   }) {
     assert(exceedingLength != null);
     assert(empty != null);
@@ -1216,6 +1366,9 @@ class _$InvalidUsername<T> implements InvalidUsername<T> {
     assert(invalidPassword != null);
     assert(invalidUsername != null);
     assert(usernameAlreadyExists != null);
+    assert(invalidImageUrl != null);
+    assert(invalidPrice != null);
+    assert(outOfRange != null);
     return invalidUsername(this);
   }
 
@@ -1230,6 +1383,9 @@ class _$InvalidUsername<T> implements InvalidUsername<T> {
     Result invalidPassword(InvalidPassword<T> value),
     Result invalidUsername(InvalidUsername<T> value),
     Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
+    Result invalidImageUrl(InvalidImageUrl<T> value),
+    Result invalidPrice(InvalidPrice<T> value),
+    Result outOfRange(OutOfRange<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1322,6 +1478,9 @@ class _$UsernameAlreadyExists<T> implements UsernameAlreadyExists<T> {
     @required Result invalidPassword(T failedValue),
     @required Result invalidUsername(T failedValue),
     @required Result usernameAlreadyExists(T failedValue),
+    @required Result invalidImageUrl(T failedValue),
+    @required Result invalidPrice(T failedValue),
+    @required Result outOfRange(T failedValue),
   }) {
     assert(exceedingLength != null);
     assert(empty != null);
@@ -1331,6 +1490,9 @@ class _$UsernameAlreadyExists<T> implements UsernameAlreadyExists<T> {
     assert(invalidPassword != null);
     assert(invalidUsername != null);
     assert(usernameAlreadyExists != null);
+    assert(invalidImageUrl != null);
+    assert(invalidPrice != null);
+    assert(outOfRange != null);
     return usernameAlreadyExists(failedValue);
   }
 
@@ -1345,6 +1507,9 @@ class _$UsernameAlreadyExists<T> implements UsernameAlreadyExists<T> {
     Result invalidPassword(T failedValue),
     Result invalidUsername(T failedValue),
     Result usernameAlreadyExists(T failedValue),
+    Result invalidImageUrl(T failedValue),
+    Result invalidPrice(T failedValue),
+    Result outOfRange(T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1365,6 +1530,9 @@ class _$UsernameAlreadyExists<T> implements UsernameAlreadyExists<T> {
     @required Result invalidPassword(InvalidPassword<T> value),
     @required Result invalidUsername(InvalidUsername<T> value),
     @required Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
+    @required Result invalidImageUrl(InvalidImageUrl<T> value),
+    @required Result invalidPrice(InvalidPrice<T> value),
+    @required Result outOfRange(OutOfRange<T> value),
   }) {
     assert(exceedingLength != null);
     assert(empty != null);
@@ -1374,6 +1542,9 @@ class _$UsernameAlreadyExists<T> implements UsernameAlreadyExists<T> {
     assert(invalidPassword != null);
     assert(invalidUsername != null);
     assert(usernameAlreadyExists != null);
+    assert(invalidImageUrl != null);
+    assert(invalidPrice != null);
+    assert(outOfRange != null);
     return usernameAlreadyExists(this);
   }
 
@@ -1388,6 +1559,9 @@ class _$UsernameAlreadyExists<T> implements UsernameAlreadyExists<T> {
     Result invalidPassword(InvalidPassword<T> value),
     Result invalidUsername(InvalidUsername<T> value),
     Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
+    Result invalidImageUrl(InvalidImageUrl<T> value),
+    Result invalidPrice(InvalidPrice<T> value),
+    Result outOfRange(OutOfRange<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1406,4 +1580,524 @@ abstract class UsernameAlreadyExists<T> implements ValueFailure<T> {
   T get failedValue;
   @override
   $UsernameAlreadyExistsCopyWith<T, UsernameAlreadyExists<T>> get copyWith;
+}
+
+abstract class $InvalidImageUrlCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory $InvalidImageUrlCopyWith(
+          InvalidImageUrl<T> value, $Res Function(InvalidImageUrl<T>) then) =
+      _$InvalidImageUrlCopyWithImpl<T, $Res>;
+  @override
+  $Res call({T failedValue});
+}
+
+class _$InvalidImageUrlCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements $InvalidImageUrlCopyWith<T, $Res> {
+  _$InvalidImageUrlCopyWithImpl(
+      InvalidImageUrl<T> _value, $Res Function(InvalidImageUrl<T>) _then)
+      : super(_value, (v) => _then(v as InvalidImageUrl<T>));
+
+  @override
+  InvalidImageUrl<T> get _value => super._value as InvalidImageUrl<T>;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+  }) {
+    return _then(InvalidImageUrl<T>(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as T,
+    ));
+  }
+}
+
+class _$InvalidImageUrl<T> implements InvalidImageUrl<T> {
+  const _$InvalidImageUrl({@required this.failedValue})
+      : assert(failedValue != null);
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.invalidImageUrl(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is InvalidImageUrl<T> &&
+            (identical(other.failedValue, failedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.failedValue, failedValue)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
+
+  @override
+  $InvalidImageUrlCopyWith<T, InvalidImageUrl<T>> get copyWith =>
+      _$InvalidImageUrlCopyWithImpl<T, InvalidImageUrl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result exceedingLength(T failedValue, int max),
+    @required Result empty(T failedValue),
+    @required Result multiline(T failedValue),
+    @required Result listTooLong(T failedValue, int max),
+    @required Result invalidEmail(T failedValue),
+    @required Result invalidPassword(T failedValue),
+    @required Result invalidUsername(T failedValue),
+    @required Result usernameAlreadyExists(T failedValue),
+    @required Result invalidImageUrl(T failedValue),
+    @required Result invalidPrice(T failedValue),
+    @required Result outOfRange(T failedValue),
+  }) {
+    assert(exceedingLength != null);
+    assert(empty != null);
+    assert(multiline != null);
+    assert(listTooLong != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
+    assert(invalidUsername != null);
+    assert(usernameAlreadyExists != null);
+    assert(invalidImageUrl != null);
+    assert(invalidPrice != null);
+    assert(outOfRange != null);
+    return invalidImageUrl(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result exceedingLength(T failedValue, int max),
+    Result empty(T failedValue),
+    Result multiline(T failedValue),
+    Result listTooLong(T failedValue, int max),
+    Result invalidEmail(T failedValue),
+    Result invalidPassword(T failedValue),
+    Result invalidUsername(T failedValue),
+    Result usernameAlreadyExists(T failedValue),
+    Result invalidImageUrl(T failedValue),
+    Result invalidPrice(T failedValue),
+    Result outOfRange(T failedValue),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (invalidImageUrl != null) {
+      return invalidImageUrl(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result exceedingLength(ExceedingLength<T> value),
+    @required Result empty(Empty<T> value),
+    @required Result multiline(Multiline<T> value),
+    @required Result listTooLong(ListTooLong<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(InvalidPassword<T> value),
+    @required Result invalidUsername(InvalidUsername<T> value),
+    @required Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
+    @required Result invalidImageUrl(InvalidImageUrl<T> value),
+    @required Result invalidPrice(InvalidPrice<T> value),
+    @required Result outOfRange(OutOfRange<T> value),
+  }) {
+    assert(exceedingLength != null);
+    assert(empty != null);
+    assert(multiline != null);
+    assert(listTooLong != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
+    assert(invalidUsername != null);
+    assert(usernameAlreadyExists != null);
+    assert(invalidImageUrl != null);
+    assert(invalidPrice != null);
+    assert(outOfRange != null);
+    return invalidImageUrl(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result exceedingLength(ExceedingLength<T> value),
+    Result empty(Empty<T> value),
+    Result multiline(Multiline<T> value),
+    Result listTooLong(ListTooLong<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(InvalidPassword<T> value),
+    Result invalidUsername(InvalidUsername<T> value),
+    Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
+    Result invalidImageUrl(InvalidImageUrl<T> value),
+    Result invalidPrice(InvalidPrice<T> value),
+    Result outOfRange(OutOfRange<T> value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (invalidImageUrl != null) {
+      return invalidImageUrl(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvalidImageUrl<T> implements ValueFailure<T> {
+  const factory InvalidImageUrl({@required T failedValue}) =
+      _$InvalidImageUrl<T>;
+
+  @override
+  T get failedValue;
+  @override
+  $InvalidImageUrlCopyWith<T, InvalidImageUrl<T>> get copyWith;
+}
+
+abstract class $InvalidPriceCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory $InvalidPriceCopyWith(
+          InvalidPrice<T> value, $Res Function(InvalidPrice<T>) then) =
+      _$InvalidPriceCopyWithImpl<T, $Res>;
+  @override
+  $Res call({T failedValue});
+}
+
+class _$InvalidPriceCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements $InvalidPriceCopyWith<T, $Res> {
+  _$InvalidPriceCopyWithImpl(
+      InvalidPrice<T> _value, $Res Function(InvalidPrice<T>) _then)
+      : super(_value, (v) => _then(v as InvalidPrice<T>));
+
+  @override
+  InvalidPrice<T> get _value => super._value as InvalidPrice<T>;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+  }) {
+    return _then(InvalidPrice<T>(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as T,
+    ));
+  }
+}
+
+class _$InvalidPrice<T> implements InvalidPrice<T> {
+  const _$InvalidPrice({@required this.failedValue})
+      : assert(failedValue != null);
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.invalidPrice(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is InvalidPrice<T> &&
+            (identical(other.failedValue, failedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.failedValue, failedValue)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
+
+  @override
+  $InvalidPriceCopyWith<T, InvalidPrice<T>> get copyWith =>
+      _$InvalidPriceCopyWithImpl<T, InvalidPrice<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result exceedingLength(T failedValue, int max),
+    @required Result empty(T failedValue),
+    @required Result multiline(T failedValue),
+    @required Result listTooLong(T failedValue, int max),
+    @required Result invalidEmail(T failedValue),
+    @required Result invalidPassword(T failedValue),
+    @required Result invalidUsername(T failedValue),
+    @required Result usernameAlreadyExists(T failedValue),
+    @required Result invalidImageUrl(T failedValue),
+    @required Result invalidPrice(T failedValue),
+    @required Result outOfRange(T failedValue),
+  }) {
+    assert(exceedingLength != null);
+    assert(empty != null);
+    assert(multiline != null);
+    assert(listTooLong != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
+    assert(invalidUsername != null);
+    assert(usernameAlreadyExists != null);
+    assert(invalidImageUrl != null);
+    assert(invalidPrice != null);
+    assert(outOfRange != null);
+    return invalidPrice(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result exceedingLength(T failedValue, int max),
+    Result empty(T failedValue),
+    Result multiline(T failedValue),
+    Result listTooLong(T failedValue, int max),
+    Result invalidEmail(T failedValue),
+    Result invalidPassword(T failedValue),
+    Result invalidUsername(T failedValue),
+    Result usernameAlreadyExists(T failedValue),
+    Result invalidImageUrl(T failedValue),
+    Result invalidPrice(T failedValue),
+    Result outOfRange(T failedValue),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (invalidPrice != null) {
+      return invalidPrice(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result exceedingLength(ExceedingLength<T> value),
+    @required Result empty(Empty<T> value),
+    @required Result multiline(Multiline<T> value),
+    @required Result listTooLong(ListTooLong<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(InvalidPassword<T> value),
+    @required Result invalidUsername(InvalidUsername<T> value),
+    @required Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
+    @required Result invalidImageUrl(InvalidImageUrl<T> value),
+    @required Result invalidPrice(InvalidPrice<T> value),
+    @required Result outOfRange(OutOfRange<T> value),
+  }) {
+    assert(exceedingLength != null);
+    assert(empty != null);
+    assert(multiline != null);
+    assert(listTooLong != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
+    assert(invalidUsername != null);
+    assert(usernameAlreadyExists != null);
+    assert(invalidImageUrl != null);
+    assert(invalidPrice != null);
+    assert(outOfRange != null);
+    return invalidPrice(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result exceedingLength(ExceedingLength<T> value),
+    Result empty(Empty<T> value),
+    Result multiline(Multiline<T> value),
+    Result listTooLong(ListTooLong<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(InvalidPassword<T> value),
+    Result invalidUsername(InvalidUsername<T> value),
+    Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
+    Result invalidImageUrl(InvalidImageUrl<T> value),
+    Result invalidPrice(InvalidPrice<T> value),
+    Result outOfRange(OutOfRange<T> value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (invalidPrice != null) {
+      return invalidPrice(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvalidPrice<T> implements ValueFailure<T> {
+  const factory InvalidPrice({@required T failedValue}) = _$InvalidPrice<T>;
+
+  @override
+  T get failedValue;
+  @override
+  $InvalidPriceCopyWith<T, InvalidPrice<T>> get copyWith;
+}
+
+abstract class $OutOfRangeCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory $OutOfRangeCopyWith(
+          OutOfRange<T> value, $Res Function(OutOfRange<T>) then) =
+      _$OutOfRangeCopyWithImpl<T, $Res>;
+  @override
+  $Res call({T failedValue});
+}
+
+class _$OutOfRangeCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements $OutOfRangeCopyWith<T, $Res> {
+  _$OutOfRangeCopyWithImpl(
+      OutOfRange<T> _value, $Res Function(OutOfRange<T>) _then)
+      : super(_value, (v) => _then(v as OutOfRange<T>));
+
+  @override
+  OutOfRange<T> get _value => super._value as OutOfRange<T>;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+  }) {
+    return _then(OutOfRange<T>(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as T,
+    ));
+  }
+}
+
+class _$OutOfRange<T> implements OutOfRange<T> {
+  const _$OutOfRange({@required this.failedValue})
+      : assert(failedValue != null);
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.outOfRange(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is OutOfRange<T> &&
+            (identical(other.failedValue, failedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.failedValue, failedValue)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
+
+  @override
+  $OutOfRangeCopyWith<T, OutOfRange<T>> get copyWith =>
+      _$OutOfRangeCopyWithImpl<T, OutOfRange<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result exceedingLength(T failedValue, int max),
+    @required Result empty(T failedValue),
+    @required Result multiline(T failedValue),
+    @required Result listTooLong(T failedValue, int max),
+    @required Result invalidEmail(T failedValue),
+    @required Result invalidPassword(T failedValue),
+    @required Result invalidUsername(T failedValue),
+    @required Result usernameAlreadyExists(T failedValue),
+    @required Result invalidImageUrl(T failedValue),
+    @required Result invalidPrice(T failedValue),
+    @required Result outOfRange(T failedValue),
+  }) {
+    assert(exceedingLength != null);
+    assert(empty != null);
+    assert(multiline != null);
+    assert(listTooLong != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
+    assert(invalidUsername != null);
+    assert(usernameAlreadyExists != null);
+    assert(invalidImageUrl != null);
+    assert(invalidPrice != null);
+    assert(outOfRange != null);
+    return outOfRange(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result exceedingLength(T failedValue, int max),
+    Result empty(T failedValue),
+    Result multiline(T failedValue),
+    Result listTooLong(T failedValue, int max),
+    Result invalidEmail(T failedValue),
+    Result invalidPassword(T failedValue),
+    Result invalidUsername(T failedValue),
+    Result usernameAlreadyExists(T failedValue),
+    Result invalidImageUrl(T failedValue),
+    Result invalidPrice(T failedValue),
+    Result outOfRange(T failedValue),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (outOfRange != null) {
+      return outOfRange(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result exceedingLength(ExceedingLength<T> value),
+    @required Result empty(Empty<T> value),
+    @required Result multiline(Multiline<T> value),
+    @required Result listTooLong(ListTooLong<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(InvalidPassword<T> value),
+    @required Result invalidUsername(InvalidUsername<T> value),
+    @required Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
+    @required Result invalidImageUrl(InvalidImageUrl<T> value),
+    @required Result invalidPrice(InvalidPrice<T> value),
+    @required Result outOfRange(OutOfRange<T> value),
+  }) {
+    assert(exceedingLength != null);
+    assert(empty != null);
+    assert(multiline != null);
+    assert(listTooLong != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
+    assert(invalidUsername != null);
+    assert(usernameAlreadyExists != null);
+    assert(invalidImageUrl != null);
+    assert(invalidPrice != null);
+    assert(outOfRange != null);
+    return outOfRange(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result exceedingLength(ExceedingLength<T> value),
+    Result empty(Empty<T> value),
+    Result multiline(Multiline<T> value),
+    Result listTooLong(ListTooLong<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(InvalidPassword<T> value),
+    Result invalidUsername(InvalidUsername<T> value),
+    Result usernameAlreadyExists(UsernameAlreadyExists<T> value),
+    Result invalidImageUrl(InvalidImageUrl<T> value),
+    Result invalidPrice(InvalidPrice<T> value),
+    Result outOfRange(OutOfRange<T> value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (outOfRange != null) {
+      return outOfRange(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class OutOfRange<T> implements ValueFailure<T> {
+  const factory OutOfRange({@required T failedValue}) = _$OutOfRange<T>;
+
+  @override
+  T get failedValue;
+  @override
+  $OutOfRangeCopyWith<T, OutOfRange<T>> get copyWith;
 }
