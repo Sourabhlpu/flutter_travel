@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_travel/infrastructure/home/price_dtos.dart';
 
 import 'failures.dart';
 
@@ -41,12 +42,11 @@ Either<ValueFailure<String>, String> validateImageUrl(String input) {
     return Left(InvalidImageUrl(failedValue: input));
 }
 
-Either<ValueFailure<String>, String> validatePrice(double amount, String currency, String per) {
-  if (amount <= 0.0) {
-    return Left(InvalidPrice(failedValue: '$amount'));
+Either<ValueFailure<PriceDto>, PriceDto> validatePrice(PriceDto priceDto) {
+  if (priceDto.amount <= 0.0) {
+    return Left(InvalidPrice(failedValue: priceDto));
   } else {
-    String price = '$currency $amount/$per';
-    return Right(price);
+    return Right(priceDto);
   }
 }
 

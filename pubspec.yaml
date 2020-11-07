@@ -36,6 +36,7 @@ dev_dependencies:
   lint: ^1.2.0
   injectable_generator: ^0.4.1
   flutter_native_splash: ^0.1.9
+  json_serializable: ^3.4.0
   flutter_test:
     sdk: flutter
 

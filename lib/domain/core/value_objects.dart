@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_travel/domain/core/value_validators.dart';
+import 'package:flutter_travel/infrastructure/home/price_dtos.dart';
 import 'package:uuid/uuid.dart';
 import 'errors.dart';
 import 'failures.dart';
@@ -67,15 +68,15 @@ class ImageUrl extends ValueObject<String> {
   }
 }
 
-class Price extends ValueObject<String>{
+class Price extends ValueObject<PriceDto>{
   @override
-  final Either<ValueFailure<String>, String> value;
+  final Either<ValueFailure<PriceDto>, PriceDto> value;
 
   const Price._(this.value);
 
-  factory Price({String currency = '\$', double amount, String per = 'night'}){
-    assert(amount != null);
-        return Price._(validatePrice(amount, currency, per));
+  factory Price(PriceDto priceDto){
+    assert(priceDto != null);
+        return Price._(validatePrice(priceDto));
   }
 }
 
