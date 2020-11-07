@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'room_dtos.dart';
 
@@ -12,9 +12,11 @@ RoomDto _$RoomDtoFromJson(Map<String, dynamic> json) {
   return _RoomDto.fromJson(json);
 }
 
+/// @nodoc
 class _$RoomDtoTearOff {
   const _$RoomDtoTearOff();
 
+// ignore: unused_element
   _RoomDto call(
       {@JsonKey(ignore: true) String id,
       @required String imageUrl,
@@ -33,11 +35,18 @@ class _$RoomDtoTearOff {
       rating: rating,
     );
   }
+
+// ignore: unused_element
+  RoomDto fromJson(Map<String, Object> json) {
+    return RoomDto.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $RoomDto = _$RoomDtoTearOff();
 
+/// @nodoc
 mixin _$RoomDto {
   @JsonKey(ignore: true)
   String get id;
@@ -52,6 +61,7 @@ mixin _$RoomDto {
   $RoomDtoCopyWith<RoomDto> get copyWith;
 }
 
+/// @nodoc
 abstract class $RoomDtoCopyWith<$Res> {
   factory $RoomDtoCopyWith(RoomDto value, $Res Function(RoomDto) then) =
       _$RoomDtoCopyWithImpl<$Res>;
@@ -65,6 +75,7 @@ abstract class $RoomDtoCopyWith<$Res> {
       num rating});
 }
 
+/// @nodoc
 class _$RoomDtoCopyWithImpl<$Res> implements $RoomDtoCopyWith<$Res> {
   _$RoomDtoCopyWithImpl(this._value, this._then);
 
@@ -94,6 +105,7 @@ class _$RoomDtoCopyWithImpl<$Res> implements $RoomDtoCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$RoomDtoCopyWith<$Res> implements $RoomDtoCopyWith<$Res> {
   factory _$RoomDtoCopyWith(_RoomDto value, $Res Function(_RoomDto) then) =
       __$RoomDtoCopyWithImpl<$Res>;
@@ -108,6 +120,7 @@ abstract class _$RoomDtoCopyWith<$Res> implements $RoomDtoCopyWith<$Res> {
       num rating});
 }
 
+/// @nodoc
 class __$RoomDtoCopyWithImpl<$Res> extends _$RoomDtoCopyWithImpl<$Res>
     implements _$RoomDtoCopyWith<$Res> {
   __$RoomDtoCopyWithImpl(_RoomDto _value, $Res Function(_RoomDto) _then)
@@ -139,6 +152,8 @@ class __$RoomDtoCopyWithImpl<$Res> extends _$RoomDtoCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_RoomDto extends _RoomDto {
   const _$_RoomDto(
       {@JsonKey(ignore: true) this.id,

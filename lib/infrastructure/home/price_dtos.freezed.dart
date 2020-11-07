@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'price_dtos.dart';
 
@@ -9,9 +9,11 @@ part of 'price_dtos.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$PriceDtoTearOff {
   const _$PriceDtoTearOff();
 
+// ignore: unused_element
   _PriceDto call(
       {@required String currency,
       @required String unit,
@@ -24,9 +26,11 @@ class _$PriceDtoTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $PriceDto = _$PriceDtoTearOff();
 
+/// @nodoc
 mixin _$PriceDto {
   String get currency;
   String get unit;
@@ -35,12 +39,14 @@ mixin _$PriceDto {
   $PriceDtoCopyWith<PriceDto> get copyWith;
 }
 
+/// @nodoc
 abstract class $PriceDtoCopyWith<$Res> {
   factory $PriceDtoCopyWith(PriceDto value, $Res Function(PriceDto) then) =
       _$PriceDtoCopyWithImpl<$Res>;
   $Res call({String currency, String unit, num amount});
 }
 
+/// @nodoc
 class _$PriceDtoCopyWithImpl<$Res> implements $PriceDtoCopyWith<$Res> {
   _$PriceDtoCopyWithImpl(this._value, this._then);
 
@@ -62,6 +68,7 @@ class _$PriceDtoCopyWithImpl<$Res> implements $PriceDtoCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$PriceDtoCopyWith<$Res> implements $PriceDtoCopyWith<$Res> {
   factory _$PriceDtoCopyWith(_PriceDto value, $Res Function(_PriceDto) then) =
       __$PriceDtoCopyWithImpl<$Res>;
@@ -69,6 +76,7 @@ abstract class _$PriceDtoCopyWith<$Res> implements $PriceDtoCopyWith<$Res> {
   $Res call({String currency, String unit, num amount});
 }
 
+/// @nodoc
 class __$PriceDtoCopyWithImpl<$Res> extends _$PriceDtoCopyWithImpl<$Res>
     implements _$PriceDtoCopyWith<$Res> {
   __$PriceDtoCopyWithImpl(_PriceDto _value, $Res Function(_PriceDto) _then)
@@ -91,6 +99,7 @@ class __$PriceDtoCopyWithImpl<$Res> extends _$PriceDtoCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_PriceDto extends _PriceDto {
   const _$_PriceDto(
       {@required this.currency, @required this.unit, @required this.amount})

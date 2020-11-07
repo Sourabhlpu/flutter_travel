@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_travel/application/auth/auth_bloc.dart';
 import 'package:flutter_travel/injection.dart';
-import 'package:flutter_travel/presentation/routes/route.gr.dart';
+import 'package:flutter_travel/presentation/routes/route.gr.dart' as app_router;
 
 
 class AppWidget extends StatelessWidget {
@@ -26,9 +26,7 @@ class AppWidget extends StatelessWidget {
         child: MaterialApp(
           title: 'Travel',
           debugShowCheckedModeBanner: false,
-          builder: ExtendedNavigator(
-            router: Router(),
-          ),
+          builder: ExtendedNavigator.builder(router: app_router.Router()),
           theme: ThemeData.light().copyWith(
             primaryColor: Colors.deepPurple,
             accentColor: Colors.deepPurpleAccent

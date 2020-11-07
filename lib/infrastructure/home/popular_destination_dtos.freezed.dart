@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'popular_destination_dtos.dart';
 
@@ -13,9 +13,11 @@ PopularDestinationDto _$PopularDestinationDtoFromJson(
   return _PopularDestinationDto.fromJson(json);
 }
 
+/// @nodoc
 class _$PopularDestinationDtoTearOff {
   const _$PopularDestinationDtoTearOff();
 
+// ignore: unused_element
   _PopularDestinationDto call(
       {@JsonKey(ignore: true) String id,
       @required String imageUrl,
@@ -26,11 +28,18 @@ class _$PopularDestinationDtoTearOff {
       title: title,
     );
   }
+
+// ignore: unused_element
+  PopularDestinationDto fromJson(Map<String, Object> json) {
+    return PopularDestinationDto.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $PopularDestinationDto = _$PopularDestinationDtoTearOff();
 
+/// @nodoc
 mixin _$PopularDestinationDto {
   @JsonKey(ignore: true)
   String get id;
@@ -41,6 +50,7 @@ mixin _$PopularDestinationDto {
   $PopularDestinationDtoCopyWith<PopularDestinationDto> get copyWith;
 }
 
+/// @nodoc
 abstract class $PopularDestinationDtoCopyWith<$Res> {
   factory $PopularDestinationDtoCopyWith(PopularDestinationDto value,
           $Res Function(PopularDestinationDto) then) =
@@ -48,6 +58,7 @@ abstract class $PopularDestinationDtoCopyWith<$Res> {
   $Res call({@JsonKey(ignore: true) String id, String imageUrl, String title});
 }
 
+/// @nodoc
 class _$PopularDestinationDtoCopyWithImpl<$Res>
     implements $PopularDestinationDtoCopyWith<$Res> {
   _$PopularDestinationDtoCopyWithImpl(this._value, this._then);
@@ -70,6 +81,7 @@ class _$PopularDestinationDtoCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$PopularDestinationDtoCopyWith<$Res>
     implements $PopularDestinationDtoCopyWith<$Res> {
   factory _$PopularDestinationDtoCopyWith(_PopularDestinationDto value,
@@ -79,6 +91,7 @@ abstract class _$PopularDestinationDtoCopyWith<$Res>
   $Res call({@JsonKey(ignore: true) String id, String imageUrl, String title});
 }
 
+/// @nodoc
 class __$PopularDestinationDtoCopyWithImpl<$Res>
     extends _$PopularDestinationDtoCopyWithImpl<$Res>
     implements _$PopularDestinationDtoCopyWith<$Res> {
@@ -104,8 +117,9 @@ class __$PopularDestinationDtoCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
-class _$_PopularDestinationDto extends _PopularDestinationDto
-    with DiagnosticableTreeMixin {
+
+/// @nodoc
+class _$_PopularDestinationDto extends _PopularDestinationDto {
   const _$_PopularDestinationDto(
       {@JsonKey(ignore: true) this.id,
       @required this.imageUrl,
@@ -126,18 +140,8 @@ class _$_PopularDestinationDto extends _PopularDestinationDto
   final String title;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'PopularDestinationDto(id: $id, imageUrl: $imageUrl, title: $title)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'PopularDestinationDto'))
-      ..add(DiagnosticsProperty('id', id))
-      ..add(DiagnosticsProperty('imageUrl', imageUrl))
-      ..add(DiagnosticsProperty('title', title));
   }
 
   @override

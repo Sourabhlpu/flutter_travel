@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'recommendation.dart';
 
@@ -9,9 +9,11 @@ part of 'recommendation.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$RecommendationTearOff {
   const _$RecommendationTearOff();
 
+// ignore: unused_element
   _Recommendation call(
       {@required UniqueId id,
       @required ImageUrl imageUrl,
@@ -28,9 +30,11 @@ class _$RecommendationTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $Recommendation = _$RecommendationTearOff();
 
+/// @nodoc
 mixin _$Recommendation {
   UniqueId get id;
   ImageUrl get imageUrl;
@@ -41,6 +45,7 @@ mixin _$Recommendation {
   $RecommendationCopyWith<Recommendation> get copyWith;
 }
 
+/// @nodoc
 abstract class $RecommendationCopyWith<$Res> {
   factory $RecommendationCopyWith(
           Recommendation value, $Res Function(Recommendation) then) =
@@ -53,6 +58,7 @@ abstract class $RecommendationCopyWith<$Res> {
       RecommendationDescription description});
 }
 
+/// @nodoc
 class _$RecommendationCopyWithImpl<$Res>
     implements $RecommendationCopyWith<$Res> {
   _$RecommendationCopyWithImpl(this._value, this._then);
@@ -81,6 +87,7 @@ class _$RecommendationCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$RecommendationCopyWith<$Res>
     implements $RecommendationCopyWith<$Res> {
   factory _$RecommendationCopyWith(
@@ -95,6 +102,7 @@ abstract class _$RecommendationCopyWith<$Res>
       RecommendationDescription description});
 }
 
+/// @nodoc
 class __$RecommendationCopyWithImpl<$Res>
     extends _$RecommendationCopyWithImpl<$Res>
     implements _$RecommendationCopyWith<$Res> {
@@ -125,6 +133,7 @@ class __$RecommendationCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_Recommendation extends _Recommendation {
   const _$_Recommendation(
       {@required this.id,

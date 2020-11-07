@@ -15,10 +15,9 @@ part 'auth_form_state.dart';
 @injectable
 class AuthFormBloc extends Bloc<AuthFormEvent, AuthFormState> {
   final IAuthFacade _authFacade;
-  AuthFormBloc(this._authFacade);
+  AuthFormBloc(this._authFacade) : super(AuthFormState.initial());
   bool hasUsernameField = false;
-  @override
-  AuthFormState get initialState => AuthFormState.initial();
+
 
   @override
   Stream<AuthFormState> mapEventToState(

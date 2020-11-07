@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'search.dart';
 
@@ -9,9 +9,11 @@ part of 'search.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$SearchTearOff {
   const _$SearchTearOff();
 
+// ignore: unused_element
   _Search call(
       {@required UniqueId id,
       @required ImageUrl imageUrl,
@@ -28,9 +30,11 @@ class _$SearchTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $Search = _$SearchTearOff();
 
+/// @nodoc
 mixin _$Search {
   UniqueId get id;
   ImageUrl get imageUrl;
@@ -41,6 +45,7 @@ mixin _$Search {
   $SearchCopyWith<Search> get copyWith;
 }
 
+/// @nodoc
 abstract class $SearchCopyWith<$Res> {
   factory $SearchCopyWith(Search value, $Res Function(Search) then) =
       _$SearchCopyWithImpl<$Res>;
@@ -52,6 +57,7 @@ abstract class $SearchCopyWith<$Res> {
       Rating rating});
 }
 
+/// @nodoc
 class _$SearchCopyWithImpl<$Res> implements $SearchCopyWith<$Res> {
   _$SearchCopyWithImpl(this._value, this._then);
 
@@ -77,6 +83,7 @@ class _$SearchCopyWithImpl<$Res> implements $SearchCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$SearchCopyWith<$Res> implements $SearchCopyWith<$Res> {
   factory _$SearchCopyWith(_Search value, $Res Function(_Search) then) =
       __$SearchCopyWithImpl<$Res>;
@@ -89,6 +96,7 @@ abstract class _$SearchCopyWith<$Res> implements $SearchCopyWith<$Res> {
       Rating rating});
 }
 
+/// @nodoc
 class __$SearchCopyWithImpl<$Res> extends _$SearchCopyWithImpl<$Res>
     implements _$SearchCopyWith<$Res> {
   __$SearchCopyWithImpl(_Search _value, $Res Function(_Search) _then)
@@ -115,6 +123,7 @@ class __$SearchCopyWithImpl<$Res> extends _$SearchCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_Search extends _Search {
   const _$_Search(
       {@required this.id,

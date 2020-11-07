@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'search_dtos.dart';
 
@@ -12,9 +12,11 @@ SearchDto _$SearchDtoFromJson(Map<String, dynamic> json) {
   return _SearchDto.fromJson(json);
 }
 
+/// @nodoc
 class _$SearchDtoTearOff {
   const _$SearchDtoTearOff();
 
+// ignore: unused_element
   _SearchDto call(
       {@JsonKey(ignore: true) String id,
       @required String imageUrl,
@@ -31,11 +33,18 @@ class _$SearchDtoTearOff {
       unit: unit,
     );
   }
+
+// ignore: unused_element
+  SearchDto fromJson(Map<String, Object> json) {
+    return SearchDto.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $SearchDto = _$SearchDtoTearOff();
 
+/// @nodoc
 mixin _$SearchDto {
   @JsonKey(ignore: true)
   String get id;
@@ -49,6 +58,7 @@ mixin _$SearchDto {
   $SearchDtoCopyWith<SearchDto> get copyWith;
 }
 
+/// @nodoc
 abstract class $SearchDtoCopyWith<$Res> {
   factory $SearchDtoCopyWith(SearchDto value, $Res Function(SearchDto) then) =
       _$SearchDtoCopyWithImpl<$Res>;
@@ -61,6 +71,7 @@ abstract class $SearchDtoCopyWith<$Res> {
       String unit});
 }
 
+/// @nodoc
 class _$SearchDtoCopyWithImpl<$Res> implements $SearchDtoCopyWith<$Res> {
   _$SearchDtoCopyWithImpl(this._value, this._then);
 
@@ -88,6 +99,7 @@ class _$SearchDtoCopyWithImpl<$Res> implements $SearchDtoCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$SearchDtoCopyWith<$Res> implements $SearchDtoCopyWith<$Res> {
   factory _$SearchDtoCopyWith(
           _SearchDto value, $Res Function(_SearchDto) then) =
@@ -102,6 +114,7 @@ abstract class _$SearchDtoCopyWith<$Res> implements $SearchDtoCopyWith<$Res> {
       String unit});
 }
 
+/// @nodoc
 class __$SearchDtoCopyWithImpl<$Res> extends _$SearchDtoCopyWithImpl<$Res>
     implements _$SearchDtoCopyWith<$Res> {
   __$SearchDtoCopyWithImpl(_SearchDto _value, $Res Function(_SearchDto) _then)
@@ -131,6 +144,8 @@ class __$SearchDtoCopyWithImpl<$Res> extends _$SearchDtoCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_SearchDto extends _SearchDto {
   const _$_SearchDto(
       {@JsonKey(ignore: true) this.id,

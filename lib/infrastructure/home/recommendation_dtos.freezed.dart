@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'recommendation_dtos.dart';
 
@@ -12,9 +12,11 @@ RecommendationDto _$RecommendationDtoFromJson(Map<String, dynamic> json) {
   return _RecommendationDto.fromJson(json);
 }
 
+/// @nodoc
 class _$RecommendationDtoTearOff {
   const _$RecommendationDtoTearOff();
 
+// ignore: unused_element
   _RecommendationDto call(
       {@JsonKey(ignore: true) String id,
       @required String imageUrl,
@@ -29,11 +31,18 @@ class _$RecommendationDtoTearOff {
       description: description,
     );
   }
+
+// ignore: unused_element
+  RecommendationDto fromJson(Map<String, Object> json) {
+    return RecommendationDto.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $RecommendationDto = _$RecommendationDtoTearOff();
 
+/// @nodoc
 mixin _$RecommendationDto {
   @JsonKey(ignore: true)
   String get id;
@@ -46,6 +55,7 @@ mixin _$RecommendationDto {
   $RecommendationDtoCopyWith<RecommendationDto> get copyWith;
 }
 
+/// @nodoc
 abstract class $RecommendationDtoCopyWith<$Res> {
   factory $RecommendationDtoCopyWith(
           RecommendationDto value, $Res Function(RecommendationDto) then) =
@@ -58,6 +68,7 @@ abstract class $RecommendationDtoCopyWith<$Res> {
       String description});
 }
 
+/// @nodoc
 class _$RecommendationDtoCopyWithImpl<$Res>
     implements $RecommendationDtoCopyWith<$Res> {
   _$RecommendationDtoCopyWithImpl(this._value, this._then);
@@ -85,6 +96,7 @@ class _$RecommendationDtoCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$RecommendationDtoCopyWith<$Res>
     implements $RecommendationDtoCopyWith<$Res> {
   factory _$RecommendationDtoCopyWith(
@@ -99,6 +111,7 @@ abstract class _$RecommendationDtoCopyWith<$Res>
       String description});
 }
 
+/// @nodoc
 class __$RecommendationDtoCopyWithImpl<$Res>
     extends _$RecommendationDtoCopyWithImpl<$Res>
     implements _$RecommendationDtoCopyWith<$Res> {
@@ -129,8 +142,9 @@ class __$RecommendationDtoCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
-class _$_RecommendationDto extends _RecommendationDto
-    with DiagnosticableTreeMixin {
+
+/// @nodoc
+class _$_RecommendationDto extends _RecommendationDto {
   const _$_RecommendationDto(
       {@JsonKey(ignore: true) this.id,
       @required this.imageUrl,
@@ -159,20 +173,8 @@ class _$_RecommendationDto extends _RecommendationDto
   final String description;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'RecommendationDto(id: $id, imageUrl: $imageUrl, title: $title, type: $type, description: $description)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'RecommendationDto'))
-      ..add(DiagnosticsProperty('id', id))
-      ..add(DiagnosticsProperty('imageUrl', imageUrl))
-      ..add(DiagnosticsProperty('title', title))
-      ..add(DiagnosticsProperty('type', type))
-      ..add(DiagnosticsProperty('description', description));
   }
 
   @override

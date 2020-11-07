@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'popular_destination.dart';
 
@@ -9,9 +9,11 @@ part of 'popular_destination.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$PopularDestinationTearOff {
   const _$PopularDestinationTearOff();
 
+// ignore: unused_element
   _PopularDestination call(
       {@required UniqueId id,
       @required ImageUrl imageUrl,
@@ -24,9 +26,11 @@ class _$PopularDestinationTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $PopularDestination = _$PopularDestinationTearOff();
 
+/// @nodoc
 mixin _$PopularDestination {
   UniqueId get id;
   ImageUrl get imageUrl;
@@ -35,6 +39,7 @@ mixin _$PopularDestination {
   $PopularDestinationCopyWith<PopularDestination> get copyWith;
 }
 
+/// @nodoc
 abstract class $PopularDestinationCopyWith<$Res> {
   factory $PopularDestinationCopyWith(
           PopularDestination value, $Res Function(PopularDestination) then) =
@@ -42,6 +47,7 @@ abstract class $PopularDestinationCopyWith<$Res> {
   $Res call({UniqueId id, ImageUrl imageUrl, PopularDestinationTitle title});
 }
 
+/// @nodoc
 class _$PopularDestinationCopyWithImpl<$Res>
     implements $PopularDestinationCopyWith<$Res> {
   _$PopularDestinationCopyWithImpl(this._value, this._then);
@@ -64,6 +70,7 @@ class _$PopularDestinationCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$PopularDestinationCopyWith<$Res>
     implements $PopularDestinationCopyWith<$Res> {
   factory _$PopularDestinationCopyWith(
@@ -73,6 +80,7 @@ abstract class _$PopularDestinationCopyWith<$Res>
   $Res call({UniqueId id, ImageUrl imageUrl, PopularDestinationTitle title});
 }
 
+/// @nodoc
 class __$PopularDestinationCopyWithImpl<$Res>
     extends _$PopularDestinationCopyWithImpl<$Res>
     implements _$PopularDestinationCopyWith<$Res> {
@@ -97,6 +105,7 @@ class __$PopularDestinationCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_PopularDestination extends _PopularDestination {
   const _$_PopularDestination(
       {@required this.id, @required this.imageUrl, @required this.title})

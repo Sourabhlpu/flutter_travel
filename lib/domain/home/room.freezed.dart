@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'room.dart';
 
@@ -9,9 +9,11 @@ part of 'room.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$RoomTearOff {
   const _$RoomTearOff();
 
+// ignore: unused_element
   _Room call(
       {@required UniqueId id,
       @required ImageUrl imageUrl,
@@ -28,9 +30,11 @@ class _$RoomTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $Room = _$RoomTearOff();
 
+/// @nodoc
 mixin _$Room {
   UniqueId get id;
   ImageUrl get imageUrl;
@@ -41,6 +45,7 @@ mixin _$Room {
   $RoomCopyWith<Room> get copyWith;
 }
 
+/// @nodoc
 abstract class $RoomCopyWith<$Res> {
   factory $RoomCopyWith(Room value, $Res Function(Room) then) =
       _$RoomCopyWithImpl<$Res>;
@@ -52,6 +57,7 @@ abstract class $RoomCopyWith<$Res> {
       Rating rating});
 }
 
+/// @nodoc
 class _$RoomCopyWithImpl<$Res> implements $RoomCopyWith<$Res> {
   _$RoomCopyWithImpl(this._value, this._then);
 
@@ -77,6 +83,7 @@ class _$RoomCopyWithImpl<$Res> implements $RoomCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$RoomCopyWith<$Res> implements $RoomCopyWith<$Res> {
   factory _$RoomCopyWith(_Room value, $Res Function(_Room) then) =
       __$RoomCopyWithImpl<$Res>;
@@ -89,6 +96,7 @@ abstract class _$RoomCopyWith<$Res> implements $RoomCopyWith<$Res> {
       Rating rating});
 }
 
+/// @nodoc
 class __$RoomCopyWithImpl<$Res> extends _$RoomCopyWithImpl<$Res>
     implements _$RoomCopyWith<$Res> {
   __$RoomCopyWithImpl(_Room _value, $Res Function(_Room) _then)
@@ -115,6 +123,7 @@ class __$RoomCopyWithImpl<$Res> extends _$RoomCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_Room extends _Room {
   const _$_Room(
       {@required this.id,

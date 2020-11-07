@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'auth_form_bloc.dart';
 
@@ -9,39 +9,47 @@ part of 'auth_form_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$AuthFormEventTearOff {
   const _$AuthFormEventTearOff();
 
+// ignore: unused_element
   EmailChanged emailChanged(String emailStr) {
     return EmailChanged(
       emailStr,
     );
   }
 
+// ignore: unused_element
   PasswordChanged passwordChanged(String passwordStr) {
     return PasswordChanged(
       passwordStr,
     );
   }
 
+// ignore: unused_element
   UsernameChanged usernameChanged(String usernameStr) {
     return UsernameChanged(
       usernameStr,
     );
   }
 
+// ignore: unused_element
   RegisterWithEmailAndPasswordPressed registerWithEmailAndPasswordPressed() {
     return const RegisterWithEmailAndPasswordPressed();
   }
 
+// ignore: unused_element
   LoginWithEmailAndPasswordPressed loginWithEmailAndPasswordPressed() {
     return const LoginWithEmailAndPasswordPressed();
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $AuthFormEvent = _$AuthFormEventTearOff();
 
+/// @nodoc
 mixin _$AuthFormEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
@@ -85,12 +93,14 @@ mixin _$AuthFormEvent {
   });
 }
 
+/// @nodoc
 abstract class $AuthFormEventCopyWith<$Res> {
   factory $AuthFormEventCopyWith(
           AuthFormEvent value, $Res Function(AuthFormEvent) then) =
       _$AuthFormEventCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$AuthFormEventCopyWithImpl<$Res>
     implements $AuthFormEventCopyWith<$Res> {
   _$AuthFormEventCopyWithImpl(this._value, this._then);
@@ -100,6 +110,7 @@ class _$AuthFormEventCopyWithImpl<$Res>
   final $Res Function(AuthFormEvent) _then;
 }
 
+/// @nodoc
 abstract class $EmailChangedCopyWith<$Res> {
   factory $EmailChangedCopyWith(
           EmailChanged value, $Res Function(EmailChanged) then) =
@@ -107,6 +118,7 @@ abstract class $EmailChangedCopyWith<$Res> {
   $Res call({String emailStr});
 }
 
+/// @nodoc
 class _$EmailChangedCopyWithImpl<$Res> extends _$AuthFormEventCopyWithImpl<$Res>
     implements $EmailChangedCopyWith<$Res> {
   _$EmailChangedCopyWithImpl(
@@ -126,6 +138,7 @@ class _$EmailChangedCopyWithImpl<$Res> extends _$AuthFormEventCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$EmailChanged implements EmailChanged {
   const _$EmailChanged(this.emailStr) : assert(emailStr != null);
 
@@ -236,6 +249,7 @@ abstract class EmailChanged implements AuthFormEvent {
   $EmailChangedCopyWith<EmailChanged> get copyWith;
 }
 
+/// @nodoc
 abstract class $PasswordChangedCopyWith<$Res> {
   factory $PasswordChangedCopyWith(
           PasswordChanged value, $Res Function(PasswordChanged) then) =
@@ -243,6 +257,7 @@ abstract class $PasswordChangedCopyWith<$Res> {
   $Res call({String passwordStr});
 }
 
+/// @nodoc
 class _$PasswordChangedCopyWithImpl<$Res>
     extends _$AuthFormEventCopyWithImpl<$Res>
     implements $PasswordChangedCopyWith<$Res> {
@@ -263,6 +278,7 @@ class _$PasswordChangedCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$PasswordChanged implements PasswordChanged {
   const _$PasswordChanged(this.passwordStr) : assert(passwordStr != null);
 
@@ -373,6 +389,7 @@ abstract class PasswordChanged implements AuthFormEvent {
   $PasswordChangedCopyWith<PasswordChanged> get copyWith;
 }
 
+/// @nodoc
 abstract class $UsernameChangedCopyWith<$Res> {
   factory $UsernameChangedCopyWith(
           UsernameChanged value, $Res Function(UsernameChanged) then) =
@@ -380,6 +397,7 @@ abstract class $UsernameChangedCopyWith<$Res> {
   $Res call({String usernameStr});
 }
 
+/// @nodoc
 class _$UsernameChangedCopyWithImpl<$Res>
     extends _$AuthFormEventCopyWithImpl<$Res>
     implements $UsernameChangedCopyWith<$Res> {
@@ -400,6 +418,7 @@ class _$UsernameChangedCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$UsernameChanged implements UsernameChanged {
   const _$UsernameChanged(this.usernameStr) : assert(usernameStr != null);
 
@@ -510,6 +529,7 @@ abstract class UsernameChanged implements AuthFormEvent {
   $UsernameChangedCopyWith<UsernameChanged> get copyWith;
 }
 
+/// @nodoc
 abstract class $RegisterWithEmailAndPasswordPressedCopyWith<$Res> {
   factory $RegisterWithEmailAndPasswordPressedCopyWith(
           RegisterWithEmailAndPasswordPressed value,
@@ -517,6 +537,7 @@ abstract class $RegisterWithEmailAndPasswordPressedCopyWith<$Res> {
       _$RegisterWithEmailAndPasswordPressedCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$RegisterWithEmailAndPasswordPressedCopyWithImpl<$Res>
     extends _$AuthFormEventCopyWithImpl<$Res>
     implements $RegisterWithEmailAndPasswordPressedCopyWith<$Res> {
@@ -530,6 +551,7 @@ class _$RegisterWithEmailAndPasswordPressedCopyWithImpl<$Res>
       super._value as RegisterWithEmailAndPasswordPressed;
 }
 
+/// @nodoc
 class _$RegisterWithEmailAndPasswordPressed
     implements RegisterWithEmailAndPasswordPressed {
   const _$RegisterWithEmailAndPasswordPressed();
@@ -628,6 +650,7 @@ abstract class RegisterWithEmailAndPasswordPressed implements AuthFormEvent {
       _$RegisterWithEmailAndPasswordPressed;
 }
 
+/// @nodoc
 abstract class $LoginWithEmailAndPasswordPressedCopyWith<$Res> {
   factory $LoginWithEmailAndPasswordPressedCopyWith(
           LoginWithEmailAndPasswordPressed value,
@@ -635,6 +658,7 @@ abstract class $LoginWithEmailAndPasswordPressedCopyWith<$Res> {
       _$LoginWithEmailAndPasswordPressedCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$LoginWithEmailAndPasswordPressedCopyWithImpl<$Res>
     extends _$AuthFormEventCopyWithImpl<$Res>
     implements $LoginWithEmailAndPasswordPressedCopyWith<$Res> {
@@ -648,6 +672,7 @@ class _$LoginWithEmailAndPasswordPressedCopyWithImpl<$Res>
       super._value as LoginWithEmailAndPasswordPressed;
 }
 
+/// @nodoc
 class _$LoginWithEmailAndPasswordPressed
     implements LoginWithEmailAndPasswordPressed {
   const _$LoginWithEmailAndPasswordPressed();
@@ -746,9 +771,11 @@ abstract class LoginWithEmailAndPasswordPressed implements AuthFormEvent {
       _$LoginWithEmailAndPasswordPressed;
 }
 
+/// @nodoc
 class _$AuthFormStateTearOff {
   const _$AuthFormStateTearOff();
 
+// ignore: unused_element
   _AuthFormState call(
       {@required Username username,
       @required EmailAddress emailAddress,
@@ -771,9 +798,11 @@ class _$AuthFormStateTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $AuthFormState = _$AuthFormStateTearOff();
 
+/// @nodoc
 mixin _$AuthFormState {
   Username get username;
   EmailAddress get emailAddress;
@@ -787,6 +816,7 @@ mixin _$AuthFormState {
   $AuthFormStateCopyWith<AuthFormState> get copyWith;
 }
 
+/// @nodoc
 abstract class $AuthFormStateCopyWith<$Res> {
   factory $AuthFormStateCopyWith(
           AuthFormState value, $Res Function(AuthFormState) then) =
@@ -802,6 +832,7 @@ abstract class $AuthFormStateCopyWith<$Res> {
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
 }
 
+/// @nodoc
 class _$AuthFormStateCopyWithImpl<$Res>
     implements $AuthFormStateCopyWith<$Res> {
   _$AuthFormStateCopyWithImpl(this._value, this._then);
@@ -844,6 +875,7 @@ class _$AuthFormStateCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$AuthFormStateCopyWith<$Res>
     implements $AuthFormStateCopyWith<$Res> {
   factory _$AuthFormStateCopyWith(
@@ -861,6 +893,7 @@ abstract class _$AuthFormStateCopyWith<$Res>
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
 }
 
+/// @nodoc
 class __$AuthFormStateCopyWithImpl<$Res>
     extends _$AuthFormStateCopyWithImpl<$Res>
     implements _$AuthFormStateCopyWith<$Res> {
@@ -905,6 +938,7 @@ class __$AuthFormStateCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_AuthFormState implements _AuthFormState {
   const _$_AuthFormState(
       {@required this.username,
