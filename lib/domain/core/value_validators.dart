@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_travel/infrastructure/home/price_dtos.dart';
 
 import 'failures.dart';

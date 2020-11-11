@@ -13,6 +13,7 @@ _$_SearchDto _$_$_SearchDtoFromJson(Map<String, dynamic> json) {
     amount: json['amount'] as num,
     currency: json['currency'] as String,
     unit: json['unit'] as String,
+    rating: json['rating'] as num,
   );
 }
 
@@ -23,4 +24,5 @@ Map<String, dynamic> _$_$_SearchDtoToJson(_$_SearchDto instance) =>
       'amount': instance.amount,
       'currency': instance.currency,
       'unit': instance.unit,
+      'rating': instance.rating,
     };

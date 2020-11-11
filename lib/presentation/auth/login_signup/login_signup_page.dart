@@ -4,7 +4,6 @@ import 'package:flutter_travel/application/auth/auth_form/auth_form_bloc.dart';
 import 'package:flutter_travel/injection.dart';
 import 'package:flutter_travel/presentation/widgets/login_form.dart';
 import 'package:flutter_travel/presentation/widgets/signup_form.dart';
-import 'package:flutter_travel/presentation/widgets/signup_form.dart';
 
 class LoginSignUpPage extends StatelessWidget {
   final bool openLogin;

@@ -23,7 +23,7 @@ class _AuthTemplateState extends State<AuthTemplate>
   Animation animation1;
   Animation animation2;
   Animation animation3;
-  final double MAX_VERTICAL_OFFSET = -80;
+  static const double MAX_VERTICAL_OFFSET = -80;
 
   @override
   void initState() {
@@ -64,6 +64,7 @@ class _AuthTemplateState extends State<AuthTemplate>
               ExtendedNavigator.of(context).pop(context);
               FlushbarHelper.createError(
                 message: failure.map(
+                  usernameAlreadyInUse: (_) => 'Username Already in use',
                   cancelledByUser: (_) => 'Cancelled',
                   serverError: (_) => 'Server Error',
                   emailAlreadyInUse: (_) => 'Email Already in use',

@@ -23,7 +23,8 @@ class _$SearchDtoTearOff {
       @required String title,
       @required num amount,
       @required String currency,
-      @required String unit}) {
+      @required String unit,
+      @required num rating}) {
     return _SearchDto(
       id: id,
       imageUrl: imageUrl,
@@ -31,6 +32,7 @@ class _$SearchDtoTearOff {
       amount: amount,
       currency: currency,
       unit: unit,
+      rating: rating,
     );
   }
 
@@ -53,6 +55,7 @@ mixin _$SearchDto {
   num get amount;
   String get currency;
   String get unit;
+  num get rating;
 
   Map<String, dynamic> toJson();
   $SearchDtoCopyWith<SearchDto> get copyWith;
@@ -68,7 +71,8 @@ abstract class $SearchDtoCopyWith<$Res> {
       String title,
       num amount,
       String currency,
-      String unit});
+      String unit,
+      num rating});
 }
 
 /// @nodoc
@@ -87,6 +91,7 @@ class _$SearchDtoCopyWithImpl<$Res> implements $SearchDtoCopyWith<$Res> {
     Object amount = freezed,
     Object currency = freezed,
     Object unit = freezed,
+    Object rating = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
@@ -95,6 +100,7 @@ class _$SearchDtoCopyWithImpl<$Res> implements $SearchDtoCopyWith<$Res> {
       amount: amount == freezed ? _value.amount : amount as num,
       currency: currency == freezed ? _value.currency : currency as String,
       unit: unit == freezed ? _value.unit : unit as String,
+      rating: rating == freezed ? _value.rating : rating as num,
     ));
   }
 }
@@ -111,7 +117,8 @@ abstract class _$SearchDtoCopyWith<$Res> implements $SearchDtoCopyWith<$Res> {
       String title,
       num amount,
       String currency,
-      String unit});
+      String unit,
+      num rating});
 }
 
 /// @nodoc
@@ -131,6 +138,7 @@ class __$SearchDtoCopyWithImpl<$Res> extends _$SearchDtoCopyWithImpl<$Res>
     Object amount = freezed,
     Object currency = freezed,
     Object unit = freezed,
+    Object rating = freezed,
   }) {
     return _then(_SearchDto(
       id: id == freezed ? _value.id : id as String,
@@ -139,6 +147,7 @@ class __$SearchDtoCopyWithImpl<$Res> extends _$SearchDtoCopyWithImpl<$Res>
       amount: amount == freezed ? _value.amount : amount as num,
       currency: currency == freezed ? _value.currency : currency as String,
       unit: unit == freezed ? _value.unit : unit as String,
+      rating: rating == freezed ? _value.rating : rating as num,
     ));
   }
 }
@@ -153,12 +162,14 @@ class _$_SearchDto extends _SearchDto {
       @required this.title,
       @required this.amount,
       @required this.currency,
-      @required this.unit})
+      @required this.unit,
+      @required this.rating})
       : assert(imageUrl != null),
         assert(title != null),
         assert(amount != null),
         assert(currency != null),
         assert(unit != null),
+        assert(rating != null),
         super._();
 
   factory _$_SearchDto.fromJson(Map<String, dynamic> json) =>
@@ -177,10 +188,12 @@ class _$_SearchDto extends _SearchDto {
   final String currency;
   @override
   final String unit;
+  @override
+  final num rating;
 
   @override
   String toString() {
-    return 'SearchDto(id: $id, imageUrl: $imageUrl, title: $title, amount: $amount, currency: $currency, unit: $unit)';
+    return 'SearchDto(id: $id, imageUrl: $imageUrl, title: $title, amount: $amount, currency: $currency, unit: $unit, rating: $rating)';
   }
 
   @override
@@ -200,7 +213,9 @@ class _$_SearchDto extends _SearchDto {
                 const DeepCollectionEquality()
                     .equals(other.currency, currency)) &&
             (identical(other.unit, unit) ||
-                const DeepCollectionEquality().equals(other.unit, unit)));
+                const DeepCollectionEquality().equals(other.unit, unit)) &&
+            (identical(other.rating, rating) ||
+                const DeepCollectionEquality().equals(other.rating, rating)));
   }
 
   @override
@@ -211,7 +226,8 @@ class _$_SearchDto extends _SearchDto {
       const DeepCollectionEquality().hash(title) ^
       const DeepCollectionEquality().hash(amount) ^
       const DeepCollectionEquality().hash(currency) ^
-      const DeepCollectionEquality().hash(unit);
+      const DeepCollectionEquality().hash(unit) ^
+      const DeepCollectionEquality().hash(rating);
 
   @override
   _$SearchDtoCopyWith<_SearchDto> get copyWith =>
@@ -231,7 +247,8 @@ abstract class _SearchDto extends SearchDto {
       @required String title,
       @required num amount,
       @required String currency,
-      @required String unit}) = _$_SearchDto;
+      @required String unit,
+      @required num rating}) = _$_SearchDto;
 
   factory _SearchDto.fromJson(Map<String, dynamic> json) =
       _$_SearchDto.fromJson;
@@ -249,6 +266,8 @@ abstract class _SearchDto extends SearchDto {
   String get currency;
   @override
   String get unit;
+  @override
+  num get rating;
   @override
   _$SearchDtoCopyWith<_SearchDto> get copyWith;
 }

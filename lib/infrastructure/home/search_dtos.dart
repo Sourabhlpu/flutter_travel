@@ -20,7 +20,8 @@ abstract class SearchDto implements _$SearchDto {
     @required String title,
     @required num amount,
     @required String currency,
-    @required String unit
+    @required String unit,
+    @required num rating
   }) = _SearchDto;
 
 
@@ -31,7 +32,8 @@ abstract class SearchDto implements _$SearchDto {
         title: search.title.getOrCrash(),
         amount: search.price.getOrCrash().amount,
         currency: search.price.getOrCrash().currency,
-        unit: search.price.getOrCrash().unit
+        unit: search.price.getOrCrash().unit,
+      rating: search.rating.getOrCrash()
     );
   }
   Search toDomain(){
@@ -39,6 +41,7 @@ abstract class SearchDto implements _$SearchDto {
         id: UniqueId.fromUniqueString(id),
         imageUrl: ImageUrl(imageUrl),
         title: SearchTitle(title),
+        rating: Rating(rating),
         price: Price(PriceDto(currency: currency, unit: unit, amount: amount))
     );
   }

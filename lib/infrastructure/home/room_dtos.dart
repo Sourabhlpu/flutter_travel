@@ -3,7 +3,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_travel/domain/core/value_objects.dart';
 import 'package:flutter_travel/domain/home/room.dart';
-import 'package:flutter_travel/domain/home/search.dart';
 import 'package:flutter_travel/domain/home/value_objects.dart';
 import 'package:flutter_travel/infrastructure/home/price_dtos.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

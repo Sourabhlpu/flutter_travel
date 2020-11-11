@@ -13,6 +13,7 @@ import 'application/auth/auth_bloc.dart';
 import 'application/auth/auth_form/auth_form_bloc.dart';
 import 'infrastructure/auth/firebase_auth_facade.dart';
 import 'infrastructure/core/firebase_injectable_module.dart';
+import 'application/home/home_bloc.dart';
 import 'infrastructure/home/home_repository.dart';
 import 'domain/auth/i_auth_facade.dart';
 import 'domain/home/i_home_repository.dart';
@@ -34,6 +35,7 @@ GetIt $initGetIt(
   gh.lazySingleton<IHomeRepository>(() => HomeRepository(get<Firestore>()));
   gh.factory<AuthBloc>(() => AuthBloc(get<IAuthFacade>()));
   gh.factory<AuthFormBloc>(() => AuthFormBloc(get<IAuthFacade>()));
+  gh.factory<HomeBloc>(() => HomeBloc(get<IHomeRepository>()));
   return get;
 }
 
