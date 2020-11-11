@@ -15,12 +15,14 @@ class _BottomAppBarWidgetState extends State<BottomAppBarWidget>
   void initState() {
     super.initState();
     _currentSelectedTab = 0;
-    _animationController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 1000));
-    _positionAnimation =
-    Tween<double>(begin: -1, end: -1).animate(_animationController)
+    _animationController =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 200));
+    _positionAnimation = Tween<double>(begin: -1, end: -1).animate(
+        CurvedAnimation(parent: _animationController, curve: Curves.decelerate))
       ..addListener(() {
-        setState(() {});
+        setState(() {
+          print('animation value ${_positionAnimation.value}');
+        });
       });
   }
 
@@ -54,7 +56,7 @@ class _BottomAppBarWidgetState extends State<BottomAppBarWidget>
       height: 8,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: Colors.purple,
+        color: Theme.of(context).primaryColor,
       ),
     );
   }
@@ -68,45 +70,61 @@ class _BottomAppBarWidgetState extends State<BottomAppBarWidget>
             runAnimation(-1.0);
             _currentSelectedTab = 0;
           },
-          icon: Icon(Icons.home),
+          icon: Icon(Icons.home,
+              color: _currentSelectedTab == 0
+                  ? Theme.of(context).primaryColor
+                  : Colors.grey
+          ),
         ),
         IconButton(
           onPressed: () {
             runAnimation(-0.5);
             _currentSelectedTab = 1;
           },
-          icon: Icon(Icons.menu),
+          icon: Icon(Icons.menu,
+              color: _currentSelectedTab == 1
+                  ? Theme.of(context).primaryColor
+                  : Colors.grey
+          ),
         ),
         IconButton(
           onPressed: () {
             runAnimation(0.0);
             _currentSelectedTab = 2;
           },
-          icon: Icon(Icons.camera),
-        ),
+          icon: Icon(Icons.camera,
+              color: _currentSelectedTab == 2
+                  ? Theme.of(context).primaryColor
+                  : Colors.grey)),
         IconButton(
           onPressed: () {
             runAnimation(0.5);
             _currentSelectedTab = 3;
           },
-          icon: Icon(Icons.party_mode),
-        ),
+          icon: Icon(Icons.party_mode,
+              color: _currentSelectedTab == 3
+                  ? Theme.of(context).primaryColor
+                  : Colors.grey)),
         IconButton(
-          onPressed: () {
-            runAnimation(1.0);
-            _currentSelectedTab = 4;
-          },
-          icon: Icon(Icons.account_balance),
-        ),
+            onPressed: () {
+              runAnimation(1.0);
+              _currentSelectedTab = 4;
+            },
+            icon: Icon(Icons.account_balance,
+                color: _currentSelectedTab == 4
+                    ? Theme.of(context).primaryColor
+                    : Colors.grey)),
       ],
     );
   }
 
   runAnimation(double endPosition) {
+    _animationController.stop();
     _positionAnimation =
         Tween<double>(begin: getPositionForSelectedTab(), end: endPosition)
-            .animate(_animationController);
-    _animationController.forward(from: getPositionForSelectedTab());
+            .animate(CurvedAnimation(
+                parent: _animationController, curve: Curves.decelerate));
+    _animationController.forward(from: 0);
   }
 
   getPositionForSelectedTab() {
