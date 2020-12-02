@@ -42,6 +42,6 @@ abstract class RecommendationDto implements _$RecommendationDto {
       _$RecommendationDtoFromJson(json);
 
   factory RecommendationDto.fromFirestore(DocumentSnapshot doc) {
-    return RecommendationDto.fromJson(doc.data).copyWith(id: doc.documentID);
+    return RecommendationDto.fromJson(doc.data()).copyWith(id: doc.documentID);
   }
 }

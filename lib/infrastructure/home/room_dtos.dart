@@ -49,6 +49,6 @@ abstract class RoomDto implements _$RoomDto {
       _$RoomDtoFromJson(json);
 
   factory RoomDto.fromFirestore(DocumentSnapshot doc) {
-    return RoomDto.fromJson(doc.data).copyWith(id: doc.documentID);
+    return RoomDto.fromJson(doc.data()).copyWith(id: doc.documentID);
   }
 }

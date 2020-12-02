@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:dartz/dartz.dart';
 import 'package:flutter_travel/domain/home/home_failure.dart';
 import 'package:flutter_travel/domain/home/i_home_repository.dart';
 import 'package:flutter_travel/domain/home/popular_destination.dart';
@@ -19,35 +20,70 @@ part 'home_bloc.freezed.dart';
 @injectable
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final IHomeRepository _homeRepository;
+  StreamSubscription<Either<HomeFailure, KtList<Search>>>
+      _searchStreamSubscription;
+  StreamSubscription<Either<HomeFailure, KtList<Room>>> _roomStreamSubscription;
+  StreamSubscription<Either<HomeFailure, KtList<PopularDestination>>>
+      _popularDestinationsStreamSubscription;
+  StreamSubscription<Either<HomeFailure, KtList<Recommendation>>>
+      _recommendationsStreamSubscription;
 
   HomeBloc(this._homeRepository) : super(HomeState.initial());
 
   @override
-  Stream<HomeState> mapEventToState(HomeEvent event,) async* {
+  Stream<HomeState> mapEventToState(
+    HomeEvent event,
+  ) async* {
     yield* event.map(watchAllStarted: (e) async* {
       yield const HomeState.loadInProgress();
-      _homeRepository.watchAllSearches().listen((failureOrSearches) async* {
-        yield failureOrSearches.fold((f) => HomeState.loadFailure(f),
-                (searches) => HomeState.loadSuccessSearch(searches));
-      });
-      _homeRepository.watchAllRooms().listen((failureOrRooms) async* {
-        yield failureOrRooms.fold((f) => HomeState.loadFailure(f),
-                (rooms) => HomeState.loadSuccessRooms(rooms));
-      });
+      await _searchStreamSubscription.cancel();
+      _searchStreamSubscription = _homeRepository.watchAllSearches().listen(
+            (failureOrSearches) => add(
+              HomeEvent.searchesReceived(failureOrSearches),
+            ),
+          );
+      await _roomStreamSubscription.cancel();
+      _roomStreamSubscription = _homeRepository.watchAllRooms().listen(
+            (failureOrRooms) => add(
+              HomeEvent.roomsReceived(failureOrRooms),
+            ),
+          );
 
-      _homeRepository.watchAllPopularDestinations().listen((
-          failureOrPopularDestinations) async* {
-        yield failureOrPopularDestinations.fold((f) => HomeState.loadFailure(f),
-                (popularDestinations) =>
-                HomeState.loadSuccessPopularDestination(popularDestinations));
-      });
+      await _popularDestinationsStreamSubscription.cancel();
+      _popularDestinationsStreamSubscription =
+          _homeRepository.watchAllPopularDestinations().listen(
+                (failureOrPopularDestinations) => add(
+                  HomeEvent.popularDestinationsReceived(
+                      failureOrPopularDestinations),
+                ),
+              );
 
-      _homeRepository.watchAllRecommendations().listen((
-          failureOrRecommendations) async* {
-        yield failureOrRecommendations.fold((f) => HomeState.loadFailure(f),
-                (failureOrRecommendations) =>
-                HomeState.loadSuccessRecommendation(failureOrRecommendations));
-      });
+      await _recommendationsStreamSubscription.cancel();
+      _recommendationsStreamSubscription = _homeRepository
+          .watchAllRecommendations()
+          .listen((failureOrRecommendations) =>
+              add(HomeEvent.recommendationsReceived(failureOrRecommendations)));
+    }, searchesReceived: (e) async* {
+      e.failureOrSearches.fold(
+        (f) => HomeState.loadFailure(f),
+        (searches) => HomeState.loadSuccessSearch(searches),
+      );
+    }, roomsReceived: (e) async* {
+      e.failureOrRooms.fold(
+        (f) => HomeState.loadFailure(f),
+        (rooms) => HomeState.loadSuccessRooms(rooms),
+      );
+    }, popularDestinationsReceived: (e) async* {
+      e.failureOrPopularDestionations.fold(
+        (f) => HomeState.loadFailure(f),
+        (rooms) => HomeState.loadSuccessPopularDestination(rooms),
+      );
+    }, recommendationsReceived: (e) async* {
+      e.failureOrRecommendations.fold(
+        (f) => HomeState.loadFailure(f),
+        (recommendations) =>
+            HomeState.loadSuccessRecommendation(recommendations),
+      );
     });
   }
 }

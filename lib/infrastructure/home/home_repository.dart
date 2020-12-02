@@ -19,7 +19,7 @@ import 'package:rxdart/rxdart.dart';
 
 @LazySingleton(as: IHomeRepository)
 class HomeRepository implements IHomeRepository {
-  final Firestore _firestore;
+  final FirebaseFirestore _firestore;
 
   HomeRepository(this._firestore);
 
@@ -31,14 +31,14 @@ class HomeRepository implements IHomeRepository {
         .snapshots()
         .map(
           (snapshot) => right<HomeFailure, KtList<PopularDestination>>(
-            snapshot.documents
+            snapshot.docs
                 .map((doc) =>
                     PopularDestinationDto.fromFirestore(doc).toDomain())
                 .toImmutableList(),
           ),
         )
         .onErrorReturnWith((e) {
-      if (e is PlatformException && e.message.contains('PERMISSION_DENIED')) {
+      if (e is FirebaseException && e.code.contains('permission-denied')) {
         return left(const HomeFailure.insufficientPermission());
       } else {
         return left(const HomeFailure.unexpected());
@@ -53,13 +53,13 @@ class HomeRepository implements IHomeRepository {
     yield* userDoc.recommendationsCollection
         .snapshots()
         .map((snapshot) => right<HomeFailure, KtList<Recommendation>>(
-              snapshot.documents
+              snapshot.docs
                   .map((doc) => RecommendationDto.fromFirestore(doc).toDomain())
                   .toImmutableList(),
             ))
         .onErrorReturnWith((error) {
-      if (error is PlatformException &&
-          error.message.contains('PERMISSION_DENIED')) {
+      if (error is FirebaseException &&
+          error.code.contains('permission-denied')) {
         return left(const HomeFailure.insufficientPermission());
       } else {
         return left(const HomeFailure.unexpected());
@@ -73,13 +73,13 @@ class HomeRepository implements IHomeRepository {
     yield* userDoc.roomsCollection
         .snapshots()
         .map((snapshots) => right<HomeFailure, KtList<Room>>(
-              snapshots.documents
+              snapshots.docs
                   .map((doc) => RoomDto.fromFirestore(doc).toDomain())
                   .toImmutableList(),
             ))
         .onErrorReturnWith((error) {
-      if (error is PlatformException &&
-          error.message.contains('PERMISSION_DENIED')) {
+      if (error is FirebaseException &&
+          error.code.contains('permission-denied')) {
         return left(const HomeFailure.insufficientPermission());
       } else {
         return left(const HomeFailure.unexpected());
@@ -92,14 +92,16 @@ class HomeRepository implements IHomeRepository {
     final userDoc = await _firestore.userDocument();
     yield* userDoc.searchCollection
         .snapshots()
-        .map((snapshots) => right<HomeFailure, KtList<Search>>(
-              snapshots.documents
-                  .map((doc) => SearchDto.fromFirestore(doc).toDomain())
-                  .toImmutableList(),
-            ))
+        .map(
+          (snapshots) => right<HomeFailure, KtList<Search>>(
+            snapshots.docs
+                .map((doc) => SearchDto.fromFirestore(doc).toDomain())
+                .toImmutableList(),
+          ),
+        )
         .onErrorReturnWith((error) {
-      if (error is PlatformException &&
-          error.message.contains('PERMISSION_DENIED')) {
+      if (error is FirebaseException &&
+          error.code.contains('permission-denied')) {
         return left(const HomeFailure.insufficientPermission());
       } else {
         return left(const HomeFailure.unexpected());

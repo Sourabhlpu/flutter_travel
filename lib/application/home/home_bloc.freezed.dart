@@ -17,6 +17,39 @@ class _$HomeEventTearOff {
   _WatchAllStarted watchAllStarted() {
     return const _WatchAllStarted();
   }
+
+// ignore: unused_element
+  _SearchesReceived searchesReceived(
+      Either<HomeFailure, KtList<Search>> failureOrSearches) {
+    return _SearchesReceived(
+      failureOrSearches,
+    );
+  }
+
+// ignore: unused_element
+  _RoomsReceived roomsReceived(
+      Either<HomeFailure, KtList<Room>> failureOrRooms) {
+    return _RoomsReceived(
+      failureOrRooms,
+    );
+  }
+
+// ignore: unused_element
+  _PopularDestionsReceived popularDestinationsReceived(
+      Either<HomeFailure, KtList<PopularDestination>>
+          failureOrPopularDestionations) {
+    return _PopularDestionsReceived(
+      failureOrPopularDestionations,
+    );
+  }
+
+// ignore: unused_element
+  _RecommendationsReceived recommendationsReceived(
+      Either<HomeFailure, KtList<Recommendation>> failureOrRecommendations) {
+    return _RecommendationsReceived(
+      failureOrRecommendations,
+    );
+  }
 }
 
 /// @nodoc
@@ -28,19 +61,49 @@ mixin _$HomeEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result watchAllStarted(),
+    @required
+        Result searchesReceived(
+            Either<HomeFailure, KtList<Search>> failureOrSearches),
+    @required
+        Result roomsReceived(Either<HomeFailure, KtList<Room>> failureOrRooms),
+    @required
+        Result popularDestinationsReceived(
+            Either<HomeFailure, KtList<PopularDestination>>
+                failureOrPopularDestionations),
+    @required
+        Result recommendationsReceived(
+            Either<HomeFailure, KtList<Recommendation>>
+                failureOrRecommendations),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result watchAllStarted(),
+    Result searchesReceived(
+        Either<HomeFailure, KtList<Search>> failureOrSearches),
+    Result roomsReceived(Either<HomeFailure, KtList<Room>> failureOrRooms),
+    Result popularDestinationsReceived(
+        Either<HomeFailure, KtList<PopularDestination>>
+            failureOrPopularDestionations),
+    Result recommendationsReceived(
+        Either<HomeFailure, KtList<Recommendation>> failureOrRecommendations),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result watchAllStarted(_WatchAllStarted value),
+    @required Result searchesReceived(_SearchesReceived value),
+    @required Result roomsReceived(_RoomsReceived value),
+    @required
+        Result popularDestinationsReceived(_PopularDestionsReceived value),
+    @required Result recommendationsReceived(_RecommendationsReceived value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result watchAllStarted(_WatchAllStarted value),
+    Result searchesReceived(_SearchesReceived value),
+    Result roomsReceived(_RoomsReceived value),
+    Result popularDestinationsReceived(_PopularDestionsReceived value),
+    Result recommendationsReceived(_RecommendationsReceived value),
     @required Result orElse(),
   });
 }
@@ -99,8 +162,25 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result watchAllStarted(),
+    @required
+        Result searchesReceived(
+            Either<HomeFailure, KtList<Search>> failureOrSearches),
+    @required
+        Result roomsReceived(Either<HomeFailure, KtList<Room>> failureOrRooms),
+    @required
+        Result popularDestinationsReceived(
+            Either<HomeFailure, KtList<PopularDestination>>
+                failureOrPopularDestionations),
+    @required
+        Result recommendationsReceived(
+            Either<HomeFailure, KtList<Recommendation>>
+                failureOrRecommendations),
   }) {
     assert(watchAllStarted != null);
+    assert(searchesReceived != null);
+    assert(roomsReceived != null);
+    assert(popularDestinationsReceived != null);
+    assert(recommendationsReceived != null);
     return watchAllStarted();
   }
 
@@ -108,6 +188,14 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result watchAllStarted(),
+    Result searchesReceived(
+        Either<HomeFailure, KtList<Search>> failureOrSearches),
+    Result roomsReceived(Either<HomeFailure, KtList<Room>> failureOrRooms),
+    Result popularDestinationsReceived(
+        Either<HomeFailure, KtList<PopularDestination>>
+            failureOrPopularDestionations),
+    Result recommendationsReceived(
+        Either<HomeFailure, KtList<Recommendation>> failureOrRecommendations),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -121,8 +209,17 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result watchAllStarted(_WatchAllStarted value),
+    @required Result searchesReceived(_SearchesReceived value),
+    @required Result roomsReceived(_RoomsReceived value),
+    @required
+        Result popularDestinationsReceived(_PopularDestionsReceived value),
+    @required Result recommendationsReceived(_RecommendationsReceived value),
   }) {
     assert(watchAllStarted != null);
+    assert(searchesReceived != null);
+    assert(roomsReceived != null);
+    assert(popularDestinationsReceived != null);
+    assert(recommendationsReceived != null);
     return watchAllStarted(this);
   }
 
@@ -130,6 +227,10 @@ class _$_WatchAllStarted implements _WatchAllStarted {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result watchAllStarted(_WatchAllStarted value),
+    Result searchesReceived(_SearchesReceived value),
+    Result roomsReceived(_RoomsReceived value),
+    Result popularDestinationsReceived(_PopularDestionsReceived value),
+    Result recommendationsReceived(_RecommendationsReceived value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -142,6 +243,633 @@ class _$_WatchAllStarted implements _WatchAllStarted {
 
 abstract class _WatchAllStarted implements HomeEvent {
   const factory _WatchAllStarted() = _$_WatchAllStarted;
+}
+
+/// @nodoc
+abstract class _$SearchesReceivedCopyWith<$Res> {
+  factory _$SearchesReceivedCopyWith(
+          _SearchesReceived value, $Res Function(_SearchesReceived) then) =
+      __$SearchesReceivedCopyWithImpl<$Res>;
+  $Res call({Either<HomeFailure, KtList<Search>> failureOrSearches});
+}
+
+/// @nodoc
+class __$SearchesReceivedCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res>
+    implements _$SearchesReceivedCopyWith<$Res> {
+  __$SearchesReceivedCopyWithImpl(
+      _SearchesReceived _value, $Res Function(_SearchesReceived) _then)
+      : super(_value, (v) => _then(v as _SearchesReceived));
+
+  @override
+  _SearchesReceived get _value => super._value as _SearchesReceived;
+
+  @override
+  $Res call({
+    Object failureOrSearches = freezed,
+  }) {
+    return _then(_SearchesReceived(
+      failureOrSearches == freezed
+          ? _value.failureOrSearches
+          : failureOrSearches as Either<HomeFailure, KtList<Search>>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_SearchesReceived implements _SearchesReceived {
+  const _$_SearchesReceived(this.failureOrSearches)
+      : assert(failureOrSearches != null);
+
+  @override
+  final Either<HomeFailure, KtList<Search>> failureOrSearches;
+
+  @override
+  String toString() {
+    return 'HomeEvent.searchesReceived(failureOrSearches: $failureOrSearches)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _SearchesReceived &&
+            (identical(other.failureOrSearches, failureOrSearches) ||
+                const DeepCollectionEquality()
+                    .equals(other.failureOrSearches, failureOrSearches)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(failureOrSearches);
+
+  @override
+  _$SearchesReceivedCopyWith<_SearchesReceived> get copyWith =>
+      __$SearchesReceivedCopyWithImpl<_SearchesReceived>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result watchAllStarted(),
+    @required
+        Result searchesReceived(
+            Either<HomeFailure, KtList<Search>> failureOrSearches),
+    @required
+        Result roomsReceived(Either<HomeFailure, KtList<Room>> failureOrRooms),
+    @required
+        Result popularDestinationsReceived(
+            Either<HomeFailure, KtList<PopularDestination>>
+                failureOrPopularDestionations),
+    @required
+        Result recommendationsReceived(
+            Either<HomeFailure, KtList<Recommendation>>
+                failureOrRecommendations),
+  }) {
+    assert(watchAllStarted != null);
+    assert(searchesReceived != null);
+    assert(roomsReceived != null);
+    assert(popularDestinationsReceived != null);
+    assert(recommendationsReceived != null);
+    return searchesReceived(failureOrSearches);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result watchAllStarted(),
+    Result searchesReceived(
+        Either<HomeFailure, KtList<Search>> failureOrSearches),
+    Result roomsReceived(Either<HomeFailure, KtList<Room>> failureOrRooms),
+    Result popularDestinationsReceived(
+        Either<HomeFailure, KtList<PopularDestination>>
+            failureOrPopularDestionations),
+    Result recommendationsReceived(
+        Either<HomeFailure, KtList<Recommendation>> failureOrRecommendations),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (searchesReceived != null) {
+      return searchesReceived(failureOrSearches);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result watchAllStarted(_WatchAllStarted value),
+    @required Result searchesReceived(_SearchesReceived value),
+    @required Result roomsReceived(_RoomsReceived value),
+    @required
+        Result popularDestinationsReceived(_PopularDestionsReceived value),
+    @required Result recommendationsReceived(_RecommendationsReceived value),
+  }) {
+    assert(watchAllStarted != null);
+    assert(searchesReceived != null);
+    assert(roomsReceived != null);
+    assert(popularDestinationsReceived != null);
+    assert(recommendationsReceived != null);
+    return searchesReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result watchAllStarted(_WatchAllStarted value),
+    Result searchesReceived(_SearchesReceived value),
+    Result roomsReceived(_RoomsReceived value),
+    Result popularDestinationsReceived(_PopularDestionsReceived value),
+    Result recommendationsReceived(_RecommendationsReceived value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (searchesReceived != null) {
+      return searchesReceived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SearchesReceived implements HomeEvent {
+  const factory _SearchesReceived(
+          Either<HomeFailure, KtList<Search>> failureOrSearches) =
+      _$_SearchesReceived;
+
+  Either<HomeFailure, KtList<Search>> get failureOrSearches;
+  _$SearchesReceivedCopyWith<_SearchesReceived> get copyWith;
+}
+
+/// @nodoc
+abstract class _$RoomsReceivedCopyWith<$Res> {
+  factory _$RoomsReceivedCopyWith(
+          _RoomsReceived value, $Res Function(_RoomsReceived) then) =
+      __$RoomsReceivedCopyWithImpl<$Res>;
+  $Res call({Either<HomeFailure, KtList<Room>> failureOrRooms});
+}
+
+/// @nodoc
+class __$RoomsReceivedCopyWithImpl<$Res> extends _$HomeEventCopyWithImpl<$Res>
+    implements _$RoomsReceivedCopyWith<$Res> {
+  __$RoomsReceivedCopyWithImpl(
+      _RoomsReceived _value, $Res Function(_RoomsReceived) _then)
+      : super(_value, (v) => _then(v as _RoomsReceived));
+
+  @override
+  _RoomsReceived get _value => super._value as _RoomsReceived;
+
+  @override
+  $Res call({
+    Object failureOrRooms = freezed,
+  }) {
+    return _then(_RoomsReceived(
+      failureOrRooms == freezed
+          ? _value.failureOrRooms
+          : failureOrRooms as Either<HomeFailure, KtList<Room>>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_RoomsReceived implements _RoomsReceived {
+  const _$_RoomsReceived(this.failureOrRooms) : assert(failureOrRooms != null);
+
+  @override
+  final Either<HomeFailure, KtList<Room>> failureOrRooms;
+
+  @override
+  String toString() {
+    return 'HomeEvent.roomsReceived(failureOrRooms: $failureOrRooms)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _RoomsReceived &&
+            (identical(other.failureOrRooms, failureOrRooms) ||
+                const DeepCollectionEquality()
+                    .equals(other.failureOrRooms, failureOrRooms)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(failureOrRooms);
+
+  @override
+  _$RoomsReceivedCopyWith<_RoomsReceived> get copyWith =>
+      __$RoomsReceivedCopyWithImpl<_RoomsReceived>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result watchAllStarted(),
+    @required
+        Result searchesReceived(
+            Either<HomeFailure, KtList<Search>> failureOrSearches),
+    @required
+        Result roomsReceived(Either<HomeFailure, KtList<Room>> failureOrRooms),
+    @required
+        Result popularDestinationsReceived(
+            Either<HomeFailure, KtList<PopularDestination>>
+                failureOrPopularDestionations),
+    @required
+        Result recommendationsReceived(
+            Either<HomeFailure, KtList<Recommendation>>
+                failureOrRecommendations),
+  }) {
+    assert(watchAllStarted != null);
+    assert(searchesReceived != null);
+    assert(roomsReceived != null);
+    assert(popularDestinationsReceived != null);
+    assert(recommendationsReceived != null);
+    return roomsReceived(failureOrRooms);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result watchAllStarted(),
+    Result searchesReceived(
+        Either<HomeFailure, KtList<Search>> failureOrSearches),
+    Result roomsReceived(Either<HomeFailure, KtList<Room>> failureOrRooms),
+    Result popularDestinationsReceived(
+        Either<HomeFailure, KtList<PopularDestination>>
+            failureOrPopularDestionations),
+    Result recommendationsReceived(
+        Either<HomeFailure, KtList<Recommendation>> failureOrRecommendations),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (roomsReceived != null) {
+      return roomsReceived(failureOrRooms);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result watchAllStarted(_WatchAllStarted value),
+    @required Result searchesReceived(_SearchesReceived value),
+    @required Result roomsReceived(_RoomsReceived value),
+    @required
+        Result popularDestinationsReceived(_PopularDestionsReceived value),
+    @required Result recommendationsReceived(_RecommendationsReceived value),
+  }) {
+    assert(watchAllStarted != null);
+    assert(searchesReceived != null);
+    assert(roomsReceived != null);
+    assert(popularDestinationsReceived != null);
+    assert(recommendationsReceived != null);
+    return roomsReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result watchAllStarted(_WatchAllStarted value),
+    Result searchesReceived(_SearchesReceived value),
+    Result roomsReceived(_RoomsReceived value),
+    Result popularDestinationsReceived(_PopularDestionsReceived value),
+    Result recommendationsReceived(_RecommendationsReceived value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (roomsReceived != null) {
+      return roomsReceived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RoomsReceived implements HomeEvent {
+  const factory _RoomsReceived(
+      Either<HomeFailure, KtList<Room>> failureOrRooms) = _$_RoomsReceived;
+
+  Either<HomeFailure, KtList<Room>> get failureOrRooms;
+  _$RoomsReceivedCopyWith<_RoomsReceived> get copyWith;
+}
+
+/// @nodoc
+abstract class _$PopularDestionsReceivedCopyWith<$Res> {
+  factory _$PopularDestionsReceivedCopyWith(_PopularDestionsReceived value,
+          $Res Function(_PopularDestionsReceived) then) =
+      __$PopularDestionsReceivedCopyWithImpl<$Res>;
+  $Res call(
+      {Either<HomeFailure, KtList<PopularDestination>>
+          failureOrPopularDestionations});
+}
+
+/// @nodoc
+class __$PopularDestionsReceivedCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res>
+    implements _$PopularDestionsReceivedCopyWith<$Res> {
+  __$PopularDestionsReceivedCopyWithImpl(_PopularDestionsReceived _value,
+      $Res Function(_PopularDestionsReceived) _then)
+      : super(_value, (v) => _then(v as _PopularDestionsReceived));
+
+  @override
+  _PopularDestionsReceived get _value =>
+      super._value as _PopularDestionsReceived;
+
+  @override
+  $Res call({
+    Object failureOrPopularDestionations = freezed,
+  }) {
+    return _then(_PopularDestionsReceived(
+      failureOrPopularDestionations == freezed
+          ? _value.failureOrPopularDestionations
+          : failureOrPopularDestionations
+              as Either<HomeFailure, KtList<PopularDestination>>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_PopularDestionsReceived implements _PopularDestionsReceived {
+  const _$_PopularDestionsReceived(this.failureOrPopularDestionations)
+      : assert(failureOrPopularDestionations != null);
+
+  @override
+  final Either<HomeFailure, KtList<PopularDestination>>
+      failureOrPopularDestionations;
+
+  @override
+  String toString() {
+    return 'HomeEvent.popularDestinationsReceived(failureOrPopularDestionations: $failureOrPopularDestionations)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _PopularDestionsReceived &&
+            (identical(other.failureOrPopularDestionations,
+                    failureOrPopularDestionations) ||
+                const DeepCollectionEquality().equals(
+                    other.failureOrPopularDestionations,
+                    failureOrPopularDestionations)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(failureOrPopularDestionations);
+
+  @override
+  _$PopularDestionsReceivedCopyWith<_PopularDestionsReceived> get copyWith =>
+      __$PopularDestionsReceivedCopyWithImpl<_PopularDestionsReceived>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result watchAllStarted(),
+    @required
+        Result searchesReceived(
+            Either<HomeFailure, KtList<Search>> failureOrSearches),
+    @required
+        Result roomsReceived(Either<HomeFailure, KtList<Room>> failureOrRooms),
+    @required
+        Result popularDestinationsReceived(
+            Either<HomeFailure, KtList<PopularDestination>>
+                failureOrPopularDestionations),
+    @required
+        Result recommendationsReceived(
+            Either<HomeFailure, KtList<Recommendation>>
+                failureOrRecommendations),
+  }) {
+    assert(watchAllStarted != null);
+    assert(searchesReceived != null);
+    assert(roomsReceived != null);
+    assert(popularDestinationsReceived != null);
+    assert(recommendationsReceived != null);
+    return popularDestinationsReceived(failureOrPopularDestionations);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result watchAllStarted(),
+    Result searchesReceived(
+        Either<HomeFailure, KtList<Search>> failureOrSearches),
+    Result roomsReceived(Either<HomeFailure, KtList<Room>> failureOrRooms),
+    Result popularDestinationsReceived(
+        Either<HomeFailure, KtList<PopularDestination>>
+            failureOrPopularDestionations),
+    Result recommendationsReceived(
+        Either<HomeFailure, KtList<Recommendation>> failureOrRecommendations),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (popularDestinationsReceived != null) {
+      return popularDestinationsReceived(failureOrPopularDestionations);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result watchAllStarted(_WatchAllStarted value),
+    @required Result searchesReceived(_SearchesReceived value),
+    @required Result roomsReceived(_RoomsReceived value),
+    @required
+        Result popularDestinationsReceived(_PopularDestionsReceived value),
+    @required Result recommendationsReceived(_RecommendationsReceived value),
+  }) {
+    assert(watchAllStarted != null);
+    assert(searchesReceived != null);
+    assert(roomsReceived != null);
+    assert(popularDestinationsReceived != null);
+    assert(recommendationsReceived != null);
+    return popularDestinationsReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result watchAllStarted(_WatchAllStarted value),
+    Result searchesReceived(_SearchesReceived value),
+    Result roomsReceived(_RoomsReceived value),
+    Result popularDestinationsReceived(_PopularDestionsReceived value),
+    Result recommendationsReceived(_RecommendationsReceived value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (popularDestinationsReceived != null) {
+      return popularDestinationsReceived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PopularDestionsReceived implements HomeEvent {
+  const factory _PopularDestionsReceived(
+      Either<HomeFailure, KtList<PopularDestination>>
+          failureOrPopularDestionations) = _$_PopularDestionsReceived;
+
+  Either<HomeFailure, KtList<PopularDestination>>
+      get failureOrPopularDestionations;
+  _$PopularDestionsReceivedCopyWith<_PopularDestionsReceived> get copyWith;
+}
+
+/// @nodoc
+abstract class _$RecommendationsReceivedCopyWith<$Res> {
+  factory _$RecommendationsReceivedCopyWith(_RecommendationsReceived value,
+          $Res Function(_RecommendationsReceived) then) =
+      __$RecommendationsReceivedCopyWithImpl<$Res>;
+  $Res call(
+      {Either<HomeFailure, KtList<Recommendation>> failureOrRecommendations});
+}
+
+/// @nodoc
+class __$RecommendationsReceivedCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res>
+    implements _$RecommendationsReceivedCopyWith<$Res> {
+  __$RecommendationsReceivedCopyWithImpl(_RecommendationsReceived _value,
+      $Res Function(_RecommendationsReceived) _then)
+      : super(_value, (v) => _then(v as _RecommendationsReceived));
+
+  @override
+  _RecommendationsReceived get _value =>
+      super._value as _RecommendationsReceived;
+
+  @override
+  $Res call({
+    Object failureOrRecommendations = freezed,
+  }) {
+    return _then(_RecommendationsReceived(
+      failureOrRecommendations == freezed
+          ? _value.failureOrRecommendations
+          : failureOrRecommendations
+              as Either<HomeFailure, KtList<Recommendation>>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_RecommendationsReceived implements _RecommendationsReceived {
+  const _$_RecommendationsReceived(this.failureOrRecommendations)
+      : assert(failureOrRecommendations != null);
+
+  @override
+  final Either<HomeFailure, KtList<Recommendation>> failureOrRecommendations;
+
+  @override
+  String toString() {
+    return 'HomeEvent.recommendationsReceived(failureOrRecommendations: $failureOrRecommendations)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _RecommendationsReceived &&
+            (identical(
+                    other.failureOrRecommendations, failureOrRecommendations) ||
+                const DeepCollectionEquality().equals(
+                    other.failureOrRecommendations, failureOrRecommendations)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(failureOrRecommendations);
+
+  @override
+  _$RecommendationsReceivedCopyWith<_RecommendationsReceived> get copyWith =>
+      __$RecommendationsReceivedCopyWithImpl<_RecommendationsReceived>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result watchAllStarted(),
+    @required
+        Result searchesReceived(
+            Either<HomeFailure, KtList<Search>> failureOrSearches),
+    @required
+        Result roomsReceived(Either<HomeFailure, KtList<Room>> failureOrRooms),
+    @required
+        Result popularDestinationsReceived(
+            Either<HomeFailure, KtList<PopularDestination>>
+                failureOrPopularDestionations),
+    @required
+        Result recommendationsReceived(
+            Either<HomeFailure, KtList<Recommendation>>
+                failureOrRecommendations),
+  }) {
+    assert(watchAllStarted != null);
+    assert(searchesReceived != null);
+    assert(roomsReceived != null);
+    assert(popularDestinationsReceived != null);
+    assert(recommendationsReceived != null);
+    return recommendationsReceived(failureOrRecommendations);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result watchAllStarted(),
+    Result searchesReceived(
+        Either<HomeFailure, KtList<Search>> failureOrSearches),
+    Result roomsReceived(Either<HomeFailure, KtList<Room>> failureOrRooms),
+    Result popularDestinationsReceived(
+        Either<HomeFailure, KtList<PopularDestination>>
+            failureOrPopularDestionations),
+    Result recommendationsReceived(
+        Either<HomeFailure, KtList<Recommendation>> failureOrRecommendations),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (recommendationsReceived != null) {
+      return recommendationsReceived(failureOrRecommendations);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result watchAllStarted(_WatchAllStarted value),
+    @required Result searchesReceived(_SearchesReceived value),
+    @required Result roomsReceived(_RoomsReceived value),
+    @required
+        Result popularDestinationsReceived(_PopularDestionsReceived value),
+    @required Result recommendationsReceived(_RecommendationsReceived value),
+  }) {
+    assert(watchAllStarted != null);
+    assert(searchesReceived != null);
+    assert(roomsReceived != null);
+    assert(popularDestinationsReceived != null);
+    assert(recommendationsReceived != null);
+    return recommendationsReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result watchAllStarted(_WatchAllStarted value),
+    Result searchesReceived(_SearchesReceived value),
+    Result roomsReceived(_RoomsReceived value),
+    Result popularDestinationsReceived(_PopularDestionsReceived value),
+    Result recommendationsReceived(_RecommendationsReceived value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (recommendationsReceived != null) {
+      return recommendationsReceived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RecommendationsReceived implements HomeEvent {
+  const factory _RecommendationsReceived(
+      Either<HomeFailure, KtList<Recommendation>>
+          failureOrRecommendations) = _$_RecommendationsReceived;
+
+  Either<HomeFailure, KtList<Recommendation>> get failureOrRecommendations;
+  _$RecommendationsReceivedCopyWith<_RecommendationsReceived> get copyWith;
 }
 
 /// @nodoc

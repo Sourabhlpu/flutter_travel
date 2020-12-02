@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart' hide User;
 import 'package:flutter/services.dart';
 import 'package:flutter_travel/domain/auth/auth_failure.dart';
 import 'package:flutter_travel/domain/auth/i_auth_facade.dart';
@@ -13,14 +13,14 @@ import 'firebase_user_mapper.dart';
 @LazySingleton(as: IAuthFacade)
 class FirebaseAuthFacade extends IAuthFacade {
   final FirebaseAuth _firebaseAuth;
-  final Firestore _firestore;
+  final FirebaseFirestore _firestore;
 
   FirebaseAuthFacade(this._firebaseAuth, this._firestore);
 
   @override
-  Future<Option<User>> getSignedInUser() => _firebaseAuth
-      .currentUser()
-      .then((firebaseUser) => optionOf(firebaseUser?.toDomain()));
+  Future<Option<User>> getSignedInUser() async =>
+      optionOf(_firebaseAuth.currentUser?.toDomain());
+
 
   @override
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword(

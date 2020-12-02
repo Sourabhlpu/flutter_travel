@@ -49,6 +49,6 @@ abstract class SearchDto implements _$SearchDto {
       _$SearchDtoFromJson(json);
 
   factory SearchDto.fromFirestore(DocumentSnapshot doc) {
-    return SearchDto.fromJson(doc.data).copyWith(id: doc.documentID);
+    return SearchDto.fromJson(doc.data()).copyWith(id: doc.documentID);
   }
 }

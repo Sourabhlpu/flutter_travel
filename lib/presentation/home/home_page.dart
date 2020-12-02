@@ -1,3 +1,4 @@
+import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,13 +15,19 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<HomeBloc>()
-      ..add(HomeEvent.watchAllStarted()),
-      child:
-      BlocListener<HomeBloc, HomeState>(
-        listener: (context, state){
+      create: (context) => getIt<HomeBloc>()..add(HomeEvent.watchAllStarted()),
+      child: BlocListener<HomeBloc, HomeState>(
+        listener: (context, state) {
           state.maybeMap(
-              orElse: (){});
+              loadFailure: (state) {
+                FlushbarHelper.createError(
+                  message: state.homeFailure.maybeMap(
+                      unexpected: (_) => '',
+                      insufficientPermission: (_) =>
+                          'Unexpected error occured while deleting, please contact support.'),
+                );
+              },
+              orElse: () {});
         },
         child: Scaffold(
           backgroundColor: Colors.white,

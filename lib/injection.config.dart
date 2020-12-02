@@ -29,10 +29,11 @@ GetIt $initGetIt(
   final gh = GetItHelper(get, environment, environmentFilter);
   final firebaseInjectableModule = _$FirebaseInjectableModule();
   gh.lazySingleton<FirebaseAuth>(() => firebaseInjectableModule.firebaseAuth);
-  gh.lazySingleton<Firestore>(() => firebaseInjectableModule.firestore);
+  gh.lazySingleton<FirebaseFirestore>(() => firebaseInjectableModule.firestore);
   gh.lazySingleton<IAuthFacade>(
-      () => FirebaseAuthFacade(get<FirebaseAuth>(), get<Firestore>()));
-  gh.lazySingleton<IHomeRepository>(() => HomeRepository(get<Firestore>()));
+      () => FirebaseAuthFacade(get<FirebaseAuth>(), get<FirebaseFirestore>()));
+  gh.lazySingleton<IHomeRepository>(
+      () => HomeRepository(get<FirebaseFirestore>()));
   gh.factory<AuthBloc>(() => AuthBloc(get<IAuthFacade>()));
   gh.factory<AuthFormBloc>(() => AuthFormBloc(get<IAuthFacade>()));
   gh.factory<HomeBloc>(() => HomeBloc(get<IHomeRepository>()));
