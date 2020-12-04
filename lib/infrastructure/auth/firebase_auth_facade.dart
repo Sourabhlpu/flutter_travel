@@ -62,7 +62,7 @@ class FirebaseAuthFacade extends IAuthFacade {
   @override
   Future<Either<AuthFailure, Unit>> validateUsername({Username username}) async {
     final usernameStr = username.getOrCrash();
-    final usernameDoc = _firestore.collection('userNames').document(usernameStr);
+    final usernameDoc = _firestore.collection('userNames').doc(usernameStr);
     final  docSnapshot = await usernameDoc.get();
     if(docSnapshot.exists)
       return Left(const AuthFailure.usernameAlreadyInUse());

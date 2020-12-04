@@ -37,6 +37,6 @@ abstract class PopularDestinationDto implements _$PopularDestinationDto {
       _$PopularDestinationDtoFromJson(json);
 
   factory PopularDestinationDto.fromFirestore(DocumentSnapshot doc) {
-    return PopularDestinationDto.fromJson(doc.data()).copyWith(id: doc.documentID);
+    return PopularDestinationDto.fromJson(doc.data()).copyWith(id: doc.id);
   }
 }

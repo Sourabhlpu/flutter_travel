@@ -36,20 +36,20 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   ) async* {
     yield* event.map(watchAllStarted: (e) async* {
       yield const HomeState.loadInProgress();
-      await _searchStreamSubscription.cancel();
+      await _searchStreamSubscription?.cancel();
       _searchStreamSubscription = _homeRepository.watchAllSearches().listen(
             (failureOrSearches) => add(
               HomeEvent.searchesReceived(failureOrSearches),
             ),
           );
-      await _roomStreamSubscription.cancel();
+      await _roomStreamSubscription?.cancel();
       _roomStreamSubscription = _homeRepository.watchAllRooms().listen(
             (failureOrRooms) => add(
               HomeEvent.roomsReceived(failureOrRooms),
             ),
           );
 
-      await _popularDestinationsStreamSubscription.cancel();
+      await _popularDestinationsStreamSubscription?.cancel();
       _popularDestinationsStreamSubscription =
           _homeRepository.watchAllPopularDestinations().listen(
                 (failureOrPopularDestinations) => add(
@@ -58,29 +58,40 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
                 ),
               );
 
-      await _recommendationsStreamSubscription.cancel();
+      await _recommendationsStreamSubscription?.cancel();
       _recommendationsStreamSubscription = _homeRepository
           .watchAllRecommendations()
           .listen((failureOrRecommendations) =>
               add(HomeEvent.recommendationsReceived(failureOrRecommendations)));
     }, searchesReceived: (e) async* {
-      e.failureOrSearches.fold(
-        (f) => HomeState.loadFailure(f),
+      yield e.failureOrSearches.fold(
+        (f) {
+          print('$f');
+          return HomeState.loadFailure(f);},
         (searches) => HomeState.loadSuccessSearch(searches),
       );
     }, roomsReceived: (e) async* {
-      e.failureOrRooms.fold(
-        (f) => HomeState.loadFailure(f),
+      yield e.failureOrRooms.fold(
+        (f){
+          print('$f');
+          return HomeState.loadFailure(f);
+        },
         (rooms) => HomeState.loadSuccessRooms(rooms),
       );
     }, popularDestinationsReceived: (e) async* {
-      e.failureOrPopularDestionations.fold(
-        (f) => HomeState.loadFailure(f),
+      yield e.failureOrPopularDestionations.fold(
+        (f) {
+          print('$f');
+          return HomeState.loadFailure(f);
+        },
         (rooms) => HomeState.loadSuccessPopularDestination(rooms),
       );
     }, recommendationsReceived: (e) async* {
-      e.failureOrRecommendations.fold(
-        (f) => HomeState.loadFailure(f),
+      yield e.failureOrRecommendations.fold(
+        (f) {
+          print('$f');
+          return HomeState.loadFailure(f);
+        },
         (recommendations) =>
             HomeState.loadSuccessRecommendation(recommendations),
       );

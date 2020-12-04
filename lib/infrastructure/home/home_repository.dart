@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_travel/domain/home/home_failure.dart';
 import 'package:flutter_travel/domain/home/i_home_repository.dart';
 import 'package:flutter_travel/domain/home/popular_destination.dart';

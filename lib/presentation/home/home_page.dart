@@ -18,14 +18,15 @@ class _HomePageState extends State<HomePage> {
       create: (context) => getIt<HomeBloc>()..add(HomeEvent.watchAllStarted()),
       child: BlocListener<HomeBloc, HomeState>(
         listener: (context, state) {
+          print('$state');
           state.maybeMap(
               loadFailure: (state) {
                 FlushbarHelper.createError(
                   message: state.homeFailure.maybeMap(
-                      unexpected: (_) => '',
-                      insufficientPermission: (_) =>
-                          'Unexpected error occured while deleting, please contact support.'),
-                );
+                      orElse: () => 'Or Else',
+                      unexpected: (_) => 'Unexpected error occured while deleting, please contact support.',
+                      insufficientPermission: (_) => 'Insufficient Permission'),
+                ).show(context);
               },
               orElse: () {});
         },
