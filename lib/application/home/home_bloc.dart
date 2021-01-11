@@ -20,6 +20,7 @@ part 'home_bloc.freezed.dart';
 @injectable
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final IHomeRepository _homeRepository;
+  var receivedLists = 0;
   StreamSubscription<Either<HomeFailure, KtList<Search>>>
       _searchStreamSubscription;
   StreamSubscription<Either<HomeFailure, KtList<Room>>> _roomStreamSubscription;
@@ -34,6 +35,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   Stream<HomeState> mapEventToState(
     HomeEvent event,
   ) async* {
+    print('mapEventToState called');
     yield* event.map(watchAllStarted: (e) async* {
       yield const HomeState.loadInProgress();
       await _searchStreamSubscription?.cancel();
@@ -67,34 +69,40 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       yield e.failureOrSearches.fold(
         (f) {
           print('$f');
-          return HomeState.loadFailure(f);},
-        (searches) => HomeState.loadSuccessSearch(searches),
+          return HomeState.loadFailure(f);
+        },
+        (searches) {
+          print(searches);
+          return HomeState.loadSuccessSearch(searches);
+        },
       );
     }, roomsReceived: (e) async* {
       yield e.failureOrRooms.fold(
-        (f){
+        (f) {
           print('$f');
           return HomeState.loadFailure(f);
         },
-        (rooms) => HomeState.loadSuccessRooms(rooms),
+        (rooms) {
+          print(rooms);
+          return HomeState.loadSuccessRooms(rooms);
+        },
       );
     }, popularDestinationsReceived: (e) async* {
-      yield e.failureOrPopularDestionations.fold(
-        (f) {
-          print('$f');
-          return HomeState.loadFailure(f);
-        },
-        (rooms) => HomeState.loadSuccessPopularDestination(rooms),
-      );
+      yield e.failureOrPopularDestionations.fold((f) {
+        print('$f');
+        return HomeState.loadFailure(f);
+      }, (popularDestinations) {
+        print(popularDestinations);
+        return HomeState.loadSuccessPopularDestination(popularDestinations);
+      });
     }, recommendationsReceived: (e) async* {
-      yield e.failureOrRecommendations.fold(
-        (f) {
-          print('$f');
-          return HomeState.loadFailure(f);
-        },
-        (recommendations) =>
-            HomeState.loadSuccessRecommendation(recommendations),
-      );
+      yield e.failureOrRecommendations.fold((f) {
+        print('$f');
+        return HomeState.loadFailure(f);
+      }, (recommendations) {
+        print(recommendations);
+        return HomeState.loadSuccessRecommendation(recommendations);
+      });
     });
   }
 }

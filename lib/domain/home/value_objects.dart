@@ -50,7 +50,7 @@ class RecommendationDescription extends ValueObject<String>{
   final Either<ValueFailure<String>, String> value;
   const RecommendationDescription._(this.value);
 
-  static const int maxLength = 100;
+  static const int maxLength = 1000;
   factory RecommendationDescription(String input){
     assert(input != null);
     return RecommendationDescription._(

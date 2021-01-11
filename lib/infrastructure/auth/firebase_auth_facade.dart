@@ -46,8 +46,8 @@ class FirebaseAuthFacade extends IAuthFacade {
     try{
       await _firebaseAuth.signInWithEmailAndPassword(email: emailStr, password: passwordStr);
       return  Right(unit);
-    }on PlatformException catch(e){
-      if(e.code == 'ERROR_WRONG_PASSWORD' || e.code == 'ERROR_USER_NOT_FOUND')
+    }on FirebaseAuthException catch(e){
+      if(e.code == 'wrong-password' || e.code == 'user-not-found')
         return left(const AuthFailure.invalidEmailAndPasswordCombination());
       else
         return left(const AuthFailure.serverError());

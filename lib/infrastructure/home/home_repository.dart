@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter_travel/domain/home/home.dart';
 import 'package:flutter_travel/domain/home/home_failure.dart';
 import 'package:flutter_travel/domain/home/i_home_repository.dart';
 import 'package:flutter_travel/domain/home/popular_destination.dart';
@@ -15,6 +16,8 @@ import 'package:kt_dart/src/collection/kt_list.dart';
 import 'package:flutter_travel/infrastructure/core/firestore_helper.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:rxdart/rxdart.dart';
+import 'dart:async' show Stream;
+import 'package:async/async.dart' show StreamGroup;
 
 @LazySingleton(as: IHomeRepository)
 class HomeRepository implements IHomeRepository {
@@ -106,5 +109,10 @@ class HomeRepository implements IHomeRepository {
         return left(const HomeFailure.unexpected());
       }
     });
+  }
+
+  @override
+  Stream<Either<HomeFailure, KtList<Home>>> watchAllHome() {
+    final result = ([watchAllPopularDestinations(), watchAllSearches(), watchAllRecommendations(), watchAllRooms()]);
   }
 }

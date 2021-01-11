@@ -5,6 +5,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_travel/application/home/home_bloc.dart';
 import 'package:flutter_travel/injection.dart';
 import 'package:flutter_travel/presentation/widgets/bottom_appbar_widget.dart';
+import 'package:flutter_travel/presentation/home/widgets/popular_destination_widget.dart';
+import 'package:flutter_travel/presentation/home/widgets/recommendation_card_widget.dart';
+import 'package:flutter_travel/presentation/home/widgets/recommended_rooms_card_widget.dart';
+import 'package:flutter_travel/presentation/home/widgets/search_card_widget.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -24,7 +28,8 @@ class _HomePageState extends State<HomePage> {
                 FlushbarHelper.createError(
                   message: state.homeFailure.maybeMap(
                       orElse: () => 'Or Else',
-                      unexpected: (_) => 'Unexpected error occured while deleting, please contact support.',
+                      unexpected: (_) =>
+                          'Unexpected error occured while deleting, please contact support.',
                       insufficientPermission: (_) => 'Insufficient Permission'),
                 ).show(context);
               },
@@ -33,127 +38,81 @@ class _HomePageState extends State<HomePage> {
         child: Scaffold(
           backgroundColor: Colors.white,
           appBar: _buildAppBar(context),
-          body: ListView(
+          body: SingleChildScrollView(
             padding: const EdgeInsets.symmetric(vertical: 16.0),
-            children: [
-              buildHomeSearch(context),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  'Recent Searches',
-                  style: Theme.of(context)
-                      .textTheme
-                      .subtitle1
-                      .copyWith(color: Colors.black),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                buildHomeSearch(context),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Text(
+                    'Recent Searches',
+                    style: Theme.of(context)
+                        .textTheme
+                        .subtitle1
+                        .copyWith(color: Colors.black),
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 180,
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    shrinkWrap: true,
-                    itemCount: 10,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Card(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: const EdgeInsets.only(left: 16.0),
-                        clipBehavior: Clip.antiAliasWithSaveLayer,
-                        child: Container(
-                          width: 150,
-                          color: Colors.grey,
+                BlocBuilder<HomeBloc, HomeState>(
+                    buildWhen: (previous, state) => state.maybeMap(
+                        orElse: () => false, loadSuccessSearch: (_) => true),
+                    builder: (context, state) => buildSearchList(state)),
+                Padding(
+                  padding:
+                      const EdgeInsets.only(left: 16.0, top: 30, bottom: 16),
+                  child: Text(
+                    'Recommended From Trevatel',
+                    style: Theme.of(context)
+                        .textTheme
+                        .subtitle1
+                        .copyWith(color: Colors.black),
+                  ),
+                ),
+                BlocBuilder<HomeBloc, HomeState>(
+                    buildWhen: (previous, state) => state.maybeMap(
+                          orElse: () => false,
+                          loadSuccessRecommendation: (_) => true,
                         ),
-                      );
-                    }),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 16.0, top: 50, bottom: 16),
-                child: Text(
-                  'Recommended From Trevatel',
-                  style: Theme.of(context)
-                      .textTheme
-                      .subtitle1
-                      .copyWith(color: Colors.black),
+                    builder: (context, state) =>
+                        buildRecommendationsList(state)),
+                Padding(
+                  padding:
+                      const EdgeInsets.only(left: 16.0, top: 30, bottom: 16),
+                  child: Text(
+                    'Destination Popular',
+                    style: Theme.of(context)
+                        .textTheme
+                        .subtitle1
+                        .copyWith(color: Colors.black),
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 160,
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    shrinkWrap: true,
-                    itemCount: 10,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Card(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: const EdgeInsets.only(left: 16.0),
-                        clipBehavior: Clip.antiAliasWithSaveLayer,
-                        child: Container(
-                          width: 280,
-                          color: Colors.grey,
+                BlocBuilder<HomeBloc, HomeState>(
+                    buildWhen: (previous, state) => state.maybeMap(
+                          orElse: () => false,
+                          loadSuccessPopularDestination: (_) => true,
                         ),
-                      );
-                    }),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 16.0, top: 50, bottom: 16),
-                child: Text(
-                  'Destination Popular',
-                  style: Theme.of(context)
-                      .textTheme
-                      .subtitle1
-                      .copyWith(color: Colors.black),
+                    builder: (context, state) => buildDestinationsList(state)),
+                Padding(
+                  padding:
+                      const EdgeInsets.only(left: 16.0, top: 50, bottom: 16),
+                  child: Text(
+                    'Recommended Rooms',
+                    style: Theme.of(context)
+                        .textTheme
+                        .subtitle1
+                        .copyWith(color: Colors.black),
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 200,
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    shrinkWrap: true,
-                    itemCount: 10,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Card(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: const EdgeInsets.only(left: 16.0),
-                        clipBehavior: Clip.antiAliasWithSaveLayer,
-                        child: Container(
-                          width: 150,
-                          color: Colors.grey,
+                BlocBuilder<HomeBloc, HomeState>(
+                    buildWhen: (previous, state) => state.maybeMap(
+                          orElse: () => false,
+                          loadSuccessRooms: (_) => true,
                         ),
-                      );
-                    }),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 16.0, top: 50, bottom: 16),
-                child: Text(
-                  'Recommended Rooms',
-                  style: Theme.of(context)
-                      .textTheme
-                      .subtitle1
-                      .copyWith(color: Colors.black),
-                ),
-              ),
-              GridView.builder(
-                  padding: const EdgeInsets.only(right: 16.0),
-                  itemCount: 12,
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2, mainAxisSpacing: 16.0),
-                  itemBuilder: (BuildContext context, int index) {
-                    return Card(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8.0)),
-                      margin: const EdgeInsets.only(left: 16.0),
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      child: Container(
-                        width: 150,
-                        color: Colors.grey,
-                      ),
-                    );
-                  })
-            ],
+                    builder: (context, state) =>
+                        buildRecommendedRoomsList(state)),
+              ],
+            ),
           ),
           bottomNavigationBar: BottomAppBar(child: BottomAppBarWidget()),
         ),
@@ -161,7 +120,84 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  Widget buildRecommendedRoomsList(HomeState state) {
+    return state.maybeMap(
+      loadSuccessRooms: (roomsSuccess) => GridView.builder(
+          padding: const EdgeInsets.only(right: 16.0),
+          itemCount: 10,
+          shrinkWrap: true,
+          physics: NeverScrollableScrollPhysics(),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2, mainAxisSpacing: 16.0),
+          itemBuilder: (BuildContext context, int index) {
+            final room = roomsSuccess.rooms[index];
+            return RecommendedRoom(room: room);
+          }),
+      orElse: () => Container(),
+    );
+  }
+
+  Widget buildDestinationsList(HomeState state) {
+    print('build popular destination list');
+    return state.maybeMap(
+      loadSuccessPopularDestination: (destinationSuccess) => SizedBox(
+        height: 190,
+        child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            shrinkWrap: true,
+            itemCount: destinationSuccess.popularDestinations.size,
+            itemBuilder: (BuildContext context, int index) {
+              final destination = destinationSuccess.popularDestinations[index];
+              return PopularDestinationWidget(destination: destination);
+            }),
+      ),
+      orElse: () => Container(),
+    );
+  }
+
+  Widget buildRecommendationsList(HomeState state) {
+    return state.maybeMap(
+      loadSuccessRecommendation: (recommendationsSuccess) => SizedBox(
+        height: 244,
+        child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            shrinkWrap: true,
+            itemCount: recommendationsSuccess.recommendations.size,
+            itemBuilder: (BuildContext context, int index) {
+              final recommendation =
+                  recommendationsSuccess.recommendations.get(index);
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 8.0),
+                child: RecommendationCard(recommendation: recommendation),
+              );
+            }),
+      ),
+      orElse: () => Container(),
+    );
+  }
+
+  Widget buildSearchList(HomeState state) {
+    return state.maybeMap(
+      loadSuccessSearch: (searchSuccess) => SizedBox(
+        height: 200,
+        child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            shrinkWrap: true,
+            itemCount: searchSuccess.searches.size,
+            itemBuilder: (BuildContext context, int index) {
+              final search = searchSuccess.searches[index];
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 8.0),
+                child: SearchCard(search: search),
+              );
+            }),
+      ),
+      orElse: () => Container(),
+    );
+  }
+
   Padding buildHomeSearch(BuildContext context) {
+    print('build home search');
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Stack(

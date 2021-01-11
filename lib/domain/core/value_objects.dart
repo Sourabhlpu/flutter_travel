@@ -91,7 +91,7 @@ class Rating extends ValueObject<num>{
   factory Rating(num input){
     assert(input != null);
     return Rating._(
-      validateInRange(input, minVal, maxVal)
+      validateInRange(input, maxVal, minVal)
     );
   }
 }

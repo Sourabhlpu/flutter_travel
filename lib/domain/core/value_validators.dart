@@ -32,7 +32,7 @@ Either<ValueFailure<String>, String> validateUsername(String input) {
 }
 
 Either<ValueFailure<String>, String> validateImageUrl(String input) {
-  const regexImageUrl = r"""/\.(jpeg|jpg|gif|png)$/""";
+  const regexImageUrl = r"""https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}""";
   if (input.isEmpty)
     return Left(InvalidImageUrl(failedValue: input));
   else if (RegExp(regexImageUrl).hasMatch(input))
@@ -77,7 +77,7 @@ Either<ValueFailure<String>, String> validateStringNotEmpty(String input) {
 }
 
 Either<ValueFailure<num>, num> validateInRange(num input, num maxRange, num minRange) {
-  if (input >= minRange && input <= minRange) {
+  if (input >= minRange && input <= maxRange) {
     return right(input);
   } else {
     return left(ValueFailure.outOfRange(failedValue: input));
